@@ -45,7 +45,7 @@ public class AttributesPanel extends DropPanel {
      *                base is a number and not a reference to another attribute.
      */
     public AttributesPanel(CharacterSheet sheet, boolean primary) {
-        super(new PrecisionLayout().setColumns(3).setMargins(0).setSpacing(2, 0).setAlignment(PrecisionLayoutAlignment.FILL, PrecisionLayoutAlignment.FILL), primary ? I18n.text("Primary Attributes") : I18n.text("Secondary Attributes"));
+        super(new PrecisionLayout().setColumns(3).setMargins(0).setSpacing(2, 0).setAlignment(PrecisionLayoutAlignment.FILL, PrecisionLayoutAlignment.FILL), primary ? I18n.text("主要属性") : I18n.text("次要属性"));
         GURPSCharacter gch = sheet.getCharacter();
         for (AttributeDef def : AttributeDef.getOrdered(gch.getSheetSettings().getAttributes())) {
             if (def.getType() != AttributeType.POOL) {

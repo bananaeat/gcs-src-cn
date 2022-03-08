@@ -48,7 +48,7 @@ public class AttributeBonusEditor extends FeatureEditor {
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         String attribute = bonus.getAttribute();
-        row.add(addAttributePopup(getRow().getDataFile(), I18n.text("to %s"), attribute, false, (p) -> {
+        row.add(addAttributePopup(getRow().getDataFile(), I18n.text("到 %s"), attribute, false, (p) -> {
             AttributeChoice selectedItem = p.getSelectedItem();
             if (selectedItem != null) {
                 ((AttributeBonus) getFeature()).setAttribute(getRow().getDataFile(), selectedItem.getAttribute());

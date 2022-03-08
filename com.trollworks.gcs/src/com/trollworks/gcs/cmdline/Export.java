@@ -41,7 +41,7 @@ public final class Export implements Runnable {
 
     public static void process(List<Path> files, boolean generatePNG, boolean generateText, Path template, String margins, String paper) {
         if (files.isEmpty()) {
-            System.err.println(I18n.text("must specify one or more sheet files to process"));
+            System.err.println(I18n.text("必须选择一个或多个要处理的人物卡"));
             System.exit(1);
         }
         System.setProperty("java.awt.headless", Boolean.TRUE.toString());
@@ -72,10 +72,10 @@ public final class Export implements Runnable {
             GraphicsUtilities.setAllowUserDisplay(false);
             for (Path path : mFiles) {
                 if (!FileType.SHEET.matchExtension(PathUtils.getExtension(path)) || !Files.isReadable(path)) {
-                    System.out.printf(I18n.text("Unable to load %s\n"), path);
+                    System.out.printf(I18n.text("无法加载 %s\n"), path);
                     continue;
                 }
-                System.out.printf(I18n.text("Loading %s... "), path);
+                System.out.printf(I18n.text("正在加载 %s……"), path);
                 System.out.flush();
                 timing.reset();
                 try {
@@ -90,20 +90,20 @@ public final class Export implements Runnable {
 
                     System.out.println(timing);
                     if (mGenerateText) {
-                        System.out.print(I18n.text("  Creating from text template... "));
+                        System.out.print(I18n.text("  从文本模板创建…… "));
                         System.out.flush();
                         output = path.resolveSibling(PathUtils.enforceExtension(PathUtils.getLeafName(path, false), PathUtils.getExtension(mTemplate)));
                         timing.reset();
                         success = new TextTemplate(sheet).export(output, mTemplate);
                         System.out.println(timing);
-                        System.out.printf(I18n.text("    Used text template file: %s\n"), mTemplate.normalize().toAbsolutePath());
+                        System.out.printf(I18n.text("    使用文本模板文件： %s\n"), mTemplate.normalize().toAbsolutePath());
                         if (success) {
-                            System.out.printf(I18n.text("    Created: %s\n"), output);
+                            System.out.printf(I18n.text("    已创建： %s\n"), output);
                         }
                     }
                     if (mGeneratePNG) {
                         List<Path> result = new ArrayList<>();
-                        System.out.print(I18n.text("  Creating PNG... "));
+                        System.out.print(I18n.text("  创建PNG中…… "));
                         System.out.flush();
                         output = path.resolveSibling(PathUtils.enforceExtension(PathUtils.getLeafName(path, false), FileType.PNG.getExtension()));
                         timing.reset();
@@ -111,14 +111,14 @@ public final class Export implements Runnable {
                         System.out.println(timing);
                         if (success) {
                             for (Path one : result) {
-                                System.out.printf(I18n.text("    Created: %s\n"), one);
+                                System.out.printf(I18n.text("    已创建： %s\n"), one);
                             }
                         }
                     }
                     sheet.dispose();
                 } catch (Exception exception) {
                     exception.printStackTrace();
-                    System.out.println(I18n.text("  ** ERROR ENCOUNTERED **"));
+                    System.out.println(I18n.text("  ** 遇到错误 **"));
                 }
             }
             GraphicsUtilities.setAllowUserDisplay(true);
@@ -148,7 +148,7 @@ public final class Export implements Runnable {
                     return new double[]{width, height};
                 }
             }
-            System.err.println(I18n.text("invalid paper size specification: ") + mPaper);
+            System.err.println(I18n.text("无效的纸张大小： ") + mPaper);
             System.exit(1);
         }
         return null;
@@ -172,7 +172,7 @@ public final class Export implements Runnable {
             if (index == 4) {
                 return values;
             }
-            System.err.println(I18n.text("invalid paper margins specification: ") + mMargins);
+            System.err.println(I18n.text("无效的纸张边距大小： ") + mMargins);
             System.exit(1);
         }
         return null;

@@ -21,7 +21,7 @@ public class PagePoints extends Label {
     public PagePoints(int points) {
         super("[" + points + "]");
         setThemeFont(Fonts.PAGE_LABEL_SECONDARY);
-        setToolTipText(I18n.text("Points spent"));
+        setToolTipText(I18n.text("花费的点数"));
         UIUtilities.setToPreferredSizeOnly(this);
     }
 }

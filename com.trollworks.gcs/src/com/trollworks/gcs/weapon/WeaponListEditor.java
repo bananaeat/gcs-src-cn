@@ -82,13 +82,13 @@ public abstract class WeaponListEditor extends Panel implements ActionListener, 
         super(new PrecisionLayout().setMargins(0));
         mOwner = owner;
         mWeaponClass = weaponClass;
-        mAddButton = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("Add an attack"),
+        mAddButton = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("添加一个攻击方式"),
                 (b) -> addWeapon());
         mDeleteButton = new FontIconButton(FontAwesome.TRASH,
-                I18n.text("Remove the selected attacks"), (b) -> mOutline.deleteSelection());
+                I18n.text("移除选中的攻击方式"), (b) -> mOutline.deleteSelection());
         mDeleteButton.setEnabled(false);
         mDuplicateButton = new FontIconButton(FontAwesome.CLONE,
-                I18n.text("Duplicate the selected attacks"), (b) -> mOutline.duplicateSelection());
+                I18n.text("复制选中的攻击方式"), (b) -> mOutline.duplicateSelection());
         mDuplicateButton.setEnabled(false);
         Panel right = new Panel(new PrecisionLayout().setMargins(5));
         right.add(mAddButton);
@@ -142,11 +142,11 @@ public abstract class WeaponListEditor extends Panel implements ActionListener, 
         Panel editorPanel = new Panel(new PrecisionLayout().setMargins(5).setColumns(2));
 
         Panel firstPanel = new Panel(new PrecisionLayout().setMargins(0).setColumns(3));
-        mUsage = addField(editorPanel, firstPanel, null, I18n.text("Usage"));
-        mStrength = addField(firstPanel, firstPanel, "99**", I18n.text("Minimum Strength"));
+        mUsage = addField(editorPanel, firstPanel, null, I18n.text("适用类型"));
+        mStrength = addField(firstPanel, firstPanel, "99**", I18n.text("最低力量"));
         editorPanel.add(firstPanel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
-        String notes = I18n.text("Notes");
+        String notes = I18n.text("备注");
         mUsageNotes = new MultiLineTextField("", notes, this);
         addLabel(editorPanel, notes);
         editorPanel.add(mUsageNotes, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
@@ -159,25 +159,25 @@ public abstract class WeaponListEditor extends Panel implements ActionListener, 
             }
         });
         mDamageSTPopup.setSelectedItem(WeaponSTDamage.NONE, false);
-        mDamageSTPopup.setToolTipText(I18n.text("Strength Damage Type"));
-        editorPanel.add(new Label(I18n.text("Damage")), new PrecisionLayoutData().setFillHorizontalAlignment());
+        mDamageSTPopup.setToolTipText(I18n.text("力量伤害类型"));
+        editorPanel.add(new Label(I18n.text("伤害")), new PrecisionLayoutData().setFillHorizontalAlignment());
         damagePanel.add(mDamageSTPopup, new PrecisionLayoutData().setFillHorizontalAlignment());
-        mDamageBase = addField(null, damagePanel, "9999999d+99x999", I18n.text("Base Damage"));
+        mDamageBase = addField(null, damagePanel, "9999999d+99x999", I18n.text("基本伤害"));
         addLabel(damagePanel, "(");
-        mDamageArmorDivisor = addField(null, damagePanel, "100", I18n.text("Armor Divisor"));
+        mDamageArmorDivisor = addField(null, damagePanel, "100", I18n.text("护甲除数"));
         addLabel(damagePanel, ")");
-        mDamageType = addField(null, damagePanel, null, I18n.text("Type"));
-        mDamageModPerDie = addField(null, damagePanel, "+99", I18n.text("Bonus Per Die"));
-        addLabel(damagePanel, I18n.text("per die"));
+        mDamageType = addField(null, damagePanel, null, I18n.text("类型"));
+        mDamageModPerDie = addField(null, damagePanel, "+99", I18n.text("每骰加值"));
+        addLabel(damagePanel, I18n.text("每骰"));
         editorPanel.add(damagePanel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         Panel fragPanel = new Panel(new PrecisionLayout().setMargins(0).setColumns(5));
-        addLabel(editorPanel, I18n.text("Fragmentation"));
-        mFragDamage = addField(null, fragPanel, "9999999d+99x999", I18n.text("Fragmentation Damage"));
+        addLabel(editorPanel, I18n.text("破片"));
+        mFragDamage = addField(null, fragPanel, "9999999d+99x999", I18n.text("破片伤害"));
         addLabel(fragPanel, "(");
-        mFragArmorDivisor = addField(null, fragPanel, "9999", I18n.text("Armor Divisor"));
+        mFragArmorDivisor = addField(null, fragPanel, "9999", I18n.text("护甲除数"));
         addLabel(fragPanel, ")");
-        mFragType = addField(null, fragPanel, null, I18n.text("Type"));
+        mFragType = addField(null, fragPanel, null, I18n.text("类型"));
         editorPanel.add(fragPanel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         createFields(editorPanel);

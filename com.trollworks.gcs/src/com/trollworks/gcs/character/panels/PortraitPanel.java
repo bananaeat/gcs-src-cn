@@ -76,13 +76,13 @@ public class PortraitPanel extends DropPanel implements DropTargetListener {
 
     /** Allows the user to choose a portrait for their character. */
     public void choosePortrait() {
-        Path path = Modal.presentOpenFileDialog(null, I18n.text("Select A Portrait"), Dirs.GENERAL,
+        Path path = Modal.presentOpenFileDialog(null, I18n.text("选择一个头像"), Dirs.GENERAL,
                 FileType.IMAGE_FILTERS);
         if (path != null) {
             try {
                 mSheet.getCharacter().getProfile().setPortrait(Img.create(path));
             } catch (Exception exception) {
-                Modal.showError(this, MessageFormat.format(I18n.text("Unable to load\n{0}."), path.normalize().toAbsolutePath()));
+                Modal.showError(this, MessageFormat.format(I18n.text("无法加载\n{0}."), path.normalize().toAbsolutePath()));
             }
         }
     }
@@ -142,7 +142,7 @@ public class PortraitPanel extends DropPanel implements DropTargetListener {
                 try {
                     mSheet.getCharacter().getProfile().setPortrait(Img.create(img));
                 } catch (Exception exception) {
-                    Modal.showError(this, I18n.text("Unable to load image."));
+                    Modal.showError(this, I18n.text("无法加载图像。"));
                 }
                 dtde.dropComplete(true);
                 dtde.getDropTargetContext().getComponent().requestFocus();
@@ -159,7 +159,7 @@ public class PortraitPanel extends DropPanel implements DropTargetListener {
                         mSheet.getCharacter().getProfile().setPortrait(Img.create(file));
                         break;
                     } catch (Exception exception) {
-                        Modal.showError(this, MessageFormat.format(I18n.text("Unable to load\n{0}."), PathUtils.getFullPath(file)));
+                        Modal.showError(this, MessageFormat.format(I18n.text("无法加载\n{0}."), PathUtils.getFullPath(file)));
                     }
                 }
                 dtde.dropComplete(true);

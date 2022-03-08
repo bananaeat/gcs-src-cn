@@ -245,7 +245,7 @@ public class WeaponDamage {
     public String getDamageToolTip() {
         StringBuilder toolTip = new StringBuilder();
         getResolvedDamage(toolTip);
-        return toolTip.isEmpty() ? I18n.text("No additional modifiers") : I18n.text("Includes modifiers from") + toolTip;
+        return toolTip.isEmpty() ? I18n.text("没有额外调整值") : I18n.text("包括调整值来自") + toolTip;
     }
 
     /** @return The damage, fully resolved for the user's sw or thr, if possible. */

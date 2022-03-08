@@ -117,7 +117,7 @@ public class SkillDefaultEditor extends EditorPanel {
                 mSkillNameField = new EditorField(new DefaultFormatterFactory(formatter), this, SwingConstants.LEFT, mDefault.getName(), null);
                 add(mSkillNameField);
                 row.add(mSkillNameField);
-                String optionalSpecialization = I18n.text("Optional Specialization");
+                String optionalSpecialization = I18n.text("可选分支");
                 mSpecializationField = new EditorField(new DefaultFormatterFactory(formatter), this, SwingConstants.LEFT, mDefault.getSpecialization(), optionalSpecialization);
                 mSpecializationField.setHint(optionalSpecialization);
                 add(mSpecializationField);
@@ -132,10 +132,10 @@ public class SkillDefaultEditor extends EditorPanel {
             row = new FlexRow();
             row.setHorizontalAlignment(Alignment.RIGHT_BOTTOM);
             FontIconButton button = new FontIconButton(FontAwesome.TRASH,
-                    I18n.text("Remove this default"), (b) -> removeDefault());
+                    I18n.text("移除此默认值"), (b) -> removeDefault());
             add(button);
             row.add(button);
-            button = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("Add a default"),
+            button = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("添加一个默认值"),
                     (b) -> addDefault());
             add(button);
             row.add(button);
@@ -146,7 +146,7 @@ public class SkillDefaultEditor extends EditorPanel {
             row.setHorizontalAlignment(Alignment.RIGHT_BOTTOM);
             row.add(new FlexSpacer(0, 0, true, false));
             FontIconButton button = new FontIconButton(FontAwesome.PLUS_CIRCLE,
-                    I18n.text("Add a default"), (b) -> addDefault());
+                    I18n.text("添加一个默认值"), (b) -> addDefault());
             add(button);
             row.add(button);
             row.apply(this);

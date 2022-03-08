@@ -29,7 +29,7 @@ public class OrLabel extends Label {
      * @param owner The owning component.
      */
     public OrLabel(Component owner) {
-        super(I18n.text("or"), SwingConstants.RIGHT);
+        super(I18n.text("或"), SwingConstants.RIGHT);
         mOwner = owner;
     }
 

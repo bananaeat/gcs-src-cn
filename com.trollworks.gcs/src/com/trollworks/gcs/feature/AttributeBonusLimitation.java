@@ -26,21 +26,21 @@ public enum AttributeBonusLimitation {
     STRIKING_ONLY {
         @Override
         public String toString() {
-            return I18n.text("for striking only");
+            return I18n.text("只能用于打击");
         }
     },
     /** Lifting only */
     LIFTING_ONLY {
         @Override
         public String toString() {
-            return I18n.text("for lifting only");
+            return I18n.text("只能用于举重");
         }
     },
     /** Throwing only */
     THROWING_ONLY {
         @Override
         public String toString() {
-            return I18n.text("for throwing only");
+            return I18n.text("只能用于投掷");
         }
     }
 }

@@ -24,7 +24,7 @@ public class PaperSize {
 
     public static final synchronized PaperSize getDefaultPaperSize() {
         if (DEFAULT == null) {
-            DEFAULT = new PaperSize(MediaSize.NA.LETTER, I18n.text("Letter"));
+            DEFAULT = new PaperSize(MediaSize.NA.LETTER, I18n.text("信纸"));
         }
         return DEFAULT;
     }

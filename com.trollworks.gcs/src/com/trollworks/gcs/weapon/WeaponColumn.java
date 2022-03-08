@@ -33,17 +33,17 @@ public enum WeaponColumn {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
             if (weaponClass == MeleeWeaponStats.class) {
-                return I18n.text("Melee Weapons");
+                return I18n.text("近战武器");
             }
             if (weaponClass == RangedWeaponStats.class) {
-                return I18n.text("Ranged Weapons");
+                return I18n.text("远程武器");
             }
-            return I18n.text("Weapons");
+            return I18n.text("武器");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The name/description of the weapon");
+            return I18n.text("武器的名称/描述");
         }
 
         @Override
@@ -72,12 +72,12 @@ public enum WeaponColumn {
     USAGE {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Usage");
+            return I18n.text("适用类型");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The usage type of the weapon (swung, thrust, thrown, fired, etc.)");
+            return I18n.text("武器的使用类型（挥舞，戳击，投掷，射击等）");
         }
 
         @Override
@@ -89,12 +89,12 @@ public enum WeaponColumn {
     LEVEL {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Lvl");
+            return I18n.text("等级");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The skill level with the weapon");
+            return I18n.text("此武器的技能等级");
         }
 
         @Override
@@ -132,12 +132,12 @@ public enum WeaponColumn {
     ACCURACY {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Acc");
+            return I18n.text("准确度（Acc）");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The accuracy bonus for the weapon");
+            return I18n.text("武器的准确度加值");
         }
 
         @Override
@@ -154,12 +154,12 @@ public enum WeaponColumn {
     PARRY {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Parry");
+            return I18n.text("招架");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The Parry value with the weapon");
+            return I18n.text("武器的招架值");
         }
 
         @Override
@@ -181,12 +181,12 @@ public enum WeaponColumn {
     BLOCK {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Block");
+            return I18n.text("格挡");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The Block value with the weapon");
+            return I18n.text("武器的格挡值");
         }
 
         @Override
@@ -208,12 +208,12 @@ public enum WeaponColumn {
     DAMAGE {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Damage");
+            return I18n.text("伤害");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The damage the weapon inflicts");
+            return I18n.text("武器造成的伤害");
         }
 
         @Override
@@ -230,12 +230,12 @@ public enum WeaponColumn {
     REACH {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Reach");
+            return I18n.text("触及");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The reach of the weapon");
+            return I18n.text("武器的触及距离");
         }
 
         @Override
@@ -252,12 +252,12 @@ public enum WeaponColumn {
     RANGE {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Range");
+            return I18n.text("射程");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The range of the weapon");
+            return I18n.text("武器的射程");
         }
 
         @Override
@@ -274,12 +274,12 @@ public enum WeaponColumn {
     RATE_OF_FIRE {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("RoF");
+            return I18n.text("射速（RoF）");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The rate of fire of the weapon");
+            return I18n.text("武器的射速");
         }
 
         @Override
@@ -296,12 +296,12 @@ public enum WeaponColumn {
     SHOTS {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Shots");
+            return I18n.text("弹数");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The number of shots the weapon can fire before reloading/recharging");
+            return I18n.text("武器在换弹/充能前可以射出的弹数");
         }
 
         @Override
@@ -318,12 +318,12 @@ public enum WeaponColumn {
     BULK {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Bulk");
+            return I18n.text("笨重度");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The modifier to skill due to the bulk of the weapon");
+            return I18n.text("由于武器笨重对技能的调整值");
         }
 
         @Override
@@ -340,12 +340,12 @@ public enum WeaponColumn {
     RECOIL {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("Rcl");
+            return I18n.text("后坐力（Rcl）");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The recoil modifier for the weapon");
+            return I18n.text("武器的后坐力调整值");
         }
 
         @Override
@@ -362,12 +362,12 @@ public enum WeaponColumn {
     MIN_ST {
         @Override
         public String toString(Class<? extends WeaponStats> weaponClass) {
-            return I18n.text("ST");
+            return I18n.text("力量（ST）");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The minimum strength required to use the weapon properly");
+            return I18n.text("为恰当使用武器所需的最低力量");
         }
 
         @Override

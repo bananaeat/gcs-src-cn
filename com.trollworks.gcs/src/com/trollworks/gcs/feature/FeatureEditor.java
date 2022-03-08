@@ -82,12 +82,12 @@ public abstract class FeatureEditor extends EditorPanel {
         rebuildSelf(grid, right);
         if (mFeature != null) {
             FontIconButton button = new FontIconButton(FontAwesome.TRASH,
-                    I18n.text("Remove this feature"), (b) -> removeFeature());
+                    I18n.text("移除这个特性"), (b) -> removeFeature());
             add(button);
             right.add(button);
         }
         FontIconButton button = new FontIconButton(FontAwesome.PLUS_CIRCLE,
-                I18n.text("Add a feature"), (b) -> addFeature());
+                I18n.text("添加一个特性"), (b) -> addFeature());
         add(button);
         right.add(button);
         grid.add(right, 0, 1);
@@ -171,13 +171,13 @@ public abstract class FeatureEditor extends EditorPanel {
         List<String> options              = new ArrayList<>();
         options.add(" ");
         if (forWeaponDamageBonus) {
-            options.add(I18n.text("per die"));
+            options.add(I18n.text("每骰"));
             options.add("%");
             if (((WeaponDamageBonus) mFeature).isPercent()) {
                 initialChoice = 2;
             }
         } else {
-            options.add(I18n.text("per level"));
+            options.add(I18n.text("每等级"));
         }
         mLeveledAmountPopup = new PopupMenu<>(options, (p) -> {
             LeveledAmount amount = ((Bonus) mFeature).getAmount();

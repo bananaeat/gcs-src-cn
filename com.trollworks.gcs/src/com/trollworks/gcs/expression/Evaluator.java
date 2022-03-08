@@ -256,7 +256,7 @@ public class Evaluator {
                             if (unaryOperator == null) {
                                 unaryOperator = nextOperator.mOperator;
                             } else {
-                                throw new EvaluationException(String.format(I18n.text("Consecutive unary operators are not allowed (index=%d)"), Integer.valueOf(i)));
+                                throw new EvaluationException(String.format(I18n.text("不允许连续的一元运算符 (位置=%d)"), Integer.valueOf(i)));
                             }
                         } else {
                             i = processOperator(expression, opIndex, operator, mOperatorStack, mOperandStack, haveOperand, unaryOperator);
@@ -277,7 +277,7 @@ public class Evaluator {
     }
 
     private static String invalidExpressionText() {
-        return I18n.text("Expression is invalid");
+        return I18n.text("无效表达式");
     }
 
     private static int processOperand(String expression, int start, int operatorIndex, Stack<Object> operandStack, Operator unaryOperator) throws EvaluationException {
@@ -347,7 +347,7 @@ public class Evaluator {
         while (parens > 0) {
             nextOperator = nextOperator(expression, next + 1, null);
             if (nextOperator == null) {
-                throw new EvaluationException(I18n.text("Function not closed"));
+                throw new EvaluationException(I18n.text("函数未闭合"));
             } else if (nextOperator.mOperator instanceof OpenParen) {
                 parens++;
             } else if (nextOperator.mOperator instanceof CloseParen) {
@@ -358,7 +358,7 @@ public class Evaluator {
         ExpressionOperand  operand  = (ExpressionOperand) operandStack.pop();
         ExpressionFunction function = mFunctions.get(operand.mValue);
         if (function == null) {
-            throw new EvaluationException(String.format(I18n.text("Function not defined: %s"), operand.mValue));
+            throw new EvaluationException(String.format(I18n.text("函数未定义：%s"), operand.mValue));
         }
         operandStack.push(new ParsedFunction(function, expression.substring(operatorIndex + 1, next), operand.mUnaryOperator));
         return nextOperator;
@@ -439,7 +439,7 @@ public class Evaluator {
                 }
             }
             if (dollar == last) {
-                throw new EvaluationException(String.format(I18n.text("Invalid variable at index %d"), Integer.valueOf(dollar)));
+                throw new EvaluationException(String.format(I18n.text("在位置%d有无效变量"), Integer.valueOf(dollar)));
             } else {
                 String name  = expression.substring(dollar + 1, last + 1);
                 String value = null;
@@ -447,7 +447,7 @@ public class Evaluator {
                     value = mVariableResolver.resolveVariable(name);
                 }
                 if (value == null || value.trim().isEmpty()) {
-                    throw new EvaluationException(String.format(I18n.text("Unable to resolve variable $%s"), name));
+                    throw new EvaluationException(String.format(I18n.text("无法识别变量$%s"), name));
                 }
                 StringBuilder buffer = new StringBuilder();
                 if (dollar > 0) {

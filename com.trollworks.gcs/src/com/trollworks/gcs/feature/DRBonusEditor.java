@@ -56,7 +56,7 @@ public class DRBonusEditor extends FeatureEditor {
 
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
-        Label label = new Label(I18n.text("to the"));
+        Label label = new Label(I18n.text("到"));
         add(label);
         row.add(new FlexComponent(label, true));
         HitLocationTable locations = SheetSettings.get(getRow().getCharacter()).getHitLocations();
@@ -74,7 +74,7 @@ public class DRBonusEditor extends FeatureEditor {
 
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
-        label = new Label(I18n.text("against"));
+        label = new Label(I18n.text("防御"));
         add(label);
         row.add(new FlexComponent(label, true));
         DefaultFormatter formatter = new DefaultFormatter();
@@ -82,7 +82,7 @@ public class DRBonusEditor extends FeatureEditor {
         mTypeField = new EditorField(new DefaultFormatterFactory(formatter), this, SwingConstants.LEFT, bonus.getSpecialization(), null);
         add(mTypeField);
         row.add(mTypeField);
-        label = new Label(I18n.text("attacks"));
+        label = new Label(I18n.text("攻击"));
         add(label);
         row.add(new FlexComponent(label, true));
         row.add(new FlexSpacer(0, 0, true, false));

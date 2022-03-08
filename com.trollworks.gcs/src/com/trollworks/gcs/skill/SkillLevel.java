@@ -23,11 +23,11 @@ public class SkillLevel {
     public String mToolTip;
 
     public static String getNoAdditionalModifiers() {
-        return I18n.text("No additional modifiers");
+        return I18n.text("没有额外修正");
     }
 
     public static String getIncludesModifiersFrom() {
-        return I18n.text("Includes modifiers from");
+        return I18n.text("包括修正来自");
     }
 
     /**

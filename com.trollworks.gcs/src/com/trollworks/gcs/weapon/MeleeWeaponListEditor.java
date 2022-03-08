@@ -40,9 +40,9 @@ public class MeleeWeaponListEditor extends WeaponListEditor {
     @Override
     protected void createFields(Container parent) {
         Panel panel = new Panel(new PrecisionLayout().setMargins(0).setColumns(5));
-        mReach = addField(parent, panel, "C-99**", I18n.text("Reach"));
-        mParry = addField(panel, panel, "+99**", I18n.text("Parry Modifier"));
-        mBlock = addField(panel, panel, "+99**", I18n.text("Block Modifier"));
+        mReach = addField(parent, panel, "C-99**", I18n.text("触及"));
+        mParry = addField(panel, panel, "+99**", I18n.text("招架调整值"));
+        mBlock = addField(panel, panel, "+99**", I18n.text("格挡调整值"));
         parent.add(panel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
     }
 
@@ -96,6 +96,6 @@ public class MeleeWeaponListEditor extends WeaponListEditor {
 
     @Override
     public String toString() {
-        return I18n.text("Melee Weapon");
+        return I18n.text("近战武器");
     }
 }

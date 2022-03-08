@@ -38,7 +38,7 @@ public final class LoadSave implements Runnable {
 
     public static void process(List<Path> paths) {
         if (paths.isEmpty()) {
-            System.err.println(I18n.text("must specify one or more files or directories to process"));
+            System.err.println(I18n.text("必须选择一个或多个文件或目录以继续"));
             System.exit(1);
         }
         System.setProperty("java.awt.headless", Boolean.TRUE.toString());
@@ -66,7 +66,7 @@ public final class LoadSave implements Runnable {
             }
         } catch (IOException ioe) {
             ioe.printStackTrace();
-            System.out.println(I18n.text("  ** ERROR ENCOUNTERED **"));
+            System.out.println(I18n.text("  ** 遇到错误 **"));
         }
     }
 

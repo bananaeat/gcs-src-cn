@@ -29,7 +29,7 @@ public class SkillsDockable extends LibraryDockable {
 
     @Override
     protected String getUntitledBaseName() {
-        return I18n.text("Untitled Skills");
+        return I18n.text("未命名技能");
     }
 
     @Override

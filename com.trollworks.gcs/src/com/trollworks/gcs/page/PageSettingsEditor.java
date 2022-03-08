@@ -41,7 +41,7 @@ public class PageSettingsEditor extends Panel {
 
     public PageSettingsEditor(PageSettings settings, Runnable adjustCallback) {
         super(new PrecisionLayout().setColumns(4).setMargins(0), false);
-        Label header = new Label(I18n.text("Page Settings"));
+        Label header = new Label(I18n.text("页面设置"));
         header.setThemeFont(Fonts.HEADER);
         add(header, new PrecisionLayoutData().setHorizontalSpan(4));
         add(new Separator(), new PrecisionLayoutData().setFillHorizontalAlignment().
@@ -49,28 +49,28 @@ public class PageSettingsEditor extends Panel {
                 setBottomMargin(LayoutConstants.TOOLBAR_VERTICAL_INSET / 2));
         mSettings = settings;
         mAdjustCallback = adjustCallback;
-        mPaperSize = addPopupMenu(I18n.text("Paper Size"), PaperSize.getPaperSizes(), mSettings.getPaperSize(), (p) -> {
+        mPaperSize = addPopupMenu(I18n.text("纸张大小"), PaperSize.getPaperSizes(), mSettings.getPaperSize(), (p) -> {
             mSettings.setPaperSize(mPaperSize.getSelectedItem());
             mAdjustCallback.run();
         });
-        mOrientation = addPopupMenu(I18n.text("Orientation"), PageOrientation.values(), mSettings.getPageOrientation(), (p) -> {
+        mOrientation = addPopupMenu(I18n.text("纸张方向"), PageOrientation.values(), mSettings.getPageOrientation(), (p) -> {
             mSettings.setPageOrientation(mOrientation.getSelectedItem());
             mAdjustCallback.run();
         });
         LengthValue proto = new LengthValue(new Fixed6(99.99), LengthUnits.IN);
-        mTopMargin = addField(I18n.text("Top Margin"), mSettings.getTopMargin(), proto, (f) -> {
+        mTopMargin = addField(I18n.text("上边距"), mSettings.getTopMargin(), proto, (f) -> {
             mSettings.setTopMargin((LengthValue) f.getValue());
             mAdjustCallback.run();
         });
-        mBottomMargin = addField(I18n.text("Bottom Margin"), mSettings.getBottomMargin(), proto, (f) -> {
+        mBottomMargin = addField(I18n.text("下边距"), mSettings.getBottomMargin(), proto, (f) -> {
             mSettings.setBottomMargin((LengthValue) f.getValue());
             mAdjustCallback.run();
         });
-        mLeftMargin = addField(I18n.text("Left Margin"), mSettings.getLeftMargin(), proto, (f) -> {
+        mLeftMargin = addField(I18n.text("左边距"), mSettings.getLeftMargin(), proto, (f) -> {
             mSettings.setLeftMargin((LengthValue) f.getValue());
             mAdjustCallback.run();
         });
-        mRightMargin = addField(I18n.text("Right Margin"), mSettings.getRightMargin(), proto, (f) -> {
+        mRightMargin = addField(I18n.text("右边距"), mSettings.getRightMargin(), proto, (f) -> {
             mSettings.setRightMargin((LengthValue) f.getValue());
             mAdjustCallback.run();
         });

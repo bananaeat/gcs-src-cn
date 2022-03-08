@@ -46,7 +46,7 @@ public class CostReductionEditor extends FeatureEditor {
         }));
         String[] percents = new String[16];
         for (int i = 0; i < 16; i++) {
-            percents[i] = MessageFormat.format(I18n.text("by {0}%"), Integer.valueOf((i + 1) * 5));
+            percents[i] = MessageFormat.format(I18n.text("减少 {0}%"), Integer.valueOf((i + 1) * 5));
         }
         PopupMenu<String> popup = new PopupMenu<>(percents,
                 (p) -> ((CostReduction) getFeature()).setPercentage((p.getSelectedIndex() + 1) * 5));

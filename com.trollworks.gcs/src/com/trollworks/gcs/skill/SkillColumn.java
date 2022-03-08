@@ -38,12 +38,12 @@ public enum SkillColumn {
     DESCRIPTION {
         @Override
         public String toString() {
-            return I18n.text("Skills");
+            return I18n.text("技能");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The name, specialty, tech level and notes describing a skill");
+            return I18n.text("描述一个技能的名称，分支和科技等级（TL）");
         }
 
         @Override
@@ -75,12 +75,12 @@ public enum SkillColumn {
     DIFFICULTY {
         @Override
         public String toString() {
-            return I18n.text("Diff");
+            return I18n.text("难度");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The skill difficulty");
+            return I18n.text("技能难度");
         }
 
         @Override
@@ -115,7 +115,7 @@ public enum SkillColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("The skill level");
+            return I18n.text("技能等级");
         }
 
         @Override
@@ -164,7 +164,7 @@ public enum SkillColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("The relative skill level");
+            return I18n.text("相对技能等级");
         }
 
         @Override
@@ -212,12 +212,12 @@ public enum SkillColumn {
     POINTS {
         @Override
         public String toString() {
-            return I18n.text("Pts");
+            return I18n.text("点数");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The points spent in the skill");
+            return I18n.text("花费在技能上的点数");
         }
 
         @Override
@@ -249,12 +249,12 @@ public enum SkillColumn {
     CATEGORY {
         @Override
         public String toString() {
-            return I18n.text("Category");
+            return I18n.text("类别");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The category or categories the skill belongs to");
+            return I18n.text("技能所属的类别");
         }
 
         @Override
@@ -286,7 +286,7 @@ public enum SkillColumn {
 
         @Override
         public String getToolTip() {
-            return PageRefCell.getStdToolTip(I18n.text("skill"));
+            return PageRefCell.getStdToolTip(I18n.text("技能"));
         }
 
         @Override

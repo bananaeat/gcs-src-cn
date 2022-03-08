@@ -80,24 +80,24 @@ public class TechniqueEditor extends RowEditor<Technique> implements DocumentLis
     protected void addContentSelf(ScrollContent outer) {
         Panel panel = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
 
-        mNameField = createCorrectableField(panel, panel, I18n.text("Name"), mRow.getName(),
-                I18n.text("The base name of the technique, without any notes or specialty information"),
+        mNameField = createCorrectableField(panel, panel, I18n.text("名称"), mRow.getName(),
+                I18n.text("技法的基础名称，不包含分支和备注"),
                 null);
         mNotesField = new MultiLineTextField(mRow.getNotes(),
-                I18n.text("Any notes that you would like to show up in the list along with this technique"),
+                I18n.text("你想要在列表中与该技法一同显示的备注"),
                 this);
-        addLabelPinnedToTop(panel, I18n.text("Notes"));
+        addLabelPinnedToTop(panel, I18n.text("备注"));
         panel.add(mNotesField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         mVTTNotesField = addVTTNotesField(panel, this);
-        mCategoriesField = createField(panel, panel, I18n.text("Categories"),
+        mCategoriesField = createField(panel, panel, I18n.text("类别"),
                 mRow.getCategoriesAsString(),
-                I18n.text("The category or categories the technique belongs to (separate multiple categories with a comma)"),
+                I18n.text("技法所属的类别（将多个类别用逗号隔开）"),
                 0, null);
         createDefaults(panel);
         createLimits(panel);
         createDifficultyPopups(panel);
-        mReferenceField = createField(panel, panel, I18n.text("Page Reference"), mRow.getReference(),
-                PageRefCell.getStdToolTip(I18n.text("technique")), 6, null);
+        mReferenceField = createField(panel, panel, I18n.text("页面引用"), mRow.getReference(),
+                PageRefCell.getStdToolTip(I18n.text("技法")), 6, null);
         outer.add(panel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         mPrereqs = new PrereqsPanel(mRow, mRow.getPrereqs());
@@ -120,7 +120,7 @@ public class TechniqueEditor extends RowEditor<Technique> implements DocumentLis
                     }
                     recalculateLevel();
                 }, mIsEditable);
-        addLabel(parent, I18n.text("Defaults To"));
+        addLabel(parent, I18n.text("默认值为"));
         parent.add(mDefaultPanel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         rebuildDefaultPanel();
     }
@@ -159,15 +159,15 @@ public class TechniqueEditor extends RowEditor<Technique> implements DocumentLis
             mDefaultPanel.remove(1);
         }
         if (skillBased) {
-            mDefaultNameField = createCorrectableField(null, mDefaultPanel, I18n.text("Defaults To"),
-                    def.getName(), I18n.text("The name of the skill this technique defaults from"),
+            mDefaultNameField = createCorrectableField(null, mDefaultPanel, I18n.text("默认值为"),
+                    def.getName(), I18n.text("这个技法默认值基于的技能名称"),
                     (f) -> recalculateLevel());
             mDefaultSpecializationField = createField(null, mDefaultPanel, null, def.getSpecialization(),
-                    I18n.text("The specialization of the skill, if any, this technique defaults from"),
+                    I18n.text("这个技法基于的技能分支名称，如果有的话"),
                     0, (f) -> recalculateLevel());
         }
         mDefaultModifierField = createSInt2NumberField(mDefaultPanel,
-                I18n.text("The amount to adjust the default skill level by"), def.getModifier());
+                I18n.text("默认技能等级的调整值"), def.getModifier());
         ((PrecisionLayout) mDefaultPanel.getLayout()).setColumns(mDefaultPanel.getComponentCount());
         mDefaultPanel.revalidate();
     }
@@ -175,15 +175,15 @@ public class TechniqueEditor extends RowEditor<Technique> implements DocumentLis
     private void createLimits(Container parent) {
         Panel wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
 
-        mLimitCheckbox = new Checkbox(I18n.text("Cannot exceed default skill level by more than"),
+        mLimitCheckbox = new Checkbox(I18n.text("最多无法多出默认技能等级的级数"),
                 mRow.isLimited(), (b) -> {
             mLimitField.setEnabled(mLimitCheckbox.isChecked());
             recalculateLevel();
         });
-        mLimitCheckbox.setToolTipText(I18n.text("Whether to limit the maximum level that can be achieved or not"));
+        mLimitCheckbox.setToolTipText(I18n.text("是否要限制可达到的最大等级"));
 
         mLimitField = createSInt2NumberField(wrapper,
-                I18n.text("The maximum amount above the default skill level that this technique can be raised"),
+                I18n.text("在默认技能等级之上，此技法最多多多少等级"),
                 mRow.getLimitModifier());
         mLimitField.setEnabled(mLimitCheckbox.isChecked());
 
@@ -225,17 +225,17 @@ public class TechniqueEditor extends RowEditor<Technique> implements DocumentLis
     }
 
     private static String editorLevelTooltip() {
-        return I18n.text("The skill level and relative skill level to roll against.\n");
+        return I18n.text("用于检定的技能等级和相对技能等级\n");
     }
 
     private void createPointsFields(Container parent, boolean forCharacter) {
         mPointsField = new EditorField(FieldFactory.POSINT3, (f) -> recalculateLevel(),
                 SwingConstants.LEFT, Integer.valueOf(mRow.getRawPoints()), Integer.valueOf(999),
-                I18n.text("The number of points spent on this technique"));
-        addLabel(parent, I18n.text("Points"));
+                I18n.text("在此技法上花费的点数"));
+        addLabel(parent, I18n.text("点数"));
         parent.add(mPointsField, new PrecisionLayoutData().setFillHorizontalAlignment());
         if (forCharacter) {
-            mLevelField = createField(parent, parent, I18n.text("Level"),
+            mLevelField = createField(parent, parent, I18n.text("等级"),
                     Technique.getTechniqueDisplayLevel(mRow.getLevel(), mRow.getRelativeLevel(),
                             mRow.getDefault().getModifier()),
                     editorLevelTooltip() + mRow.getLevelToolTip(), 6, null);
@@ -248,13 +248,13 @@ public class TechniqueEditor extends RowEditor<Technique> implements DocumentLis
         Panel          wrapper   = new Panel(new PrecisionLayout().setMargins(0).setColumns(1 + (character != null ? 4 : 2)));
         mDifficultyPopup = new PopupMenu<>(new SkillDifficulty[]{SkillDifficulty.A, SkillDifficulty.H},
                 (p) -> recalculateLevel());
-        mDifficultyPopup.setToolTipText(I18n.text("The relative difficulty of learning this technique"));
+        mDifficultyPopup.setToolTipText(I18n.text("学习此技法的相对难度"));
         mDifficultyPopup.setSelectedItem(mRow.getDifficulty(), false);
         wrapper.add(mDifficultyPopup);
         if (character != null || mRow.getTemplate() != null) {
             createPointsFields(wrapper, character != null);
         }
-        addLabel(parent, I18n.text("Difficulty"));
+        addLabel(parent, I18n.text("难度"));
         parent.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
     }
 
@@ -338,9 +338,9 @@ public class TechniqueEditor extends RowEditor<Technique> implements DocumentLis
     private void docChanged(DocumentEvent event) {
         Document doc = event.getDocument();
         if (doc == mNameField.getDocument()) {
-            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("The name field may not be empty") : null);
+            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("名称不能为空") : null);
         } else if (SkillDefaultType.isSkillBased(getDefaultType()) && doc == mDefaultNameField.getDocument()) {
-            mDefaultNameField.setErrorMessage(mDefaultNameField.getText().trim().isEmpty() ? I18n.text("The default name field may not be empty") : null);
+            mDefaultNameField.setErrorMessage(mDefaultNameField.getText().trim().isEmpty() ? I18n.text("默认名称不能为空") : null);
         }
     }
 

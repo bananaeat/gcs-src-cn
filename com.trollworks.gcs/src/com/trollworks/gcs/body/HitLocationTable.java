@@ -258,8 +258,8 @@ public class HitLocationTable implements Cloneable, Comparable<HitLocationTable>
 
     public static HitLocationTable createHumanoidTable() {
         HitLocationTable table = new HitLocationTable("humanoid", I18n.text("类人生物"), new Dice(3));
-        table.addLocation(new HitLocation("eye", I18n.text("眼睛"), 0, -9, 0, I18n.text("差1点骰值的攻击将会命中躯干。 只有穿刺（imp），贯通（pi-, pi, pi+, pi++），和粗光线灼伤（burn）攻击可以以眼部为目标 – 并且只能从前方或侧面攻击。超过HP÷10的伤害会致盲被攻击的眼睛，否则效果和颅骨一直，但没有额外DR！")));
-        table.addLocation(new HitLocation("skull", I18n.text("颅骨"), 2, -7, 2, I18n.text("An attack that misses by 1 hits the torso instead. Wounding modifier is x4. Knockdown rolls are at -10. Critical hits use the Critical Head Blow Table (B556). Exception: These special effects do not apply to toxic (tox) damage.")));
+        table.addLocation(new HitLocation("eye", I18n.text("眼睛"), 0, -9, 0, I18n.text("差1点骰值的攻击将会命中躯干。只有穿刺（imp），贯通（pi-, pi, pi+, pi++），和粗光线灼伤（burn）攻击可以以眼部为目标 – 并且只能从前方或侧面攻击。超过HP÷10的伤害会致盲被攻击的眼睛，否则效果和颅骨一直，但没有额外DR！")));
+        table.addLocation(new HitLocation("skull", I18n.text("颅骨"), 2, -7, 2, I18n.text("差1点骰值的攻击将会命中躯干。伤害乘数x4。击倒检定-10。致命攻击伤害使用致命攻击爆头表 (B556). 例外：这些特殊效果对中毒伤害（tox）无效。")));
         table.addLocation(new HitLocation("face", I18n.text("脸"), 1, -5, 0, I18n.text("An attack that misses by 1 hits the torso instead. Jaw, cheeks, nose, ears, etc. If the target has an open-faced helmet, ignore its DR. Knockdown rolls are at -5. Critical hits use the Critical Head Blow Table (B556). Corrosion (cor) damage gets a x1½ wounding modifier, and if it inflicts a major wound, it also blinds one eye (both eyes on damage over full HP). Random attacks from behind hit the skull instead.")));
         table.addLocation(new HitLocation("leg", I18n.text("腿"), I18n.text("右腿"), 2, -2, 0, getLimbDescription()));
         table.addLocation(new HitLocation("arm", I18n.text("手臂"), I18n.text("右臂"), 1, -2, 0, getArmDescription()));

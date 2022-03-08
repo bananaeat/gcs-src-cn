@@ -84,33 +84,33 @@ public class SkillEditor extends RowEditor<Skill> implements ActionListener, Doc
     protected void addContentSelf(ScrollContent outer) {
         Panel   panel       = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
         boolean isContainer = mRow.canHaveChildren();
-        addLabel(panel, I18n.text("Name"));
+        addLabel(panel, I18n.text("名称"));
         mNameField = createCorrectableField(panel, mRow.getName(),
-                I18n.text("The base name of the skill, without any notes or specialty information"));
+                I18n.text("技能的基础名称，不包含备注和分支信息"));
         if (!isContainer) {
-            addLabel(panel, I18n.text("Specialization"));
+            addLabel(panel, I18n.text("分支"));
             Panel wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
             mSpecializationField = createField(wrapper, mRow.getSpecialization(),
-                    I18n.text("The specialization, if any, taken for this skill"), 0, null);
+                    I18n.text("技能的分支，如果有的话"), 0, null);
             createTechLevelFields(wrapper);
             panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         }
         mNotesField = new MultiLineTextField(mRow.getNotes(),
-                I18n.text("Any notes that you would like to show up in the list along with this skill"), this);
-        addLabel(panel, I18n.text("Notes")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
+                I18n.text("你想要在列表中与此技能一同显示的备注"), this);
+        addLabel(panel, I18n.text("备注")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
         panel.add(mNotesField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         mVTTNotesField = addVTTNotesField(panel, this);
-        addLabel(panel, I18n.text("Categories"));
+        addLabel(panel, I18n.text("类别"));
         mCategoriesField = createField(panel, mRow.getCategoriesAsString(),
-                I18n.text("The category or categories the skill belongs to (separate multiple categories with a comma)"),
+                I18n.text("技能所属的类别（多个类别用英文逗号隔开）"),
                 0, null);
         if (!isContainer) {
             createDifficultyPopups(panel);
             mEncPenaltyPopup = createEncumbrancePenaltyMultiplierPopup(panel);
         }
-        addLabel(panel, I18n.text("Page Reference"));
+        addLabel(panel, I18n.text("页面引用"));
         mReferenceField = createField(panel, mRow.getReference(),
-                PageRefCell.getStdToolTip(I18n.text("skill")), 0, null);
+                PageRefCell.getStdToolTip(I18n.text("技能")), 0, null);
         outer.add(panel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         if (!isContainer) {
@@ -148,17 +148,17 @@ public class SkillEditor extends RowEditor<Skill> implements ActionListener, Doc
     }
 
     private static String editorLevelTooltip() {
-        return I18n.text("The skill level and relative skill level to roll against.\n");
+        return I18n.text("用于检定的技能等级和相对技能等级。\n");
     }
 
     private void createPointsFields(Container parent, boolean forCharacter) {
         mPointsField = new EditorField(FieldFactory.POSINT3, (f) -> recalculateLevel(),
                 SwingConstants.LEFT, Integer.valueOf(mRow.getRawPoints()), Integer.valueOf(999),
-                I18n.text("The number of points spent on this skill"));
-        addInteriorLabel(parent, I18n.text("Points"));
+                I18n.text("在此技能上花费的点数。"));
+        addInteriorLabel(parent, I18n.text("点数"));
         parent.add(mPointsField, new PrecisionLayoutData().setFillHorizontalAlignment());
         if (forCharacter) {
-            addInteriorLabel(parent, I18n.text("Level"));
+            addInteriorLabel(parent, I18n.text("等级"));
             mLevelField = createField(parent, Skill.getSkillDisplayLevel(mRow.getDataFile(),
                     mRow.getLevel(), mRow.getRelativeLevel(), mRow.getAttribute(),
                     mRow.canHaveChildren()), editorLevelTooltip() + mRow.getLevelToolTip(), 8, null);
@@ -179,8 +179,8 @@ public class SkillEditor extends RowEditor<Skill> implements ActionListener, Doc
         if (character != null) {
             Panel wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
 
-            String tlTooltip = I18n.text("Whether this skill requires tech level specialization, and, if so, at what tech level it was learned");
-            mHasTechLevel = new Checkbox(I18n.text("Tech Level"), hasTL, this::clickedOnHasTechLevelCheckbox);
+            String tlTooltip = I18n.text("这个技能是否需要标明TL，且如果需要，学习此技能的TL。");
+            mHasTechLevel = new Checkbox(I18n.text("科技等级（TL）"), hasTL, this::clickedOnHasTechLevelCheckbox);
             mHasTechLevel.setToolTipText(tlTooltip);
             wrapper.add(mHasTechLevel, new PrecisionLayoutData().setLeftMargin(4));
 
@@ -198,8 +198,8 @@ public class SkillEditor extends RowEditor<Skill> implements ActionListener, Doc
             // places where it is used don't have to be conditionalized.
             mTechLevel = new EditorField(FieldFactory.STRING, null, SwingConstants.LEFT,
                     mSavedTechLevel, "9999", null);
-            mHasTechLevel = new Checkbox(I18n.text("Tech Level Required"), hasTL, this::clickedOnHasTechLevelCheckbox);
-            mHasTechLevel.setToolTipText(I18n.text("Whether this skill requires tech level specialization"));
+            mHasTechLevel = new Checkbox(I18n.text("需要科技等级（TL）"), hasTL, this::clickedOnHasTechLevelCheckbox);
+            mHasTechLevel.setToolTipText(I18n.text("这个技能是否需要标明科技等级（TL）"));
             parent.add(mHasTechLevel, new PrecisionLayoutData().setLeftMargin(4));
         }
     }
@@ -218,16 +218,16 @@ public class SkillEditor extends RowEditor<Skill> implements ActionListener, Doc
 
     private PopupMenu<String> createEncumbrancePenaltyMultiplierPopup(Container parent) {
         String[] items = new String[10];
-        items[0] = I18n.text("No penalty due to encumbrance");
-        items[1] = I18n.text("Penalty equal to the current encumbrance level");
+        items[0] = I18n.text("没有负重减值");
+        items[1] = I18n.text("减值等于当前负重等级");
         for (int i = 2; i < 10; i++) {
-            items[i] = MessageFormat.format(I18n.text("Penalty equal to {0} times the current encumbrance level"),
+            items[i] = MessageFormat.format(I18n.text("减值等于 {0} 倍当前负重等级"),
                     Integer.valueOf(i));
         }
-        addLabel(parent, I18n.text("Encumbrance"));
+        addLabel(parent, I18n.text("负重"));
         return createPopup(parent, items,
                 items[mRow.getEncumbrancePenaltyMultiplier()],
-                I18n.text("The encumbrance penalty multiplier"), (p) -> recalculateLevel());
+                I18n.text("负重等级减值乘数"), (p) -> recalculateLevel());
     }
 
     private void createDifficultyPopups(Container parent) {
@@ -260,17 +260,17 @@ public class SkillEditor extends RowEditor<Skill> implements ActionListener, Doc
         }
         Panel wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(columns));
         mAttributePopup = createPopup(wrapper, list.toArray(new AttributeChoice[0]), current,
-                I18n.text("The attribute this skill is based on"), (p) -> recalculateLevel());
+                I18n.text("这个技能的基础属性"), (p) -> recalculateLevel());
         addLabel(wrapper, "/");
         mDifficultyPopup = createPopup(wrapper, SkillDifficulty.values(), mRow.getDifficulty(),
-                I18n.text("The relative difficulty of learning this skill"),
+                I18n.text("学习此技能的相对难度"),
                 (p) -> recalculateLevel());
 
         if (forCharacterOrTemplate) {
             createPointsFields(wrapper, character != null);
         }
 
-        addLabel(parent, I18n.text("Difficulty"));
+        addLabel(parent, I18n.text("难度"));
         parent.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
     }
 
@@ -378,7 +378,7 @@ public class SkillEditor extends RowEditor<Skill> implements ActionListener, Doc
 
     private void docChanged(DocumentEvent event) {
         if (mNameField.getDocument() == event.getDocument()) {
-            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("The name field may not be empty") : null);
+            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("名称不得为空") : null);
         }
     }
 

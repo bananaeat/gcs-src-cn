@@ -21,51 +21,51 @@ public enum NumericCompareType {
     IS {
         @Override
         public String toString() {
-            return I18n.text("exactly");
+            return I18n.text("正好");
         }
 
         @Override
         public String getDescription() {
-            return I18n.text("is");
+            return I18n.text("等于");
         }
 
         @Override
         String getDescriptionFormat() {
-            return I18n.text("{0}exactly {1}");
+            return I18n.text("{0}正好为 {1}");
         }
     },
     /** The comparison for "is at least". */
     AT_LEAST {
         @Override
         public String toString() {
-            return I18n.text("at least");
+            return I18n.text("至少");
         }
 
         @Override
         public String getDescription() {
-            return I18n.text("is at least");
+            return I18n.text("至少为");
         }
 
         @Override
         String getDescriptionFormat() {
-            return I18n.text("{0}at least {1}");
+            return I18n.text("{0}至少为 {1}");
         }
     },
     /** The comparison for "is at most". */
     AT_MOST {
         @Override
         public String toString() {
-            return I18n.text("at most");
+            return I18n.text("最多");
         }
 
         @Override
         public String getDescription() {
-            return I18n.text("is at most");
+            return I18n.text("最多为");
         }
 
         @Override
         String getDescriptionFormat() {
-            return I18n.text("{0}at most {1}");
+            return I18n.text("{0}最多为 {1}");
         }
     };
 

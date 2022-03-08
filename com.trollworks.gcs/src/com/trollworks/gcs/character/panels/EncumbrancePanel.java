@@ -43,7 +43,7 @@ public class EncumbrancePanel extends DropPanel {
      * @param sheet The sheet to display the data for.
      */
     public EncumbrancePanel(CharacterSheet sheet) {
-        super(new PrecisionLayout().setColumns(8).setHorizontalSpacing(2).setVerticalSpacing(0).setMargins(0), I18n.text("Encumbrance, Move & Dodge"), true);
+        super(new PrecisionLayout().setColumns(8).setHorizontalSpacing(2).setVerticalSpacing(0).setMargins(0), I18n.text("负重，移动和闪避"), true);
 
         Separator sep = new Separator();
         add(sep, new PrecisionLayoutData().setHorizontalSpan(8).setHorizontalAlignment(PrecisionLayoutAlignment.FILL).setGrabHorizontalSpace(true));

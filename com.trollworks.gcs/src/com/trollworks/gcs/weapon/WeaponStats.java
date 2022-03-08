@@ -279,7 +279,7 @@ public abstract class WeaponStats {
         if (df instanceof GURPSCharacter) {
             getSkillLevel((GURPSCharacter) df, toolTip);
         }
-        return toolTip.isEmpty() ? I18n.text("No additional modifiers") : I18n.text("Includes modifiers from") + toolTip;
+        return toolTip.isEmpty() ? I18n.text("没有额外调整值") : I18n.text("包括调整值来自") + toolTip;
     }
 
     public String getParryToolTip() {
