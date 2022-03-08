@@ -37,22 +37,22 @@ public class IdentityPanel extends DropPanel {
      * @param sheet The sheet to display the data for.
      */
     public IdentityPanel(CharacterSheet sheet) {
-        super(new PrecisionLayout().setColumns(3).setMargins(0).setSpacing(0, 0), I18n.text("Identity"));
+        super(new PrecisionLayout().setColumns(3).setMargins(0).setSpacing(0, 0), I18n.text("身份"));
         Profile profile = sheet.getCharacter().getProfile();
-        mNameField = createRandomizableField(sheet, profile.getName(), I18n.text("Name"), "character name",
+        mNameField = createRandomizableField(sheet, profile.getName(), I18n.text("姓名"), "character name",
                 (c, v) -> c.getProfile().setName((String) v), (b) -> {
                     mNameField.attemptCommit();
                     mNameField.requestFocus();
                     profile.setName(profile.getRandomName(profile.getName()));
                 });
-        createStringField(sheet, profile.getTitle(), I18n.text("Title"), "character title",
+        createStringField(sheet, profile.getTitle(), I18n.text("头衔"), "character title",
                 (c, v) -> c.getProfile().setTitle((String) v));
-        createStringField(sheet, profile.getOrganization(), I18n.text("Organization"), "organization",
+        createStringField(sheet, profile.getOrganization(), I18n.text("组织"), "organization",
                 (c, v) -> c.getProfile().setOrganization((String) v));
     }
 
     private PageField createRandomizableField(CharacterSheet sheet, String value, String title, String tag, CharacterSetter setter, FontIconButton.ClickFunction randomizer) {
-        FontIconButton button = new FontIconButton(FontAwesome.RANDOM, String.format(I18n.text("Randomize %s"), title), randomizer);
+        FontIconButton button = new FontIconButton(FontAwesome.RANDOM, String.format(I18n.text("随机 %s"), title), randomizer);
         button.setThemeFont(Fonts.FONT_ICON_PAGE_SMALL);
         button.setFocusable(false);
         add(button);
