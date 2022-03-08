@@ -38,8 +38,8 @@ public class Library implements Comparable<Library> {
     private static final String        KEY_TITLE                           = "title";
     private static final String        KEY_PATH                            = "path";
     private static final String        KEY_LAST_SEEN                       = "last_seen";
-    public static final  Library       MASTER                              = new Library(I18n.text("Master Library"), "richardwilkes", "gcs_master_library", getDefaultMasterLibraryPath());
-    public static final  Library       USER                                = new Library(I18n.text("User Library"), "*", "gcs_user_library", getDefaultUserLibraryPath());
+    public static final  Library       MASTER                              = new Library(I18n.text("主库"), "richardwilkes", "gcs_master_library", getDefaultMasterLibraryPath());
+    public static final  Library       USER                                = new Library(I18n.text("用户库"), "*", "gcs_user_library", getDefaultUserLibraryPath());
     public static final  List<Library> LIBRARIES                           = new ArrayList<>();
     private              String        mTitle;
     private              String        mGitHubAccountName;

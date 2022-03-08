@@ -26,7 +26,7 @@ public final class SettingsCommand extends Command {
     private             boolean         mForDefaults;
 
     private SettingsCommand(boolean defaults) {
-        super(defaults ? I18n.text("Default Sheet Settings…") : I18n.text("Sheet Settings…"),
+        super(defaults ? I18n.text("默认人物卡设置……") : I18n.text("人物卡设置……"),
                 defaults ? "default_sheet_settings" : "sheet_settings",
                 KeyEvent.VK_COMMA, defaults ? COMMAND_MODIFIER : SHIFTED_COMMAND_MODIFIER);
         mForDefaults = defaults;

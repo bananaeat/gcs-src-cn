@@ -34,9 +34,9 @@ public final class ColorChooser extends Panel {
     public static Color presentToUser(Component comp, String title, Color current) {
         ColorChooser cc = new ColorChooser(current);
         Modal modal = Modal.prepareToShowMessage(comp, title != null ? title :
-                I18n.text("Choose a color…"), MessageType.QUESTION, cc);
+                I18n.text("选择一个颜色……"), MessageType.QUESTION, cc);
         modal.addCancelButton();
-        cc.mSetButton = modal.addButton(I18n.text("Set"), Modal.OK);
+        cc.mSetButton = modal.addButton(I18n.text("设置"), Modal.OK);
         cc.adjustButtons();
         modal.presentToUser();
         switch (modal.getResult()) {
@@ -75,8 +75,8 @@ public final class ColorChooser extends Panel {
 
     private Panel createBeforeAfterWells(Color color) {
         Panel panel = new Panel(new PrecisionLayout().setColumns(2).setMargins(0));
-        mCurrent = addWell(panel, I18n.text("Updated"), color);
-        mOriginal = addWell(panel, I18n.text("Original"), color);
+        mCurrent = addWell(panel, I18n.text("已更改"), color);
+        mOriginal = addWell(panel, I18n.text("原本的"), color);
         return panel;
     }
 

@@ -28,7 +28,7 @@ public final class CloseCommand extends Command {
     public static final CloseCommand INSTANCE = new CloseCommand();
 
     private CloseCommand() {
-        super(I18n.text("Close"), CMD_CLOSE, KeyEvent.VK_W);
+        super(I18n.text("关闭"), CMD_CLOSE, KeyEvent.VK_W);
     }
 
     @Override

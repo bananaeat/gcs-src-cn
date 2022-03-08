@@ -21,7 +21,7 @@ import javax.swing.event.MenuListener;
 
 public class LibraryMenu extends JMenu implements MenuListener {
     public LibraryMenu() {
-        super(I18n.text("Library"));
+        super(I18n.text("库"));
         addMenuListener(this);
     }
 

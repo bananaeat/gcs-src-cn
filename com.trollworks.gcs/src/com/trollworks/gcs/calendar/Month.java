@@ -47,10 +47,10 @@ public class Month {
     /** @return null if the month data is usable. */
     public String checkValidity() {
         if (mName == null || mName.isBlank()) {
-            return I18n.text("Calendar month names must not be empty");
+            return I18n.text("日历月名称不得为空");
         }
         if (mDays < 1) {
-            return I18n.text("Calendar months must have at least 1 day");
+            return I18n.text("日历月至少需要有一天");
         }
         return null;
     }

@@ -102,7 +102,7 @@ public class AttributeListPanel extends BandedPanel {
                 id = "id" + ++counter;
             }
         }
-        AttributeDef def = new AttributeDef(id, AttributeType.INTEGER, I18n.text("name"), I18n.text("description"), "10", order, 0, 0);
+        AttributeDef def = new AttributeDef(id, AttributeType.INTEGER, I18n.text("名称"), I18n.text("描述"), "10", order, 0, 0);
         mAttributes.put(def.getID(), def);
         mAdjustCallback.run();
         add(new AttributePanel(mAttributes, def, mAdjustCallback), new PrecisionLayoutData().setGrabHorizontalSpace(true).setFillHorizontalAlignment());

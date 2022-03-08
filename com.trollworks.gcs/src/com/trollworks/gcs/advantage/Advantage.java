@@ -113,7 +113,7 @@ public class Advantage extends CollectedListRow implements HasSourceReference, S
     public Advantage(DataFile dataFile, boolean isContainer) {
         super(dataFile, isContainer);
         mType = TYPE_MASK_PHYSICAL;
-        mName = I18n.text("Advantage");
+        mName = I18n.text("优势");
         mCR = SelfControlRoll.NONE_REQUIRED;
         mCRAdj = SelfControlRollAdjustments.NONE;
         mLevels = -1;
@@ -197,7 +197,7 @@ public class Advantage extends CollectedListRow implements HasSourceReference, S
 
     @Override
     public String getRowType() {
-        return I18n.text("Advantage");
+        return I18n.text("优势");
     }
 
     @Override
@@ -209,7 +209,7 @@ public class Advantage extends CollectedListRow implements HasSourceReference, S
     protected void prepareForLoad(LoadState state) {
         super.prepareForLoad(state);
         mType = TYPE_MASK_PHYSICAL;
-        mName = I18n.text("Advantage");
+        mName = I18n.text("优势");
         mCR = SelfControlRoll.NONE_REQUIRED;
         mCRAdj = SelfControlRollAdjustments.NONE;
         mLevels = -1;
@@ -386,7 +386,7 @@ public class Advantage extends CollectedListRow implements HasSourceReference, S
 
     @Override
     public String getLocalizedName() {
-        return I18n.text("Advantage");
+        return I18n.text("优势");
     }
 
     /** @return The name. */

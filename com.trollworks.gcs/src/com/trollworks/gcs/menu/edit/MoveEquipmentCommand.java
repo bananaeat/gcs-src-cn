@@ -69,7 +69,7 @@ public class MoveEquipmentCommand extends Command {
     }
 
     private static String getTitle(boolean toCarried) {
-        return toCarried ? I18n.text("Move to Carried Equipment") : I18n.text("Move to Other Equipment");
+        return toCarried ? I18n.text("转到随身装备") : I18n.text("转到其他装备");
     }
 
     public static void moveSelection(DataFile dataFile, boolean toCarried) {

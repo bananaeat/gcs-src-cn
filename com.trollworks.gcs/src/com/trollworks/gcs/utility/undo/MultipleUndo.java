@@ -35,11 +35,11 @@ public class MultipleUndo extends CompoundEdit {
 
     @Override
     public String getRedoPresentationName() {
-        return I18n.text("Redo ") + mName;
+        return I18n.text("重做 ") + mName;
     }
 
     @Override
     public String getUndoPresentationName() {
-        return I18n.text("Undo ") + mName;
+        return I18n.text("撤销 ") + mName;
     }
 }

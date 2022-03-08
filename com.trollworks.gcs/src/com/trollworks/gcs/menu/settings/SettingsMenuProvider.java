@@ -41,7 +41,7 @@ public final class SettingsMenuProvider {
     }
 
     public static JMenu createMenu() {
-        JMenu menu = new JMenu(I18n.text("Settings"));
+        JMenu menu = new JMenu(I18n.text("设置"));
         menu.add(new DynamicMenuItem(SettingsCommand.PER_SHEET));
         menu.add(new DynamicMenuItem(AttributeSettingsCommand.PER_SHEET));
         menu.add(new DynamicMenuItem(BodyTypeSettingsCommand.PER_SHEET));

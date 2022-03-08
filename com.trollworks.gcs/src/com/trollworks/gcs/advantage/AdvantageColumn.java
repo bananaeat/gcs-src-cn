@@ -38,12 +38,12 @@ public enum AdvantageColumn {
     DESCRIPTION {
         @Override
         public String toString() {
-            return I18n.text("Advantages & Disadvantages");
+            return I18n.text("优势&劣势");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The name, level and notes describing an advantage");
+            return I18n.text("一个优势的名称，等级和备注");
         }
 
         @Override
@@ -75,12 +75,12 @@ public enum AdvantageColumn {
     POINTS {
         @Override
         public String toString() {
-            return I18n.text("Pts");
+            return I18n.text("点数");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The points spent in the advantage");
+            return I18n.text("花费在该优势上的点数");
         }
 
         @Override
@@ -107,12 +107,12 @@ public enum AdvantageColumn {
     TYPE {
         @Override
         public String toString() {
-            return I18n.text("Type");
+            return I18n.text("类型");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The type of advantage");
+            return I18n.text("优势的类型");
         }
 
         @Override
@@ -139,12 +139,12 @@ public enum AdvantageColumn {
     CATEGORY {
         @Override
         public String toString() {
-            return I18n.text("Category");
+            return I18n.text("类别");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The category or categories the advantage belongs to");
+            return I18n.text("优势所属的类别");
         }
 
         @Override
@@ -176,7 +176,7 @@ public enum AdvantageColumn {
 
         @Override
         public String getToolTip() {
-            return PageRefCell.getStdToolTip(I18n.text("advantage"));
+            return PageRefCell.getStdToolTip(I18n.text("优势"));
         }
 
         @Override

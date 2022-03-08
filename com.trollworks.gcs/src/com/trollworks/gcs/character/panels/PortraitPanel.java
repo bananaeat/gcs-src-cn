@@ -57,9 +57,9 @@ public class PortraitPanel extends DropPanel implements DropTargetListener {
      */
     public PortraitPanel(CharacterSheet sheet) {
         super(null, true);
-        setBorder(new TitledBorder(Fonts.PAGE_LABEL_PRIMARY, I18n.text("Portrait")));
+        setBorder(new TitledBorder(Fonts.PAGE_LABEL_PRIMARY, I18n.text("头像")));
         mSheet = sheet;
-        setToolTipText(MessageFormat.format(I18n.text("Double-click to set a character portrait. The dimensions of the chosen picture should be in a ratio of 3 pixels wide for every 4 pixels tall to scale without distortion. Dimensions of {0}x{1} are ideal."),
+        setToolTipText(MessageFormat.format(I18n.text("双击来设置角色头像。所选图像的尺寸应该是宽高比3：4的。{0}x{1}的尺寸最为理想。"),
                 Integer.valueOf(Profile.PORTRAIT_WIDTH * 2), Integer.valueOf(Profile.PORTRAIT_HEIGHT * 2)));
         if (GraphicsUtilities.hasUserDisplay()) {
             setDropTarget(new DropTarget(this, DnDConstants.ACTION_COPY, this));

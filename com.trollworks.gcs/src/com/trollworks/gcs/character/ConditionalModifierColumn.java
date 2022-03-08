@@ -29,7 +29,7 @@ public enum ConditionalModifierColumn {
     MODIFIER {
         @Override
         public String toString() {
-            return I18n.text("Modifier");
+            return I18n.text("修正");
         }
 
         @Override
@@ -53,7 +53,7 @@ public enum ConditionalModifierColumn {
     CONDITION {
         @Override
         public String toString() {
-            return I18n.text("Condition");
+            return I18n.text("条件");
         }
 
         @Override

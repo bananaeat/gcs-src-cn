@@ -34,7 +34,7 @@ public final class SaveCommand extends Command {
     public static final SaveCommand INSTANCE = new SaveCommand();
 
     private SaveCommand() {
-        super(I18n.text("Save"), CMD_SAVE, KeyEvent.VK_S);
+        super(I18n.text("保存"), CMD_SAVE, KeyEvent.VK_S);
     }
 
     @Override
@@ -87,11 +87,11 @@ public final class SaveCommand extends Command {
         if (saveable.isModified()) {
             saveable.toFrontAndFocus();
             Modal dialog = Modal.prepareToShowMessage(UIUtilities.getComponentForDialog(saveable),
-                    I18n.text("Save"), MessageType.QUESTION,
-                    MessageFormat.format(I18n.text("Save changes to \"{0}\"?"), saveable.getSaveTitle()));
-            dialog.addButton(I18n.text("Cancel"), Modal.CLOSED);
-            dialog.addButton(I18n.text("Discard"), Modal.CANCEL);
-            dialog.addButton(I18n.text("Save"), Modal.OK);
+                    I18n.text("保存"), MessageType.QUESTION,
+                    MessageFormat.format(I18n.text("保存更高到 \"{0}\"?"), saveable.getSaveTitle()));
+            dialog.addButton(I18n.text("取消"), Modal.CLOSED);
+            dialog.addButton(I18n.text("舍弃更改"), Modal.CANCEL);
+            dialog.addButton(I18n.text("保存"), Modal.OK);
             dialog.presentToUser();
             switch (dialog.getResult()) {
                 case Modal.OK:

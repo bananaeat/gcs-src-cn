@@ -770,7 +770,7 @@ public class GURPSCharacter extends CollectedModels implements VariableResolver 
     public void setUnspentPoints(int unspent) {
         int current = getUnspentPoints();
         if (current != unspent) {
-            postUndoEdit(I18n.text("Unspent Points Change"), (c, v) -> c.setUnspentPoints(((Integer) v).intValue()), Integer.valueOf(current), Integer.valueOf(unspent));
+            postUndoEdit(I18n.text("未花费点数变更"), (c, v) -> c.setUnspentPoints(((Integer) v).intValue()), Integer.valueOf(current), Integer.valueOf(unspent));
             mTotalPoints = unspent + getSpentPoints();
             notifyOfChange();
         }
@@ -1052,7 +1052,7 @@ public class GURPSCharacter extends CollectedModels implements VariableResolver 
                 row.setSatisfied(satisfied);
             }
             if (!satisfied) {
-                builder.insert(0, I18n.text("Prerequisites have not been met:"));
+                builder.insert(0, I18n.text("前置条件未满足"));
                 row.setReasonForUnsatisfied(builder.toString());
             }
         }

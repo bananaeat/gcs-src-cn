@@ -72,7 +72,7 @@ public abstract class LibraryDockable extends DataFileDockable implements RowFil
         Settings       prefs   = Settings.getInstance();
         mToolbar = new Toolbar();
         mLockButton = new FontIconButton(outlineModel.isLocked() ? FontAwesome.LOCK :
-                FontAwesome.UNLOCK_ALT, I18n.text("Switches between allowing editing and not"),
+                FontAwesome.UNLOCK_ALT, I18n.text("切换允许编辑与否"),
                 (b) -> {
                     OutlineModel model = mOutline.getModel();
                     model.setLocked(!model.isLocked());
@@ -80,10 +80,10 @@ public abstract class LibraryDockable extends DataFileDockable implements RowFil
                 });
         mToolbar.add(mLockButton);
         mToolbar.add(new FontIconButton(FontAwesome.SITEMAP,
-                I18n.text("Opens/closes all hierarchical rows"),
+                I18n.text("打开/关闭所有多级行"),
                 (b) -> mOutline.getModel().toggleRowOpenState()));
         mToolbar.add(new FontIconButton(FontAwesome.ARROWS_ALT_H,
-                I18n.text("Sets the width of each column to exactly fit its contents"),
+                I18n.text("使每一列的宽度匹配其内容"),
                 (b) -> mOutline.sizeColumnsToFit()));
         mScalesPopup = new PopupMenu<>(Scales.values(), (p) -> {
             Scales scales = mScalesPopup.getSelectedItem();
@@ -152,8 +152,8 @@ public abstract class LibraryDockable extends DataFileDockable implements RowFil
 
     private void createFilterField() {
         mFilterField = new EditorField(FieldFactory.STRING, null, SwingConstants.LEFT, "",
-                Text.makeFiller(10, 'M'), I18n.text("Enter text here to narrow the list to only those rows containing matching items"));
-        mFilterField.setHint(I18n.text("Filter"));
+                Text.makeFiller(10, 'M'), I18n.text("在这里输入文本以找出包括匹配项目的行"));
+        mFilterField.setHint(I18n.text("过滤"));
         mFilterField.getDocument().addDocumentListener(this);
         mToolbar.add(mFilterField, Toolbar.LAYOUT_FILL);
     }
@@ -171,7 +171,7 @@ public abstract class LibraryDockable extends DataFileDockable implements RowFil
     private void adjustCategoryPopup() {
         String last = mCategoryPopup.getSelectedItem();
         mCategoryPopup.clear();
-        mCategoryPopup.addItem(I18n.text("Any Category"));
+        mCategoryPopup.addItem(I18n.text("任何类型"));
         List<String> categories = getDataFile().getCategories();
         String       selection  = null;
         if (!categories.isEmpty()) {

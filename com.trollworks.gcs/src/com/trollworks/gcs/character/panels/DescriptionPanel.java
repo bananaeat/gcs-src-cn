@@ -54,60 +54,60 @@ public class DescriptionPanel extends DropPanel {
      * @param sheet The sheet to display the data for.
      */
     public DescriptionPanel(CharacterSheet sheet) {
-        super(new PrecisionLayout().setColumns(5).setMargins(0).setSpacing(2, 0), I18n.text("Description"));
+        super(new PrecisionLayout().setColumns(5).setMargins(0).setSpacing(2, 0), I18n.text("描述"));
         GURPSCharacter gch     = sheet.getCharacter();
         Profile        profile = gch.getProfile();
         Wrapper        wrapper = new Wrapper(new PrecisionLayout().setColumns(3).setMargins(0).setSpacing(0, 0));
         mGenderField = createRandomizableField(wrapper, sheet, FieldFactory.STRING,
-                profile.getGender(), "gender", I18n.text("Gender"), null,
+                profile.getGender(), "gender", I18n.text("性别"), null,
                 (c, v) -> c.getProfile().setGender((String) v), (b) -> {
                     mGenderField.attemptCommit();
                     mGenderField.requestFocus();
                     profile.setGender(profile.getRandomGender(profile.getGender()));
                 });
         mAgeField = createRandomizableField(wrapper, sheet, FieldFactory.STRING, profile.getAge(),
-                "age", I18n.text("Age"), I18n.text("The character's age"),
+                "age", I18n.text("年龄"), I18n.text("人物的年龄"),
                 (c, v) -> c.getProfile().setAge((String) v), (b) -> {
                     mAgeField.attemptCommit();
                     mAgeField.requestFocus();
                     profile.setAge(Numbers.format(profile.getRandomAge(Numbers.extractInteger(profile.getAge(), 0, true))));
                 });
         mBirthdayField = createRandomizableField(wrapper, sheet, FieldFactory.STRING,
-                profile.getBirthday(), "birthday", I18n.text("Birthday"),
-                I18n.text("The character's birthday"),
+                profile.getBirthday(), "birthday", I18n.text("生日"),
+                I18n.text("人物的生日"),
                 (c, v) -> c.getProfile().setBirthday((String) v), (b) -> {
                     mBirthdayField.attemptCommit();
                     mBirthdayField.requestFocus();
                     profile.setBirthday(profile.getRandomBirthday(profile.getBirthday()));
                 });
         createField(wrapper, sheet, FieldFactory.STRING, profile.getReligion(), "religion",
-                I18n.text("Religion"), null, (c, v) -> c.getProfile().setReligion((String) v));
+                I18n.text("宗教信仰"), null, (c, v) -> c.getProfile().setReligion((String) v));
         add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         createDivider();
 
         wrapper = new Wrapper(new PrecisionLayout().setColumns(3).setMargins(0).setSpacing(0, 0));
         mHeightField = createRandomizableField(wrapper, sheet, FieldFactory.HEIGHT,
-                profile.getHeight(), "character height", I18n.text("Height"),
-                I18n.text("The character's height"),
+                profile.getHeight(), "character height", I18n.text("身高"),
+                I18n.text("人物身高"),
                 (c, v) -> c.getProfile().setHeight((LengthValue) v), (b) -> {
                     mHeightField.attemptCommit();
                     mHeightField.requestFocus();
                     profile.setHeight(profile.getRandomHeight(profile.getHeight()));
                 });
         mWeightField = createRandomizableField(wrapper, sheet, FieldFactory.WEIGHT,
-                profile.getWeight(), "character weight", I18n.text("Weight"),
-                I18n.text("The character's weight"),
+                profile.getWeight(), "character weight", I18n.text("体重"),
+                I18n.text("人物的体重"),
                 (c, v) -> c.getProfile().setWeight((WeightValue) v), (b) -> {
                     mWeightField.attemptCommit();
                     mWeightField.requestFocus();
                     profile.setWeight(profile.getRandomWeight(profile.getWeightMultiplier(), profile.getWeight()));
                 });
         createField(wrapper, sheet, FieldFactory.SM, Integer.valueOf(profile.getSizeModifier()),
-                "SM", I18n.text("Size"), I18n.text("The character's size modifier"),
+                "SM", I18n.text("尺寸"), I18n.text("人物的体型修正值"),
                 (c, v) -> c.getProfile().setSizeModifier(((Integer) v).intValue()));
         createField(wrapper, sheet, FieldFactory.STRING, profile.getTechLevel(), "character TL",
-                I18n.text("TL"), GeneralSettingsWindow.getTechLevelTooltip(),
+                I18n.text("科技水平(TL)"), GeneralSettingsWindow.getTechLevelTooltip(),
                 (c, v) -> c.getProfile().setTechLevel((String) v));
         add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
@@ -115,31 +115,31 @@ public class DescriptionPanel extends DropPanel {
 
         wrapper = new Wrapper(new PrecisionLayout().setColumns(3).setMargins(0).setSpacing(0, 0));
         mHairField = createRandomizableField(wrapper, sheet, FieldFactory.STRING, profile.getHair(),
-                "hair", I18n.text("Hair"), I18n.text("The character's hair style and color"),
+                "hair", I18n.text("头发"), I18n.text("人物的发型与发色"),
                 (c, v) -> c.getProfile().setHair((String) v), (b) -> {
                     mHairField.attemptCommit();
                     mHairField.requestFocus();
                     profile.setHair(profile.getRandomHair(profile.getHair()));
                 });
         mEyeColorField = createRandomizableField(wrapper, sheet, FieldFactory.STRING,
-                profile.getEyeColor(), "eye color", I18n.text("Eyes"),
-                I18n.text("The character's eye color"),
+                profile.getEyeColor(), "eye color", I18n.text("瞳色"),
+                I18n.text("人物的瞳色"),
                 (c, v) -> c.getProfile().setEyeColor((String) v), (b) -> {
                     mEyeColorField.attemptCommit();
                     mEyeColorField.requestFocus();
                     profile.setEyeColor(profile.getRandomEyeColor(profile.getEyeColor()));
                 });
         mSkinColorField = createRandomizableField(wrapper, sheet, FieldFactory.STRING,
-                profile.getSkinColor(), "skin color", I18n.text("Skin"),
-                I18n.text("The character's skin color"),
+                profile.getSkinColor(), "skin color", I18n.text("肤色"),
+                I18n.text("人物的肤色"),
                 (c, v) -> c.getProfile().setSkinColor((String) v), (b) -> {
                     mSkinColorField.attemptCommit();
                     mSkinColorField.requestFocus();
                     profile.setSkinColor(profile.getRandomSkin(profile.getSkinColor()));
                 });
         mHandednessField = createRandomizableField(wrapper, sheet, FieldFactory.STRING,
-                profile.getHandedness(), "handedness", I18n.text("Hand"),
-                I18n.text("The character's preferred hand"),
+                profile.getHandedness(), "handedness", I18n.text("惯用手"),
+                I18n.text("人物的惯用手"),
                 (c, v) -> c.getProfile().setHandedness((String) v), (b) -> {
                     mHandednessField.attemptCommit();
                     mHandednessField.requestFocus();
@@ -149,7 +149,7 @@ public class DescriptionPanel extends DropPanel {
     }
 
     private static PageField createRandomizableField(Container parent, CharacterSheet sheet, AbstractFormatterFactory factory, Object value, String tag, String title, String tooltip, CharacterSetter setter, FontIconButton.ClickFunction randomizer) {
-        FontIconButton button = new FontIconButton(FontAwesome.RANDOM, String.format(I18n.text("Randomize %s"), title), randomizer);
+        FontIconButton button = new FontIconButton(FontAwesome.RANDOM, String.format(I18n.text("随机 %s"), title), randomizer);
         button.setThemeFont(Fonts.FONT_ICON_PAGE_SMALL);
         button.setFocusable(false);
         parent.add(button);

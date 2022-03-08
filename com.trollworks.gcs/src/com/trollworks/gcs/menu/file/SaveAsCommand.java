@@ -34,7 +34,7 @@ public final class SaveAsCommand extends Command {
     public static final SaveAsCommand INSTANCE = new SaveAsCommand();
 
     private SaveAsCommand() {
-        super(I18n.text("Save As…"), CMD_SAVE_AS, KeyEvent.VK_S, SHIFTED_COMMAND_MODIFIER);
+        super(I18n.text("另存为……"), CMD_SAVE_AS, KeyEvent.VK_S, SHIFTED_COMMAND_MODIFIER);
     }
 
     @Override
@@ -60,7 +60,7 @@ public final class SaveAsCommand extends Command {
                 name = fileType.getUntitledDefaultFileName();
             }
             Path path = Modal.presentSaveFileDialog(UIUtilities.getComponentForDialog(saveable),
-                    I18n.text("Save As…"), Dirs.GENERAL, name, fileType.getFilter());
+                    I18n.text("另存为……"), Dirs.GENERAL, name, fileType.getFilter());
             if (path != null && saveable.saveTo(path)) {
                 Settings.getInstance().addRecentFile(path);
                 LibraryExplorerDockable explorer = LibraryExplorerDockable.get();

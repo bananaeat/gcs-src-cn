@@ -99,7 +99,7 @@ public class ListOutline extends Outline implements Runnable, ActionListener, Du
     public void deleteSelection() {
         if (canDeleteSelection()) {
             OutlineModel model = getModel();
-            StateEdit    edit  = new StateEdit(model, I18n.text("Remove Rows"));
+            StateEdit    edit  = new StateEdit(model, I18n.text("删除行"));
             Row[]        rows  = model.getSelectionAsList(true).toArray(new Row[0]);
             model.removeSelection();
             for (int i = rows.length - 1; i >= 0; i--) {
@@ -388,7 +388,7 @@ public class ListOutline extends Outline implements Runnable, ActionListener, Du
                     topRows.add((ListRow) row);
                 }
             }
-            addRow(topRows.toArray(new ListRow[0]), I18n.text("Duplicate Rows"), true);
+            addRow(topRows.toArray(new ListRow[0]), I18n.text("复制行"), true);
             model.select(topRows, false);
             scrollSelectionIntoView();
             mDataFile.notifyOfChange();

@@ -68,12 +68,12 @@ public abstract class RowEditor<T extends ListRow> extends ActionPanel {
         int                length = rows.length;
         for (int i = 0; i < length; i++) {
             ListRow   row     = rows[i];
-            Modal     dialog  = new Modal(owner, MessageFormat.format(I18n.text("Edit {0}"), row.getRowType()));
+            Modal     dialog  = new Modal(owner, MessageFormat.format(I18n.text("编辑 {0}"), row.getRowType()));
             Container content = dialog.getContentPane();
             if (i != length - 1) {
                 int remaining = length - i - 1;
-                String msg = remaining == 1 ? I18n.text("1 item remaining to be edited.") :
-                        String.format(I18n.text("%s items remaining to be edited."), Numbers.format(remaining));
+                String msg = remaining == 1 ? I18n.text("剩余1个项目未编辑。") :
+                        String.format(I18n.text("剩余%s个项目未编辑。"), Numbers.format(remaining));
                 Label label = new Label(msg, SwingConstants.CENTER);
                 label.setBorder(new EmptyBorder(LayoutConstants.WINDOW_BORDER_INSET, 0, 0, 0));
                 content.add(label, BorderLayout.NORTH);

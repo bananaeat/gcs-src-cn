@@ -49,26 +49,26 @@ public class EncumbrancePanel extends DropPanel {
         add(sep, new PrecisionLayoutData().setHorizontalSpan(8).setHorizontalAlignment(PrecisionLayoutAlignment.FILL).setGrabHorizontalSpace(true));
         addHorizontalBackground(sep, Colors.DIVIDER);
 
-        PageHeader header = new PageHeader(I18n.text("Level"), I18n.text("The encumbrance level"));
+        PageHeader header = new PageHeader(I18n.text("等级"), I18n.text("负重等级"));
         add(header, new PrecisionLayoutData().setHorizontalSpan(2).setHorizontalAlignment(PrecisionLayoutAlignment.MIDDLE).setGrabHorizontalSpace(true));
         addHorizontalBackground(header, Colors.HEADER);
 
         addVerticalBackground(createDivider(), Colors.DIVIDER);
 
-        String maxLoadTooltip = I18n.text("The maximum load a character can carry and still remain within a specific encumbrance level");
-        header = new PageHeader(I18n.text("Max Load"), maxLoadTooltip);
+        String maxLoadTooltip = I18n.text("人物在特定负重等级下最多携带多重的物品");
+        header = new PageHeader(I18n.text("最大负重"), maxLoadTooltip);
         add(header, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.MIDDLE));
 
         addVerticalBackground(createDivider(), Colors.DIVIDER);
 
-        String moveTooltip = I18n.text("The character's ground movement rate for a specific encumbrance level");
-        header = new PageHeader(I18n.text("Move"), moveTooltip);
+        String moveTooltip = I18n.text("人物在特定负重等级下的地面移动速度");
+        header = new PageHeader(I18n.text("移动"), moveTooltip);
         add(header, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.MIDDLE));
 
         addVerticalBackground(createDivider(), Colors.DIVIDER);
 
-        String dodgeTooltip = I18n.text("The character's dodge for a specific encumbrance level");
-        header = new PageHeader(I18n.text("Dodge"), dodgeTooltip);
+        String dodgeTooltip = I18n.text("人物在特定负重等级下的闪避等级");
+        header = new PageHeader(I18n.text("闪避"), dodgeTooltip);
         add(header, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.MIDDLE));
 
         GURPSCharacter character = sheet.getCharacter();

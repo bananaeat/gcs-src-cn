@@ -59,6 +59,8 @@ public final class Fonts {
     /** The name of the RPG Awesome font. */
     public static final String RPG_AWESOME          = "rpg-awesome";
 
+    public static final String SONG                 = "宋体";
+
     public static final  List<ThemeFont> ALL             = new ArrayList<>();
     private static final int             MINIMUM_VERSION = 1;
     private static final int             CURRENT_VERSION = 1;
@@ -121,19 +123,19 @@ public final class Fonts {
                 Log.error("unable to load font: " + embeddedFont);
             }
         }
-        BUTTON = new ThemeFont("button", I18n.text("Button"), new Font(ROBOTO_BLACK, Font.PLAIN, 13));
-        HEADER = new ThemeFont("header", I18n.text("Header"), new Font(ROBOTO_MEDIUM, Font.PLAIN, 13));
-        LABEL_PRIMARY = new ThemeFont("label.primary", I18n.text("Primary Labels"), new Font(ROBOTO, Font.PLAIN, 13));
-        LABEL_SECONDARY = new ThemeFont("label.secondary", I18n.text("Secondary Labels"), new Font(ROBOTO, Font.PLAIN, 11));
-        FIELD_PRIMARY = new ThemeFont("field.primary", I18n.text("Primary Fields"), new Font(ROBOTO, Font.PLAIN, 13));
-        FIELD_SECONDARY = new ThemeFont("field.secondary", I18n.text("Secondary Fields"), new Font(ROBOTO, Font.PLAIN, 11));
-        TOOLTIP = new ThemeFont("tooltip", I18n.text("Tooltip"), new Font(ROBOTO, Font.PLAIN, 12));
-        PAGE_LABEL_PRIMARY = new ThemeFont("page.label.primary", I18n.text("Page Primary Labels"), new Font(ROBOTO, Font.PLAIN, 9));
-        PAGE_LABEL_SECONDARY = new ThemeFont("page.label.secondary", I18n.text("Page Secondary Labels"), new Font(ROBOTO, Font.PLAIN, 8));
-        PAGE_FIELD_PRIMARY = new ThemeFont("page.field.primary", I18n.text("Page Primary Fields"), new Font(ROBOTO_MEDIUM, Font.PLAIN, 9));
-        PAGE_FIELD_SECONDARY = new ThemeFont("page.field.secondary", I18n.text("Page Secondary Fields"), new Font(ROBOTO, Font.PLAIN, 8));
-        PAGE_FOOTER_PRIMARY = new ThemeFont("page.footer.primary", I18n.text("Page Primary Footer"), new Font(ROBOTO_MEDIUM, Font.PLAIN, 8));
-        PAGE_FOOTER_SECONDARY = new ThemeFont("page.footer.secondary", I18n.text("Page Secondary Footer"), new Font(ROBOTO, Font.PLAIN, 6));
+        BUTTON = new ThemeFont("button", I18n.text("按钮"), new Font(SONG, Font.PLAIN, 13));
+        HEADER = new ThemeFont("header", I18n.text("标题"), new Font(SONG, Font.PLAIN, 13));
+        LABEL_PRIMARY = new ThemeFont("label.primary", I18n.text("主要标签"), new Font(SONG, Font.PLAIN, 13));
+        LABEL_SECONDARY = new ThemeFont("label.secondary", I18n.text("次要标签"), new Font(SONG, Font.PLAIN, 11));
+        FIELD_PRIMARY = new ThemeFont("field.primary", I18n.text("主要域"), new Font(SONG, Font.PLAIN, 13));
+        FIELD_SECONDARY = new ThemeFont("field.secondary", I18n.text("次要域"), new Font(SONG, Font.PLAIN, 11));
+        TOOLTIP = new ThemeFont("tooltip", I18n.text("Tooltip"), new Font(SONG, Font.PLAIN, 12));
+        PAGE_LABEL_PRIMARY = new ThemeFont("page.label.primary", I18n.text("页面主要标签"), new Font(SONG, Font.PLAIN, 9));
+        PAGE_LABEL_SECONDARY = new ThemeFont("page.label.secondary", I18n.text("页面次要标签"), new Font(SONG, Font.PLAIN, 8));
+        PAGE_FIELD_PRIMARY = new ThemeFont("page.field.primary", I18n.text("页面主要域"), new Font(SONG, Font.PLAIN, 9));
+        PAGE_FIELD_SECONDARY = new ThemeFont("page.field.secondary", I18n.text("页面次要域"), new Font(SONG, Font.PLAIN, 8));
+        PAGE_FOOTER_PRIMARY = new ThemeFont("page.footer.primary", I18n.text("页面主要脚注"), new Font(SONG, Font.PLAIN, 8));
+        PAGE_FOOTER_SECONDARY = new ThemeFont("page.footer.secondary", I18n.text("页面次要脚注"), new Font(SONG, Font.PLAIN, 6));
 
         KEYBOARD = new ThemeFont("keyboard", () -> new Font("Dialog", Font.PLAIN, LABEL_PRIMARY.getFont().getSize()));
         ENCUMBRANCE_MARKER = new ThemeFont("encumbrance.marker", () -> new Font(FONT_AWESOME_SOLID, Font.PLAIN, PAGE_LABEL_PRIMARY.getFont().getSize()));
@@ -243,7 +245,7 @@ public final class Fonts {
             if (!buffer.isEmpty()) {
                 buffer.append("\n");
             }
-            buffer.append(one).append(I18n.text(" is missing."));
+            buffer.append(one).append(I18n.text(" 缺失。"));
         }
         return buffer.toString();
     }

@@ -22,7 +22,7 @@ public final class FontSettingsCommand extends Command {
     public static final FontSettingsCommand INSTANCE = new FontSettingsCommand();
 
     private FontSettingsCommand() {
-        super(I18n.text("Fonts…"), "FontSettings");
+        super(I18n.text("字体……"), "FontSettings");
     }
 
     @Override

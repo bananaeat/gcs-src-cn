@@ -17,12 +17,12 @@ import java.io.IOException;
 public final class VersionException extends IOException {
     /** @return An VersionException for files that are too old. */
     public static VersionException createTooOld() {
-        return new VersionException(I18n.text("The file is from an older version and cannot be loaded."));
+        return new VersionException(I18n.text("这个文件来自更旧版本，无法被加载。"));
     }
 
     /** @return An VersionException for files that are too new. */
     public static VersionException createTooNew() {
-        return new VersionException(I18n.text("The file is from a newer version and cannot be loaded."));
+        return new VersionException(I18n.text("这个文件来自更新版本，无法被加载。"));
     }
 
     private VersionException(String msg) {

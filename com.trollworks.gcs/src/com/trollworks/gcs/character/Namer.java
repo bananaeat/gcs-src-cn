@@ -66,7 +66,7 @@ public final class Namer extends Panel {
             ListRow row   = rowList.get(i);
             Namer   panel = new Namer(row, setList.get(i), count - i - 1);
             Modal dialog = Modal.prepareToShowMessage(owner,
-                    MessageFormat.format(I18n.text("Name {0}"), row.getLocalizedName()),
+                    MessageFormat.format(I18n.text("名称 {0}"), row.getLocalizedName()),
                     MessageType.QUESTION, panel);
             if (i != count - 1) {
                 dialog.addCancelRemainingButton();
@@ -107,8 +107,8 @@ public final class Namer extends Panel {
             mFields.add(field);
         }
         if (remaining > 0) {
-            Label reminder = new Label(remaining == 1 ? I18n.text("1 item remaining to be named.") :
-                    MessageFormat.format(I18n.text("{0} items remaining to be named."),
+            Label reminder = new Label(remaining == 1 ? I18n.text("1个物品尚未命名。") :
+                    MessageFormat.format(I18n.text("{0}个物品尚未命名。"),
                             Integer.valueOf(remaining)));
             reminder.setThemeFont(Fonts.LABEL_SECONDARY);
             add(new Separator(), new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true).setHorizontalSpan(2).setTopMargin(10));

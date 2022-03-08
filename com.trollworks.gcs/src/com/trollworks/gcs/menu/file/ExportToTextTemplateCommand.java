@@ -46,10 +46,10 @@ public class ExportToTextTemplateCommand extends Command {
             String name = PathUtils.cleanNameForFile(dockable.getSheet().getCharacter().getProfile().getName());
             String ext  = PathUtils.getExtension(mTemplatePath);
             if (name.isBlank()) {
-                name = I18n.text("untitled") + "." + ext;
+                name = I18n.text("未命名") + "." + ext;
             }
             Path path = Modal.presentSaveFileDialog(dockable, getTitle(), Dirs.GENERAL, name,
-                    new FileNameExtensionFilter(ext + I18n.text(" Files"), ext));
+                    new FileNameExtensionFilter(ext + I18n.text(" 文件"), ext));
             if (path != null) {
                 performExport(dockable, mTemplatePath, path);
             }
@@ -60,7 +60,7 @@ public class ExportToTextTemplateCommand extends Command {
         if (new TextTemplate(dockable.getSheet()).export(exportPath, templatePath)) {
             dockable.recordQuickExport(new QuickExport(templatePath, exportPath));
         } else {
-            Modal.showError(dockable, String.format(I18n.text("An error occurred while trying to export the sheet as %s."), PathUtils.getLeafName(templatePath, false)));
+            Modal.showError(dockable, String.format(I18n.text("将人物卡导出为%s时发生了一个错误。"), PathUtils.getLeafName(templatePath, false)));
         }
     }
 }

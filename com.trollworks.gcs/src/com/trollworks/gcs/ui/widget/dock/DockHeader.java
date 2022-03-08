@@ -111,14 +111,14 @@ public class DockHeader extends Panel implements LayoutManager, DropTargetListen
     void adjustToMaximizedState() {
         mMaximizeRestoreButton.setClickFunction((b) -> restore());
         mMaximizeRestoreButton.setText(FontAwesome.WINDOW_RESTORE);
-        mMaximizeRestoreButton.setToolTipText(I18n.text("Restore"));
+        mMaximizeRestoreButton.setToolTipText(I18n.text("恢复"));
     }
 
     /** Called when the owning {@link DockContainer} is restored from the maximized state. */
     void adjustToRestoredState() {
         mMaximizeRestoreButton.setClickFunction((b) -> maximize());
         mMaximizeRestoreButton.setText(FontAwesome.WINDOW_MAXIMIZE);
-        mMaximizeRestoreButton.setToolTipText(I18n.text("Maximize"));
+        mMaximizeRestoreButton.setToolTipText(I18n.text("最大化"));
     }
 
     @Override

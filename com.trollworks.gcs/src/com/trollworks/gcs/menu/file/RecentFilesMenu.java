@@ -32,7 +32,7 @@ public class RecentFilesMenu extends JMenu implements MenuListener {
 
     /** Creates a new RecentFilesMenu. */
     public RecentFilesMenu() {
-        super(I18n.text("Recent Files"));
+        super(I18n.text("最近文件"));
         addMenuListener(this);
         mLastSeenRecentFilesUpdateCounter = Settings.getInstance().getLastRecentFilesUpdateCounter() - 1;
     }

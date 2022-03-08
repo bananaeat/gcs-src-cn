@@ -19,25 +19,25 @@ public enum FontStyle {
     PLAIN {
         @Override
         public String toString() {
-            return I18n.text("Plain");
+            return I18n.text("普通");
         }
     },
     BOLD {
         @Override
         public String toString() {
-            return I18n.text("Bold");
+            return I18n.text("粗体");
         }
     },
     ITALIC {
         @Override
         public String toString() {
-            return I18n.text("Italic");
+            return I18n.text("斜体");
         }
     },
     BOLD_ITALIC {
         @Override
         public String toString() {
-            return I18n.text("Bold Italic");
+            return I18n.text("粗斜体");
         }
     };
 

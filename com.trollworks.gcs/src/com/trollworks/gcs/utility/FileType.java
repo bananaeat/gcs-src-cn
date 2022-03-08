@@ -28,34 +28,34 @@ public class FileType {
     public static final List<FileType> OPENABLE     = new ArrayList<>();
     public static final List<FileType> ALL_OPENABLE = new ArrayList<>();
 
-    public static final FileType SHEET              = new FileType(I18n.text("Character Sheet"), RPGAwesome.PLAYER, Fonts.FONT_ICON_FILE_RPG, true, true, "gcs");
-    public static final FileType TEMPLATE           = new FileType(I18n.text("Character Template"), RPGAwesome.DOUBLE_TEAM, Fonts.FONT_ICON_FILE_RPG, true, true, "gct");
-    public static final FileType ADVANTAGE          = new FileType(I18n.text("Advantages Library"), RPGAwesome.ANKH, Fonts.FONT_ICON_FILE_RPG, true, true, "adq");
-    public static final FileType ADVANTAGE_MODIFIER = new FileType(I18n.text("Advantage Modifiers Library"), RPGAwesome.RADIAL_BALANCE, Fonts.FONT_ICON_FILE_RPG, true, true, "adm");
-    public static final FileType EQUIPMENT          = new FileType(I18n.text("Equipment Library"), RPGAwesome.AXE, Fonts.FONT_ICON_FILE_RPG, true, true, "eqp");
-    public static final FileType EQUIPMENT_MODIFIER = new FileType(I18n.text("Equipment Modifiers Library"), RPGAwesome.GEAR_HAMMER, Fonts.FONT_ICON_FILE_RPG, true, true, "eqm");
-    public static final FileType SKILL              = new FileType(I18n.text("Skills Library"), RPGAwesome.FORGING, Fonts.FONT_ICON_FILE_RPG, true, true, "skl");
-    public static final FileType SPELL              = new FileType(I18n.text("Spells Library"), RPGAwesome.SCROLL_UNFURLED, Fonts.FONT_ICON_FILE_RPG, true, true, "spl");
-    public static final FileType NOTE               = new FileType(I18n.text("Notes Library"), RPGAwesome.WOODEN_SIGN, Fonts.FONT_ICON_FILE_RPG, true, true, "not");
+    public static final FileType SHEET              = new FileType(I18n.text("人物卡"), RPGAwesome.PLAYER, Fonts.FONT_ICON_FILE_RPG, true, true, "gcs");
+    public static final FileType TEMPLATE           = new FileType(I18n.text("人物模板"), RPGAwesome.DOUBLE_TEAM, Fonts.FONT_ICON_FILE_RPG, true, true, "gct");
+    public static final FileType ADVANTAGE          = new FileType(I18n.text("优势库"), RPGAwesome.ANKH, Fonts.FONT_ICON_FILE_RPG, true, true, "adq");
+    public static final FileType ADVANTAGE_MODIFIER = new FileType(I18n.text("优势修正库"), RPGAwesome.RADIAL_BALANCE, Fonts.FONT_ICON_FILE_RPG, true, true, "adm");
+    public static final FileType EQUIPMENT          = new FileType(I18n.text("装备库"), RPGAwesome.AXE, Fonts.FONT_ICON_FILE_RPG, true, true, "eqp");
+    public static final FileType EQUIPMENT_MODIFIER = new FileType(I18n.text("装备修正库"), RPGAwesome.GEAR_HAMMER, Fonts.FONT_ICON_FILE_RPG, true, true, "eqm");
+    public static final FileType SKILL              = new FileType(I18n.text("技能库"), RPGAwesome.FORGING, Fonts.FONT_ICON_FILE_RPG, true, true, "skl");
+    public static final FileType SPELL              = new FileType(I18n.text("法术库"), RPGAwesome.SCROLL_UNFURLED, Fonts.FONT_ICON_FILE_RPG, true, true, "spl");
+    public static final FileType NOTE               = new FileType(I18n.text("笔记库"), RPGAwesome.WOODEN_SIGN, Fonts.FONT_ICON_FILE_RPG, true, true, "not");
 
-    public static final FileType ATTRIBUTE_SETTINGS      = new FileType(I18n.text("Attribute Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "attributes", "gas");
+    public static final FileType ATTRIBUTE_SETTINGS      = new FileType(I18n.text("属性设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "attributes", "gas");
     public static final FileType BODY_SETTINGS           = new FileType(I18n.text("Body Type Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "body", "ghl");
-    public static final FileType COLOR_SETTINGS          = new FileType(I18n.text("Color Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "colors");
-    public static final FileType FONT_SETTINGS           = new FileType(I18n.text("Font Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "fonts");
-    public static final FileType GENERAL_SETTINGS        = new FileType(I18n.text("General Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "general");
-    public static final FileType KEY_SETTINGS            = new FileType(I18n.text("Key Binding Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "keys");
-    public static final FileType PAGE_REF_SETTINGS       = new FileType(I18n.text("Page Reference Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "refs");
-    public static final FileType SHEET_SETTINGS          = new FileType(I18n.text("Sheet Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "sheet");
+    public static final FileType COLOR_SETTINGS          = new FileType(I18n.text("颜色设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "colors");
+    public static final FileType FONT_SETTINGS           = new FileType(I18n.text("字体设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "fonts");
+    public static final FileType GENERAL_SETTINGS        = new FileType(I18n.text("一般设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "general");
+    public static final FileType KEY_SETTINGS            = new FileType(I18n.text("按键绑定设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "keys");
+    public static final FileType PAGE_REF_SETTINGS       = new FileType(I18n.text("页面引用设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "refs");
+    public static final FileType SHEET_SETTINGS          = new FileType(I18n.text("人物卡设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "sheet");
     public static final FileType ANCESTRY_SETTINGS       = new FileType(I18n.text("Ancestry Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "ancestry");
-    public static final FileType NAME_GENERATOR_SETTINGS = new FileType(I18n.text("Name Generator Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "names");
-    public static final FileType CALENDAR_SETTINGS       = new FileType(I18n.text("Calendar Settings"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "calendar");
+    public static final FileType NAME_GENERATOR_SETTINGS = new FileType(I18n.text("名称生成器设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "names");
+    public static final FileType CALENDAR_SETTINGS       = new FileType(I18n.text("日历设置"), FontAwesome.FILE, Fonts.FONT_ICON_FILE_FA, true, false, "calendar");
 
-    public static final FileType PDF  = new FileType(I18n.text("PDF Files"), FontAwesome.FILE_PDF, Fonts.FONT_ICON_FILE_FA, false, true, "pdf");
-    public static final FileType PNG  = new FileType(I18n.text("PNG Files"), FontAwesome.FILE_IMAGE, Fonts.FONT_ICON_FILE_FA, false, false, "png");
-    public static final FileType JPEG = new FileType(I18n.text("JPEG Files"), FontAwesome.FILE_IMAGE, Fonts.FONT_ICON_FILE_FA, false, false, "jpg", "jpeg");
-    public static final FileType GIF  = new FileType(I18n.text("GIF Files"), FontAwesome.FILE_IMAGE, Fonts.FONT_ICON_FILE_FA, false, false, "gif");
+    public static final FileType PDF  = new FileType(I18n.text("PDF文件"), FontAwesome.FILE_PDF, Fonts.FONT_ICON_FILE_FA, false, true, "pdf");
+    public static final FileType PNG  = new FileType(I18n.text("PNG文件"), FontAwesome.FILE_IMAGE, Fonts.FONT_ICON_FILE_FA, false, false, "png");
+    public static final FileType JPEG = new FileType(I18n.text("JPEG文件"), FontAwesome.FILE_IMAGE, Fonts.FONT_ICON_FILE_FA, false, false, "jpg", "jpeg");
+    public static final FileType GIF  = new FileType(I18n.text("GIF文件"), FontAwesome.FILE_IMAGE, Fonts.FONT_ICON_FILE_FA, false, false, "gif");
 
-    public static final FileNameExtensionFilter[] IMAGE_FILTERS = createFileFilters(I18n.text("Image Files"), PNG, JPEG, GIF);
+    public static final FileNameExtensionFilter[] IMAGE_FILTERS = createFileFilters(I18n.text("图片文件"), PNG, JPEG, GIF);
 
     private String                  mIconName;
     private ThemeFont               mIconFont;
@@ -80,7 +80,7 @@ public class FileType {
     }
 
     public String getUntitledDefaultFileName() {
-        return addExtension(I18n.text("untitled"));
+        return addExtension(I18n.text("未命名"));
     }
 
     public String addExtension(String filename) {

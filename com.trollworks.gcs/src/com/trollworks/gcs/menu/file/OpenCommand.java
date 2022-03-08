@@ -39,7 +39,7 @@ public final class OpenCommand extends Command implements OpenFilesHandler {
     public static final OpenCommand INSTANCE = new OpenCommand();
 
     private OpenCommand() {
-        super(I18n.text("Open…"), CMD_OPEN, KeyEvent.VK_O);
+        super(I18n.text("打开……"), CMD_OPEN, KeyEvent.VK_O);
     }
 
     @Override
@@ -54,8 +54,8 @@ public final class OpenCommand extends Command implements OpenFilesHandler {
 
     /** Ask the user to open a file. */
     public static void open() {
-        Path path = Modal.presentOpenFileDialog(getFocusOwner(), I18n.text("Open…"), Dirs.GENERAL,
-                FileType.createFileFilters(I18n.text("All Readable Files"),
+        Path path = Modal.presentOpenFileDialog(getFocusOwner(), I18n.text("打开……"), Dirs.GENERAL,
+                FileType.createFileFilters(I18n.text("所有可读文件"),
                         FileType.ALL_OPENABLE.toArray(new FileType[0])));
         if (path != null) {
             open(path);
@@ -72,7 +72,7 @@ public final class OpenCommand extends Command implements OpenFilesHandler {
                     proxy.toFrontAndFocus();
                     Settings.getInstance().addRecentFile(path);
                 } else {
-                    throw new IOException(I18n.text("unknown file extension"));
+                    throw new IOException(I18n.text("未知的文件扩展名"));
                 }
             } catch (Exception exception) {
                 Log.error(exception);

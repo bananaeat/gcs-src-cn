@@ -33,7 +33,7 @@ public class ConvertToContainer extends Command {
     public static final ConvertToContainer INSTANCE                 = new ConvertToContainer();
 
     public ConvertToContainer() {
-        super(I18n.text("Convert to Container"), CMD_CONVERT_TO_CONTAINER);
+        super(I18n.text("转化为容器"), CMD_CONVERT_TO_CONTAINER);
     }
 
     @Override

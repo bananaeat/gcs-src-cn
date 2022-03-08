@@ -57,17 +57,17 @@ public class LeapYear {
     /** @return null if the leap year data is usable for the given calendar. */
     public String checkValidity(Calendar cal) {
         if (mMonth < 1 || mMonth > cal.mMonths.size()) {
-            return I18n.text("Leap Year Month must specify a valid month");
+            return I18n.text("闰年月必须是有效的月");
         }
         if (mEvery < 2) {
-            return I18n.text("Leap Year Every may not be less than 2");
+            return I18n.text("每n年闰年的n必须至少为2");
         }
         if (mExcept != 0) {
             if (mExcept <= mEvery) {
-                return I18n.text("Leap Year Except must be greater than Leap Year Every if not 0");
+                return I18n.text("闰年每m年例外的m如果非零，就必须大于每n年闰年的n");
             }
             if ((mExcept / mEvery) * mEvery != mExcept) {
-                return I18n.text("Leap Year Except must be a multiple of Leap Year Every");
+                return I18n.text("闰年每m年例外的m必须是每n年闰年的n的倍数");
             }
         }
         if (mUnless != 0) {

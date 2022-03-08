@@ -56,15 +56,15 @@ public class AttributesPanel extends DropPanel {
         }
         if (primary) {
             addDivider();
-            createDiceField(sheet, gch.getThrust(), I18n.text("Basic Thrust"));
-            createDiceField(sheet, gch.getSwing(), I18n.text("Basic Swing"));
+            createDiceField(sheet, gch.getThrust(), I18n.text("基本戳击(Thr)"));
+            createDiceField(sheet, gch.getSwing(), I18n.text("基本挥舞(Sw)"));
         }
     }
 
     private void createAttributeField(CharacterSheet sheet, GURPSCharacter gch, AttributeDef def) {
         Attribute attr = gch.getAttributes().get(def.getID());
         if (attr == null) {
-            Log.error(String.format("unable to locate attribute data for '%s'", def.getID()));
+            Log.error(String.format("无法定位'%s'的属性数据", def.getID()));
             return;
         }
         PageField field;

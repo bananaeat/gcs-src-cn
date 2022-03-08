@@ -62,9 +62,9 @@ public class SheetDockable extends CollectedOutlinesDockable implements FontAdju
     protected Toolbar createToolbar() {
         Toolbar toolbar = super.createToolbar();
         mQuickExportButton = new FontIconButton(FontAwesome.FILE_EXPORT,
-                I18n.text("Quick Export\nExport to the same location using the last used output template for this sheet"),
+                I18n.text("快速导出\n使用上一次导出模板的位置导出这个人物卡。"),
                 this::quickExport);
-        toolbar.add(new FontIconButton(FontAwesome.COG, I18n.text("Settings"),
+        toolbar.add(new FontIconButton(FontAwesome.COG, I18n.text("设置"),
                 (b) -> SheetSettingsWindow.display(getDataFile())), 0);
         toolbar.add(mQuickExportButton, 1);
         updateQuickExport();
@@ -129,7 +129,7 @@ public class SheetDockable extends CollectedOutlinesDockable implements FontAdju
 
     @Override
     protected String getUntitledBaseName() {
-        return I18n.text("Untitled Sheet");
+        return I18n.text("未命名的人物卡");
     }
 
     @Override

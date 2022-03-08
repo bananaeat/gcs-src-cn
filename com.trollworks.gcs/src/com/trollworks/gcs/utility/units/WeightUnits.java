@@ -22,28 +22,28 @@ public enum WeightUnits implements Units {
     OZ(Fixed6.ONE.div(new Fixed6(16)), false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Ounces");
+            return I18n.text("盎司");
         }
     },
     /** Pounds. */
     LB(Fixed6.ONE, false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Pounds");
+            return I18n.text("磅");
         }
     },
     /** Short Tons */
     TN(new Fixed6(2000), false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Short Tons");
+            return I18n.text("短吨");
         }
     },
     /** Long Tons */
     LT(new Fixed6(2240), false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Long Tons");
+            return I18n.text("英吨");
         }
     },
     /**
@@ -52,7 +52,7 @@ public enum WeightUnits implements Units {
     T(new Fixed6(2205), true) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Metric Tons");
+            return I18n.text("吨");
         }
     },
     /** Kilograms. */
@@ -60,7 +60,7 @@ public enum WeightUnits implements Units {
 
         @Override
         public String getLocalizedName() {
-            return I18n.text("Kilograms");
+            return I18n.text("千克");
         }
     },
     /** Grams. Must come after Kilograms since it's abbreviation is a subset. */
@@ -68,7 +68,7 @@ public enum WeightUnits implements Units {
 
         @Override
         public String getLocalizedName() {
-            return I18n.text("Grams");
+            return I18n.text("克");
         }
     };
 

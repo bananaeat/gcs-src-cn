@@ -17,13 +17,13 @@ public enum DisplayOption {
     NOT_SHOWN {
         @Override
         public String toString() {
-            return I18n.text("Not Shown");
+            return I18n.text("不显示");
         }
     },
     INLINE {
         @Override
         public String toString() {
-            return I18n.text("Inline");
+            return I18n.text("行内显示");
         }
 
         @Override
@@ -34,7 +34,7 @@ public enum DisplayOption {
     TOOLTIP {
         @Override
         public String toString() {
-            return I18n.text("Tooltip");
+            return I18n.text("浮窗提示");
         }
 
         @Override
@@ -45,7 +45,7 @@ public enum DisplayOption {
     INLINE_AND_TOOLTIP {
         @Override
         public String toString() {
-            return I18n.text("Inline & Tooltip");
+            return I18n.text("行内与浮窗提示");
         }
 
         @Override

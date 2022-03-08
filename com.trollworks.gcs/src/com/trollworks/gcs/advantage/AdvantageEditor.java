@@ -129,13 +129,13 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
     }
 
     private void addPrimaryCommonFields(Container parent) {
-        mNameField = createField(mRow.getName(), null, I18n.text("The name of the advantage, without any notes"));
+        mNameField = createField(mRow.getName(), null, I18n.text("优势的名称，不带任何备注"));
         mNameField.getDocument().addDocumentListener(this);
-        addLabel(parent, I18n.text("Name"));
+        addLabel(parent, I18n.text("名称"));
         Panel wrapper = new Panel(new PrecisionLayout().setColumns(2).setMargins(0).setHorizontalSpacing(8));
         wrapper.add(mNameField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
-        mEnabledCheckBox = new Checkbox(I18n.text("Enabled"), mRow.isSelfEnabled(), (b) -> updatePoints());
-        mEnabledCheckBox.setToolTipText(I18n.text("If checked, this advantage is treated normally. If not checked, it is treated as if it didn't exist."));
+        mEnabledCheckBox = new Checkbox(I18n.text("启用"), mRow.isSelfEnabled(), (b) -> updatePoints());
+        mEnabledCheckBox.setToolTipText(I18n.text("如果选中，此优势正常计算。如果未选中，此优势被视为不存在。"));
         wrapper.add(mEnabledCheckBox);
         parent.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
     }
@@ -149,14 +149,14 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
             mLastHalfLevel = false;
         }
 
-        mPointsField = createField(-9999999, 9999999, mRow.getAdjustedPoints(), I18n.text("The total point cost of this advantage"));
+        mPointsField = createField(-9999999, 9999999, mRow.getAdjustedPoints(), I18n.text("花费在此优势上的总点数。"));
         mPointsField.setEnabled(false);
-        addLabel(parent, I18n.text("Point Cost"));
+        addLabel(parent, I18n.text("点数花费"));
         Panel wrapper = new Panel(new PrecisionLayout().setColumns(10).setMargins(0));
         wrapper.add(mPointsField, new PrecisionLayoutData().setFillHorizontalAlignment());
 
-        mBasePointsField = createField(-9999, 9999, mRow.getPoints(), I18n.text("The base point cost of this advantage"));
-        addInteriorLabel(wrapper, I18n.text("Base"));
+        mBasePointsField = createField(-9999, 9999, mRow.getPoints(), I18n.text("花费在此优势上的基本点数。"));
+        addInteriorLabel(wrapper, I18n.text("基本"));
         wrapper.add(mBasePointsField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         mLevelTypePopup = new PopupMenu<>(Levels.values(), (p) -> levelTypeChanged());
@@ -164,23 +164,23 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
         mLevelTypePopup.setSelectedItem(mRow.isLeveled() ? levels : Levels.NO_LEVELS, false);
         wrapper.add(mLevelTypePopup, new PrecisionLayoutData().setLeftMargin(4));
 
-        mLevelField = createField(0, 9999, mLastLevel, I18n.text("The level of this advantage"));
-        addInteriorLabel(wrapper, I18n.text("Level"));
+        mLevelField = createField(0, 9999, mLastLevel, I18n.text("此优势的等级"));
+        addInteriorLabel(wrapper, I18n.text("等级"));
         wrapper.add(mLevelField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         mHalfLevel = new Checkbox("+½", mLastHalfLevel, (b) -> updatePoints());
-        mHalfLevel.setToolTipText(I18n.text("Add a half Level"));
+        mHalfLevel.setToolTipText(I18n.text("添加半级"));
         mHalfLevel.setEnabled(mRow.allowHalfLevels());
         wrapper.add(mHalfLevel, new PrecisionLayoutData().setLeftMargin(4));
 
         mLevelPointsField = createField(-9999, 9999, mLastPointsPerLevel,
-                I18n.text("The per level cost of this advantage. If this is set to zero and there is a value other than zero in the level field, then the value in the base points field will be used"));
-        addInteriorLabel(wrapper, I18n.text("Per Level")).setLeftMargin(8);
+                I18n.text("此优势每等级的点数消耗。如果这个值被设置为0，且优势等级不为0，那么点数花费=基本点数"));
+        addInteriorLabel(wrapper, I18n.text("每级")).setLeftMargin(8);
         wrapper.add(mLevelPointsField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
-        mShouldRoundCostDown = new Checkbox(I18n.text("Round Down"), mRow.shouldRoundCostDown(),
+        mShouldRoundCostDown = new Checkbox(I18n.text("向下取整"), mRow.shouldRoundCostDown(),
                 (b) -> updatePoints());
-        mShouldRoundCostDown.setToolTipText(I18n.text("Round point costs down if selected, round them up if not (most things in GURPS round up)"));
+        mShouldRoundCostDown.setToolTipText(I18n.text("选中则向下取整点数消耗，否则向上取整（GURPS里的大部分东西都向上取整）"));
         wrapper.add(mShouldRoundCostDown, new PrecisionLayoutData().setLeftMargin(4));
 
         parent.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
@@ -195,22 +195,22 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
 
     private void addSecondaryCommonFields(Container parent) {
         mNotesField = new MultiLineTextField(mRow.getNotes(),
-                I18n.text("Any notes that you would like to show up in the list along with this advantage"), this);
-        addLabel(parent, I18n.text("Notes")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
+                I18n.text("你想要在优势栏里与此优势一起显示的备注"), this);
+        addLabel(parent, I18n.text("备注")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
         parent.add(mNotesField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         mVTTNotesField = addVTTNotesField(parent, this);
 
         if (mRow.getDataFile() instanceof GURPSCharacter) {
             mUserDesc = mRow.getUserDesc();
             mUserDescField = new MultiLineTextField(mUserDesc,
-                    I18n.text("Additional notes for your own reference. These only exist in character sheets and will be removed if transferred to a data list or template"), this);
-            addLabel(parent, I18n.text("User Description")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
+                    I18n.text("为你自己提供参考的额外备注。这些只会存在于人物卡中，且在转移至数据列表或模板时会被移除。"), this);
+            addLabel(parent, I18n.text("用户描述")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
             parent.add(mUserDescField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         }
 
         mCategoriesField = createField(mRow.getCategoriesAsString(), null,
-                I18n.text("The category or categories the advantage belongs to (separate multiple categories with a comma)"));
-        addLabel(parent, I18n.text("Categories"));
+                I18n.text("优势所属的类型（用英文逗号隔开多个类型）"));
+        addLabel(parent, I18n.text("类型"));
         parent.add(mCategoriesField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         mCRPopup = new PopupMenu<>(SelfControlRoll.values(), (p) -> {
@@ -236,24 +236,24 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
     }
 
     private void addTypeFields(Container parent) {
-        addLabel(parent, I18n.text("Page Reference"));
+        addLabel(parent, I18n.text("页面引用"));
         Panel wrapper = new Panel(new PrecisionLayout().setColumns(6).setMargins(0).setHorizontalSpacing(8));
         mReferenceField = createField(mRow.getReference(), null, null);
         wrapper.add(mReferenceField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
-        mMentalType = new Checkbox(I18n.text("Mental"), (mRow.getType() & Advantage.TYPE_MASK_MENTAL) == Advantage.TYPE_MASK_MENTAL, null);
+        mMentalType = new Checkbox(I18n.text("心理"), (mRow.getType() & Advantage.TYPE_MASK_MENTAL) == Advantage.TYPE_MASK_MENTAL, null);
         wrapper.add(mMentalType);
 
-        mPhysicalType = new Checkbox(I18n.text("Physical"), (mRow.getType() & Advantage.TYPE_MASK_PHYSICAL) == Advantage.TYPE_MASK_PHYSICAL, null);
+        mPhysicalType = new Checkbox(I18n.text("生理"), (mRow.getType() & Advantage.TYPE_MASK_PHYSICAL) == Advantage.TYPE_MASK_PHYSICAL, null);
         wrapper.add(mPhysicalType);
 
-        mSocialType = new Checkbox(I18n.text("Social"), (mRow.getType() & Advantage.TYPE_MASK_SOCIAL) == Advantage.TYPE_MASK_SOCIAL, null);
+        mSocialType = new Checkbox(I18n.text("社会"), (mRow.getType() & Advantage.TYPE_MASK_SOCIAL) == Advantage.TYPE_MASK_SOCIAL, null);
         wrapper.add(mSocialType);
 
-        mExoticType = new Checkbox(I18n.text("Exotic"), (mRow.getType() & Advantage.TYPE_MASK_EXOTIC) == Advantage.TYPE_MASK_EXOTIC, null);
+        mExoticType = new Checkbox(I18n.text("异种"), (mRow.getType() & Advantage.TYPE_MASK_EXOTIC) == Advantage.TYPE_MASK_EXOTIC, null);
         wrapper.add(mExoticType);
 
-        mSupernaturalType = new Checkbox(I18n.text("Supernatural"), (mRow.getType() & Advantage.TYPE_MASK_SUPERNATURAL) == Advantage.TYPE_MASK_SUPERNATURAL, null);
+        mSupernaturalType = new Checkbox(I18n.text("超自然"), (mRow.getType() & Advantage.TYPE_MASK_SUPERNATURAL) == Advantage.TYPE_MASK_SUPERNATURAL, null);
         wrapper.add(mSupernaturalType);
 
         parent.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
@@ -262,18 +262,18 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
     private void addContainerTypeFields(Container parent) {
         mContainerTypePopup = new PopupMenu<>(AdvantageContainerType.values(), (popup) -> mAncestryPopup.setEnabled(popup.getSelectedItem() == AdvantageContainerType.RACE));
         mContainerTypePopup.setSelectedItem(mRow.getContainerType(), false);
-        mContainerTypePopup.setToolTipText(I18n.text("The type of container this is"));
-        addLabel(parent, I18n.text("Container Type"));
+        mContainerTypePopup.setToolTipText(I18n.text("这个容器的容器类型"));
+        addLabel(parent, I18n.text("容器类型"));
         Panel wrapper = new Panel(new PrecisionLayout().setColumns(3).setMargins(0));
         wrapper.add(mContainerTypePopup);
-        mReferenceField = createField(mRow.getReference(), null, I18n.text("Page Reference"));
-        addLabel(wrapper, I18n.text("Page Reference")).setLeftMargin(10);
+        mReferenceField = createField(mRow.getReference(), null, I18n.text("页面引用"));
+        addLabel(wrapper, I18n.text("页面引用e")).setLeftMargin(10);
         wrapper.add(mReferenceField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         parent.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         mAncestryPopup = new PopupMenu<>(AncestryRef.choices(), null);
         mAncestryPopup.setSelectedItem(mRow.getAncestryRef(), false);
-        mAncestryPopup.setToolTipText(I18n.text("Controls how the randomizable portions of the character sheet are resolved when the container type is set to Race"));
+        mAncestryPopup.setToolTipText(I18n.text("控制人物卡中的随机生成部分在容器类型变为种族时如何被处理"));
         mAncestryPopup.setEnabled(mRow.getContainerType() == AdvantageContainerType.RACE);
         addLabel(parent, I18n.text("Ancestry"));
         parent.add(mAncestryPopup, new PrecisionLayoutData().setGrabHorizontalSpace(true));
@@ -443,7 +443,7 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
     private void docChanged(DocumentEvent event) {
         Document doc = event.getDocument();
         if (mNameField.getDocument() == doc) {
-            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("The name field may not be empty") : null);
+            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("名称不得为空") : null);
         } else if (mUserDescField != null && mUserDescField.getDocument() == doc) {
             mUserDesc = mUserDescField.getText();
         }

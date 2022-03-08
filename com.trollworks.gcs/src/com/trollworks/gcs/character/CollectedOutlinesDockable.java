@@ -179,7 +179,7 @@ public abstract class CollectedOutlinesDockable extends DataFileDockable impleme
         Map<ListOutline, StateEdit> map         = new HashMap<>();
         Map<Outline, List<Row>>     selMap      = new HashMap<>();
         Map<Outline, List<ListRow>> nameMap     = new HashMap<>();
-        String                      addRowsText = I18n.text("Add Rows");
+        String                      addRowsText = I18n.text("添加行");
         for (Row row : rows) {
             if (row instanceof CollectedListRow clr) {
                 ListOutline outline = clr.getOutlineFromCollectedOutlines(outlines);

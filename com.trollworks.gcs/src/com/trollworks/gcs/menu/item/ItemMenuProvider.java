@@ -53,12 +53,12 @@ public final class ItemMenuProvider {
     }
 
     public static JMenu createMenu() {
-        JMenu menu = new JMenu(I18n.text("Item"));
-        menu.add(MenuHelpers.createSubMenu(I18n.text("Advantages"), NewAdvantageCommand.INSTANCE, NewAdvantageCommand.CONTAINER_INSTANCE, null, NewAdvantageModifierCommand.INSTANCE, NewAdvantageModifierCommand.CONTAINER_INSTANCE, null, AddNaturalAttacksAdvantageCommand.INSTANCE));
-        menu.add(MenuHelpers.createSubMenu(I18n.text("Skills"), NewSkillCommand.INSTANCE, NewSkillCommand.CONTAINER_INSTANCE, null, NewSkillCommand.TECHNIQUE_INSTANCE));
-        menu.add(MenuHelpers.createSubMenu(I18n.text("Spells"), NewSpellCommand.INSTANCE, NewSpellCommand.CONTAINER_INSTANCE, null, NewSpellCommand.RITUAL_MAGIC_INSTANCE));
-        menu.add(MenuHelpers.createSubMenu(I18n.text("Equipment"), NewEquipmentCommand.CARRIED_INSTANCE, NewEquipmentCommand.CARRIED_CONTAINER_INSTANCE, null, NewEquipmentCommand.NOT_CARRIED_INSTANCE, NewEquipmentCommand.NOT_CARRIED_CONTAINER_INSTANCE, null, NewEquipmentModifierCommand.INSTANCE, NewEquipmentModifierCommand.CONTAINER_INSTANCE));
-        menu.add(MenuHelpers.createSubMenu(I18n.text("Notes"), NewNoteCommand.INSTANCE, NewNoteCommand.CONTAINER_INSTANCE));
+        JMenu menu = new JMenu(I18n.text("物品"));
+        menu.add(MenuHelpers.createSubMenu(I18n.text("优势"), NewAdvantageCommand.INSTANCE, NewAdvantageCommand.CONTAINER_INSTANCE, null, NewAdvantageModifierCommand.INSTANCE, NewAdvantageModifierCommand.CONTAINER_INSTANCE, null, AddNaturalAttacksAdvantageCommand.INSTANCE));
+        menu.add(MenuHelpers.createSubMenu(I18n.text("技能"), NewSkillCommand.INSTANCE, NewSkillCommand.CONTAINER_INSTANCE, null, NewSkillCommand.TECHNIQUE_INSTANCE));
+        menu.add(MenuHelpers.createSubMenu(I18n.text("法术"), NewSpellCommand.INSTANCE, NewSpellCommand.CONTAINER_INSTANCE, null, NewSpellCommand.RITUAL_MAGIC_INSTANCE));
+        menu.add(MenuHelpers.createSubMenu(I18n.text("装备"), NewEquipmentCommand.CARRIED_INSTANCE, NewEquipmentCommand.CARRIED_CONTAINER_INSTANCE, null, NewEquipmentCommand.NOT_CARRIED_INSTANCE, NewEquipmentCommand.NOT_CARRIED_CONTAINER_INSTANCE, null, NewEquipmentModifierCommand.INSTANCE, NewEquipmentModifierCommand.CONTAINER_INSTANCE));
+        menu.add(MenuHelpers.createSubMenu(I18n.text("备注"), NewNoteCommand.INSTANCE, NewNoteCommand.CONTAINER_INSTANCE));
         menu.addSeparator();
         menu.add(new DynamicMenuItem(OpenEditorCommand.INSTANCE));
         menu.add(new DynamicMenuItem(CopyToSheetCommand.INSTANCE));

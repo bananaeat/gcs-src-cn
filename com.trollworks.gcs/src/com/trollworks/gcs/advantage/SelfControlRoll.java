@@ -20,7 +20,7 @@ public enum SelfControlRoll {
     NOT_APPLICABLE {
         @Override
         public String toString() {
-            return I18n.text("CR: N/A (Cannot Resist)");
+            return I18n.text("自控值： N/A （无法抵抗）");
         }
 
         @Override
@@ -37,7 +37,7 @@ public enum SelfControlRoll {
     CR6 {
         @Override
         public String toString() {
-            return I18n.text("CR: 6 (Resist Rarely)");
+            return I18n.text("自控值： 6 （鲜少抵抗）");
         }
 
         @Override
@@ -54,7 +54,7 @@ public enum SelfControlRoll {
     CR9 {
         @Override
         public String toString() {
-            return I18n.text("CR: 9 (Resist Fairly Often)");
+            return I18n.text("自控值： 9 （经常抵抗）");
         }
 
         @Override
@@ -71,7 +71,7 @@ public enum SelfControlRoll {
     CR12 {
         @Override
         public String toString() {
-            return I18n.text("CR: 12 (Resist Quite Often)");
+            return I18n.text("自控值： 12 （非常经常抵抗）");
         }
 
         @Override
@@ -88,7 +88,7 @@ public enum SelfControlRoll {
     CR15 {
         @Override
         public String toString() {
-            return I18n.text("CR: 15 (Resist Almost All The Time)");
+            return I18n.text("自控值： 15 （几乎总是抵抗）");
         }
 
         @Override
@@ -105,7 +105,7 @@ public enum SelfControlRoll {
     NONE_REQUIRED {
         @Override
         public String toString() {
-            return I18n.text("None Required");
+            return I18n.text("不需要自控");
         }
 
         @Override

@@ -46,7 +46,7 @@ public final class LibraryLocationsPanel extends Panel implements Scrollable {
             if (dockable instanceof CloseHandler handler) {
                 if (handler.mayAttemptClose()) {
                     if (!handler.attemptClose()) {
-                        Modal.showWarning(null, I18n.text("No documents may be open when setting library locations."));
+                        Modal.showWarning(null, I18n.text("在设置库位置时无法打开文档。"));
                         return;
                     }
                 }
@@ -62,7 +62,7 @@ public final class LibraryLocationsPanel extends Panel implements Scrollable {
         Modal dialog = Modal.prepareToShowMessage(Workspace.get(),
                 ChangeLibraryLocationsCommand.INSTANCE.getTitle(), MessageType.QUESTION, scroller);
         dialog.setResizable(true);
-        dialog.addButton(I18n.text("Add"), (btn) -> panel.addLibraryRow());
+        dialog.addButton(I18n.text("添加"), (btn) -> panel.addLibraryRow());
         dialog.addCancelButton();
         panel.mApplyButton = dialog.addApplyButton();
         panel.mFields.get(0).contentsChanged();

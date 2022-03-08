@@ -27,7 +27,7 @@ public final class IncrementCommand extends Command {
     public static final IncrementCommand INSTANCE      = new IncrementCommand();
 
     private IncrementCommand() {
-        super(I18n.text("Increment"), CMD_INCREMENT, KeyEvent.VK_EQUALS);
+        super(I18n.text("增加"), CMD_INCREMENT, KeyEvent.VK_EQUALS);
     }
 
     @Override

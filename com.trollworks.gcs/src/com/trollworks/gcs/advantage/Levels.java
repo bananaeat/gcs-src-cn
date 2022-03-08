@@ -17,19 +17,19 @@ public enum Levels {
     NO_LEVELS {
         @Override
         public String toString() {
-            return I18n.text("Has No Levels");
+            return I18n.text("没有等级");
         }
     },
     HAS_LEVELS {
         @Override
         public String toString() {
-            return I18n.text("Has Levels");
+            return I18n.text("有等级");
         }
     },
     HAS_HALF_LEVELS {
         @Override
         public String toString() {
-            return I18n.text("Has Half Levels");
+            return I18n.text("有二分之一等级");
         }
     }
 }

@@ -52,7 +52,7 @@ public class AttributePanel extends ContentPanel {
 
         ContentPanel left = new ContentPanel(new PrecisionLayout(), false);
         add(left, new PrecisionLayoutData().setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING));
-        mMoveUpButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_UP, I18n.text("Move Up"), (b) -> {
+        mMoveUpButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_UP, I18n.text("向上"), (b) -> {
             AttributeListPanel parent = (AttributeListPanel) getParent();
             int                index  = UIUtilities.getIndexOf(parent, this);
             if (index > 0) {
@@ -63,7 +63,7 @@ public class AttributePanel extends ContentPanel {
             }
         });
         left.add(mMoveUpButton);
-        mMoveDownButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_DOWN, I18n.text("Move Down"), (b) -> {
+        mMoveDownButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_DOWN, I18n.text("向下"), (b) -> {
             AttributeListPanel parent = (AttributeListPanel) getParent();
             int                index  = UIUtilities.getIndexOf(parent, this);
             if (index != -1 && index < parent.getComponentCount() - 1) {
@@ -74,7 +74,7 @@ public class AttributePanel extends ContentPanel {
             }
         });
         left.add(mMoveDownButton);
-        mAddThresholdButton = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("Add Pool Threshold"), (b) -> addThreshold());
+        mAddThresholdButton = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("添加池阈值"), (b) -> addThreshold());
         left.add(mAddThresholdButton);
 
         mCenter = new ContentPanel(new PrecisionLayout(), false);
@@ -83,7 +83,7 @@ public class AttributePanel extends ContentPanel {
         ContentPanel wrapper = new ContentPanel(new PrecisionLayout().setColumns(6).setMargins(0), false);
         mIDField = addField(wrapper,
                 I18n.text("ID"),
-                I18n.text("A unique ID for the attribute"),
+                I18n.text("属性的唯一ID"),
                 attrDef.getID(),
                 Text.makeFiller(7, 'm'),
                 FieldFactory.STRING,
@@ -105,8 +105,8 @@ public class AttributePanel extends ContentPanel {
                     }
                 });
         addField(wrapper,
-                I18n.text("Name"),
-                I18n.text("The name of this attribute, often an abbreviation"),
+                I18n.text("名称"),
+                I18n.text("属性的名称，通常是别名"),
                 attrDef.getName(),
                 Text.makeFiller(8, 'm'),
                 FieldFactory.STRING,
@@ -115,8 +115,8 @@ public class AttributePanel extends ContentPanel {
                     mAdjustCallback.run();
                 });
         addField(wrapper,
-                I18n.text("Full Name"),
-                I18n.text("The full name of this attribute (may be omitted)"),
+                I18n.text("全名"),
+                I18n.text("这个属性的全名（可以省略）"),
                 attrDef.getFullName(),
                 null,
                 FieldFactory.STRING,
@@ -148,8 +148,8 @@ public class AttributePanel extends ContentPanel {
                     mAdjustCallback.run();
                 });
         addField(wrapper,
-                I18n.text("Base"),
-                I18n.text("The base value, which may be a number or a formula"),
+                I18n.text("基础"),
+                I18n.text("基础值，可以是数字或公式"),
                 attrDef.getAttributeBase(),
                 null,
                 FieldFactory.STRING,
@@ -158,8 +158,8 @@ public class AttributePanel extends ContentPanel {
                     mAdjustCallback.run();
                 });
         addField(wrapper,
-                I18n.text("Cost"),
-                I18n.text("The cost per point difference from the base"),
+                I18n.text("花费"),
+                I18n.text("和基础值每偏离一级花费（得到）的点数"),
                 Integer.valueOf(attrDef.getCostPerPoint()),
                 Integer.valueOf(999999),
                 FieldFactory.POSINT6,
@@ -168,8 +168,8 @@ public class AttributePanel extends ContentPanel {
                     mAdjustCallback.run();
                 });
         addField(wrapper,
-                I18n.text("SM Reduction"),
-                I18n.text("The reduction in cost (as a percentage) for each SM greater than 0"),
+                I18n.text("SM减值"),
+                I18n.text("每级大于0的SM带来的点数费用减值（百分比）"),
                 Integer.valueOf(attrDef.getCostAdjPercentPerSM()),
                 Integer.valueOf(80),
                 FieldFactory.PERCENT_REDUCTION,
@@ -186,7 +186,7 @@ public class AttributePanel extends ContentPanel {
 
         ContentPanel right = new ContentPanel(new PrecisionLayout(), false);
         add(right, new PrecisionLayoutData().setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING));
-        FontIconButton remove = new FontIconButton(FontAwesome.TRASH, I18n.text("Remove"), (b) -> {
+        FontIconButton remove = new FontIconButton(FontAwesome.TRASH, I18n.text("移除"), (b) -> {
             getParent().remove(this);
             mAttributes.remove(mAttrDef.getID());
             mAdjustCallback.run();
@@ -226,7 +226,7 @@ public class AttributePanel extends ContentPanel {
 
     public void addThreshold() {
         List<PoolThreshold> thresholds = mAttrDef.getThresholds();
-        PoolThreshold       threshold  = new PoolThreshold(1, 1, 0, I18n.text("state"), "", null);
+        PoolThreshold       threshold  = new PoolThreshold(1, 1, 0, I18n.text("状态"), "", null);
         thresholds.add(threshold);
         ThresholdPanel panel = new ThresholdPanel(thresholds, threshold, mAdjustCallback);
         mThresholdListPanel.add(panel, new PrecisionLayoutData().setGrabHorizontalSpace(true).setFillHorizontalAlignment());

@@ -22,7 +22,7 @@ public final class GeneralSettingsCommand extends Command {
     public static final GeneralSettingsCommand INSTANCE = new GeneralSettingsCommand();
 
     private GeneralSettingsCommand() {
-        super(I18n.text("General Settings…"), "general_settings");
+        super(I18n.text("一般设置……"), "general_settings");
     }
 
     @Override

@@ -23,7 +23,7 @@ public final class RandomizeForAncestryCommand extends Command {
     public static final RandomizeForAncestryCommand INSTANCE = new RandomizeForAncestryCommand();
 
     private RandomizeForAncestryCommand() {
-        super(I18n.text("Randomize for Ancestry"), "randomize_for_ancestry");
+        super(I18n.text("随机Ancestry"), "randomize_for_ancestry");
     }
 
     @Override

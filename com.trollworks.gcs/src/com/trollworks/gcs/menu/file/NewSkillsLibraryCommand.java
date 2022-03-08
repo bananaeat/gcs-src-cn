@@ -24,7 +24,7 @@ public final class NewSkillsLibraryCommand extends Command {
     public static final NewSkillsLibraryCommand INSTANCE = new NewSkillsLibraryCommand();
 
     private NewSkillsLibraryCommand() {
-        super(I18n.text("New Skills Library"), "NewSkillsLibrary");
+        super(I18n.text("新技能库"), "NewSkillsLibrary");
     }
 
     @Override

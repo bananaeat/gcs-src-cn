@@ -22,7 +22,7 @@ public final class ColorSettingsCommand extends Command {
     public static final ColorSettingsCommand INSTANCE = new ColorSettingsCommand();
 
     private ColorSettingsCommand() {
-        super(I18n.text("Colors…"), "ColorSettings");
+        super(I18n.text("颜色……"), "ColorSettings");
     }
 
     @Override

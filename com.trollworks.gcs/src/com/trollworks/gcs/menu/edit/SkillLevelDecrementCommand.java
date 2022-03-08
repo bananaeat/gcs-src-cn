@@ -25,7 +25,7 @@ public final class SkillLevelDecrementCommand extends Command {
     public static final SkillLevelDecrementCommand INSTANCE           = new SkillLevelDecrementCommand();
 
     private SkillLevelDecrementCommand() {
-        super(I18n.text("Decrease Skill Level"), CMD_DECREASE_LEVEL, KeyEvent.VK_PERIOD);
+        super(I18n.text("减少技能等级"), CMD_DECREASE_LEVEL, KeyEvent.VK_PERIOD);
     }
 
     @Override
@@ -39,7 +39,7 @@ public final class SkillLevelDecrementCommand extends Command {
             setTitle(inc.getDecrementSkillLevelTitle());
         } else {
             setEnabled(false);
-            setTitle(I18n.text("Decrease Skill Level"));
+            setTitle(I18n.text("减少技能等级"));
         }
     }
 

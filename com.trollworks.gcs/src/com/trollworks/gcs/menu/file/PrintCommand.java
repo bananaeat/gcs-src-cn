@@ -42,7 +42,7 @@ public final class PrintCommand extends Command implements PrintFilesHandler {
     public static final PrintCommand INSTANCE = new PrintCommand();
 
     private PrintCommand() {
-        super(I18n.text("Print…"), CMD_PRINT, KeyEvent.VK_P);
+        super(I18n.text("打印……"), CMD_PRINT, KeyEvent.VK_P);
     }
 
     @Override
@@ -73,7 +73,7 @@ public final class PrintCommand extends Command implements PrintFilesHandler {
                     job.setPrintable(proxy, pageSettings.createPageFormat());
                     job.print();
                 } catch (PrinterException exception) {
-                    Modal.showError(UIUtilities.getComponentForDialog(proxy), I18n.text("Printing failed!"));
+                    Modal.showError(UIUtilities.getComponentForDialog(proxy), I18n.text("打印失败！"));
                 } finally {
                     proxy.setPrinting(false);
                 }

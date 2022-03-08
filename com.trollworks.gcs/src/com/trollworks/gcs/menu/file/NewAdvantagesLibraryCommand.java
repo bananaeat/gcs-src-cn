@@ -24,7 +24,7 @@ public final class NewAdvantagesLibraryCommand extends Command {
     public static final NewAdvantagesLibraryCommand INSTANCE = new NewAdvantagesLibraryCommand();
 
     private NewAdvantagesLibraryCommand() {
-        super(I18n.text("New Advantages Library"), "NewAdvantagesLibrary");
+        super(I18n.text("新优势库"), "NewAdvantagesLibrary");
     }
 
     @Override

@@ -27,7 +27,7 @@ public final class TechLevelIncrementCommand extends Command {
     public static final TechLevelIncrementCommand INSTANCE         = new TechLevelIncrementCommand();
 
     private TechLevelIncrementCommand() {
-        super(I18n.text("Increment Tech Level"), CMD_INCREMENT_TL, KeyEvent.VK_CLOSE_BRACKET);
+        super(I18n.text("增加科技水平（TL）"), CMD_INCREMENT_TL, KeyEvent.VK_CLOSE_BRACKET);
     }
 
     @Override

@@ -51,8 +51,8 @@ public final class FileMenuProvider {
     }
 
     public static JMenu createMenu() {
-        JMenu menu    = new JMenu(I18n.text("File"));
-        JMenu newMenu = new JMenu(I18n.text("New File…"));
+        JMenu menu    = new JMenu(I18n.text("文件"));
+        JMenu newMenu = new JMenu(I18n.text("新建文件……"));
         newMenu.add(new DynamicMenuItem(NewCharacterSheetCommand.INSTANCE));
         newMenu.add(new DynamicMenuItem(NewCharacterTemplateCommand.INSTANCE));
         newMenu.add(new DynamicMenuItem(NewAdvantagesLibraryCommand.INSTANCE));

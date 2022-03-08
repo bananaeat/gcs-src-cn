@@ -45,7 +45,7 @@ public enum EquipmentColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("Whether this piece of equipment is equipped or just carried. Items that are not equipped do not apply any features they may normally contribute to the character.");
+            return I18n.text("装备是装备着的还是携带着的。未被装备的物品不会对携带者提供正常情况会提供的效果。");
         }
 
         @Override
@@ -82,7 +82,7 @@ public enum EquipmentColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("The quantity of this piece of equipment");
+            return I18n.text("这件装备的数量");
         }
 
         @Override
@@ -114,12 +114,12 @@ public enum EquipmentColumn {
     DESCRIPTION {
         @Override
         public String toString() {
-            return I18n.text("Equipment");
+            return I18n.text("装备");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The name and notes describing a piece of equipment");
+            return I18n.text("一件装备的名称和备注");
         }
 
         @Override
@@ -131,14 +131,14 @@ public enum EquipmentColumn {
         public String toString(DataFile dataFile, boolean carried) {
             if (dataFile instanceof GURPSCharacter character) {
                 if (carried) {
-                    return MessageFormat.format(I18n.text("Carried Equipment ({0}; ${1})"), character.getWeightCarried(false).toString(), character.getWealthCarried().toLocalizedString());
+                    return MessageFormat.format(I18n.text("随身装备 ({0}; ${1})"), character.getWeightCarried(false).toString(), character.getWealthCarried().toLocalizedString());
                 }
-                return MessageFormat.format(I18n.text("Other Equipment (${0})"), character.getWealthNotCarried().toLocalizedString());
+                return MessageFormat.format(I18n.text("其他装备 (${0})"), character.getWealthNotCarried().toLocalizedString());
             }
             if (dataFile instanceof Template) {
-                return carried ? I18n.text("Carried Equipment") : I18n.text("Other Equipment");
+                return carried ? I18n.text("随身装备") : I18n.text("其他装备");
             }
-            return I18n.text("Equipment");
+            return I18n.text("装备");
         }
 
         @Override
@@ -165,12 +165,12 @@ public enum EquipmentColumn {
     USES {
         @Override
         public String toString() {
-            return I18n.text("Uses");
+            return I18n.text("使用次数");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The number of uses remaining");
+            return I18n.text("剩余使用次数");
         }
 
         @Override
@@ -192,12 +192,12 @@ public enum EquipmentColumn {
     TECH_LEVEL {
         @Override
         public String toString() {
-            return I18n.text("TL");
+            return I18n.text("科技等级（TL）");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The tech level of this piece of equipment");
+            return I18n.text("装备的科技等级");
         }
 
         @Override
@@ -224,12 +224,12 @@ public enum EquipmentColumn {
     LEGALITY_CLASS {
         @Override
         public String toString() {
-            return I18n.text("LC");
+            return I18n.text("合法等级（LC）");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The legality class of this piece of equipment");
+            return I18n.text("装备的合法等级");
         }
 
         @Override
@@ -261,7 +261,7 @@ public enum EquipmentColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("The value of one of these pieces of equipment");
+            return I18n.text("这些装备的总价值");
         }
 
         @Override
@@ -293,7 +293,7 @@ public enum EquipmentColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("The weight of one of these pieces of equipment");
+            return I18n.text("这些装备的总重量。");
         }
 
         @Override
@@ -325,7 +325,7 @@ public enum EquipmentColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("The value of all of these pieces of equipment, plus the value of any contained equipment");
+            return I18n.text("这些装备和其中包括的其他装备的总价值");
         }
 
         @Override
@@ -362,7 +362,7 @@ public enum EquipmentColumn {
 
         @Override
         public String getToolTip() {
-            return I18n.text("The weight of all of these pieces of equipment, plus the weight of any contained equipment");
+            return I18n.text("这些装备和其中包括的其他装备的总重量");
         }
 
         @Override
@@ -394,12 +394,12 @@ public enum EquipmentColumn {
     CATEGORY {
         @Override
         public String toString() {
-            return I18n.text("Category");
+            return I18n.text("类别");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The category or categories the equipment belongs to");
+            return I18n.text("装备所属的类别");
         }
 
         @Override
@@ -431,7 +431,7 @@ public enum EquipmentColumn {
 
         @Override
         public String getToolTip() {
-            return PageRefCell.getStdToolTip(I18n.text("equipment"));
+            return PageRefCell.getStdToolTip(I18n.text("装备"));
         }
 
         @Override

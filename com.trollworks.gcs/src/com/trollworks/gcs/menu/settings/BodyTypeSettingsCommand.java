@@ -25,7 +25,7 @@ public final class BodyTypeSettingsCommand extends Command {
     private             boolean                 mForDefaults;
 
     private BodyTypeSettingsCommand(boolean defaults) {
-        super(defaults ? I18n.text("Default Body Type…") : I18n.text("Body Type…"),
+        super(defaults ? I18n.text("默认身体类型……") : I18n.text("身体类型……"),
                 defaults ? "default_body_type_settings" : "body_type_settings");
         mForDefaults = defaults;
     }

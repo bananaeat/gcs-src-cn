@@ -22,33 +22,33 @@ public enum LengthUnits implements Units {
     PT(Fixed6.ONE.div(new Fixed6(72)), false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Points");
+            return I18n.text("点数");
         }
     },
     /** Inches. */
     IN(Fixed6.ONE, false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Inches");
+            return I18n.text("英寸");
         }
     },
     /** Feet. */
     FT(new Fixed6(12), false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Feet");
+            return I18n.text("英尺");
         }
     },
     /** Feet and Inches */
     FT_IN(Fixed6.ONE, false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Feet & Inches");
+            return I18n.text("英尺&英寸");
         }
 
         @Override
         public String toString() {
-            return I18n.text("Feet (') & Inches (\")");
+            return I18n.text("英尺(')&英寸(\")");
         }
 
         @Override
@@ -74,14 +74,14 @@ public enum LengthUnits implements Units {
     YD(new Fixed6(36), false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Yards");
+            return I18n.text("码");
         }
     },
     /** Miles. */
     MI(new Fixed6(5280).mul(new Fixed6(12)), false) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Miles");
+            return I18n.text("英里");
         }
     },
     /** Millimeters. */
@@ -89,28 +89,28 @@ public enum LengthUnits implements Units {
 
         @Override
         public String getLocalizedName() {
-            return I18n.text("Millimeters");
+            return I18n.text("毫米");
         }
     },
     /** Centimeters. */
     CM(Fixed6.ONE.div(LengthValue.METRIC_CONVERSION_FACTOR), true) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Centimeters");
+            return I18n.text("厘米");
         }
     },
     /** Kilometers. */
     KM(new Fixed6(100000).div(LengthValue.METRIC_CONVERSION_FACTOR), true) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Kilometers");
+            return I18n.text("公里");
         }
     },
     /** Meters. Must be after all the other 'meter' types. */
     M(new Fixed6(100).div(LengthValue.METRIC_CONVERSION_FACTOR), true) {
         @Override
         public String getLocalizedName() {
-            return I18n.text("Meters");
+            return I18n.text("米");
         }
     };
 

@@ -28,7 +28,7 @@ public final class CopyCommand extends Command {
     public static final CopyCommand INSTANCE = new CopyCommand();
 
     private CopyCommand() {
-        super(I18n.text("Copy"), CMD_COPY, KeyEvent.VK_C);
+        super(I18n.text("复制"), CMD_COPY, KeyEvent.VK_C);
     }
 
     @Override

@@ -31,7 +31,7 @@ import javax.swing.event.MenuListener;
 
 public class ExportMenu extends JMenu implements MenuListener {
     public ExportMenu() {
-        super(I18n.text("Export To…"));
+        super(I18n.text("导出到……"));
         populate();
         addMenuListener(this);
     }
@@ -75,7 +75,7 @@ public class ExportMenu extends JMenu implements MenuListener {
             }
             if (!cmds.isEmpty()) {
                 addSeparator();
-                JMenuItem header = new JMenuItem(String.format(I18n.text("%s Output Templates"), lib.getTitle()));
+                JMenuItem header = new JMenuItem(String.format(I18n.text("%s导出模板"), lib.getTitle()));
                 header.setEnabled(false);
                 add(header);
                 for (Command cmd : cmds) {

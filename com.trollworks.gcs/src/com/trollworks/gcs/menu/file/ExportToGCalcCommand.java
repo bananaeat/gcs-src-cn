@@ -60,12 +60,12 @@ public final class ExportToGCalcCommand extends Command {
         try {
             Desktop.getDesktop().browse(new URI(uri));
         } catch (Exception exception) {
-            Modal.showError(parent, MessageFormat.format(I18n.text("Unable to open {0}"), uri));
+            Modal.showError(parent, MessageFormat.format(I18n.text("无法打开{0}"), uri));
         }
     }
 
     private ExportToGCalcCommand() {
-        super(I18n.text("GURPS Calculator…"), "gCalcExport", KeyEvent.VK_L);
+        super(I18n.text("GURPS计算器……"), "gCalcExport", KeyEvent.VK_L);
     }
 
     @Override
@@ -86,18 +86,18 @@ public final class ExportToGCalcCommand extends Command {
             try {
                 if ("true".equals(get(String.format("api/GetCharacterExists/%s/%s", character.getID(), key)))) {
                     Modal dialog = Modal.prepareToShowMessage(KeyboardFocusManager.getCurrentKeyboardFocusManager().getPermanentFocusOwner(),
-                            I18n.text("Character already exists"), MessageType.WARNING,
+                            I18n.text("人物已经存在。"), MessageType.WARNING,
                             I18n.text("""
-                                    This character already exists in GURPS Calculator.
-                                    Would you like to replace it?
+                                    这个人物已经在GURPS计算器中存在。
+                                    你想要替换它吗？
 
-                                    If you choose 'Create New', you should save your
-                                    character afterwards."""));
-                    dialog.addButton(I18n.text("Replace"), (btn) -> {
+                                    如果你选择新建，你应该
+                                    之后保存你的人物。"""));
+                    dialog.addButton(I18n.text("替换"), (btn) -> {
                         export(dockable);
                         dialog.setVisible(false);
                     });
-                    dialog.addButton(I18n.text("Create New"), (btn) -> {
+                    dialog.addButton(I18n.text("新建"), (btn) -> {
                         character.generateNewID();
                         character.setModified(true);
                         export(dockable);
@@ -180,15 +180,15 @@ public final class ExportToGCalcCommand extends Command {
 
     private static void showResult(boolean success) {
         if (success) {
-            Modal.showMessage(Command.getFocusOwner(), I18n.text("Success"), MessageType.NONE,
+            Modal.showMessage(Command.getFocusOwner(), I18n.text("成功"), MessageType.NONE,
                     I18n.text("Export to GURPS Calculator was successful."));
         } else {
             String key = Settings.getInstance().getGeneralSettings().getGCalcKey();
             String message;
             if (key == null || !UUID_PATTERN.matcher(key).matches()) {
-                message = I18n.text("You must first set a valid GURPS Calculator Key in General Settings.");
+                message = I18n.text("你必须先在一般设置里设置GURPS计算器键值。");
             } else {
-                message = I18n.text("There was an error exporting to GURPS Calculator.\nPlease try again later.");
+                message = I18n.text("导出到GURPS计算器的过程中发生了一个错误。\n请稍后重试。");
             }
             Modal.showError(Command.getFocusOwner(), message);
         }

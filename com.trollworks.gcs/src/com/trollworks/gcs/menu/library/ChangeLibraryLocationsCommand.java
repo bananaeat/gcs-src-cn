@@ -22,7 +22,7 @@ public final class ChangeLibraryLocationsCommand extends Command {
     public static final ChangeLibraryLocationsCommand INSTANCE = new ChangeLibraryLocationsCommand();
 
     private ChangeLibraryLocationsCommand() {
-        super(I18n.text("Change Library Locations"), "change_library_locations");
+        super(I18n.text("改变库位置"), "change_library_locations");
     }
 
     @Override

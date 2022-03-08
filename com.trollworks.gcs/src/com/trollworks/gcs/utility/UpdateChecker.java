@@ -63,7 +63,7 @@ public final class UpdateChecker implements Runnable {
 
     /** @return The result of the new app check. */
     public static synchronized String getAppResult() {
-        return APP_RESULT != null ? APP_RESULT : I18n.text("Checking for GCS updates…");
+        return APP_RESULT != null ? APP_RESULT : I18n.text("检查GCS更新……");
     }
 
     public static synchronized String getAppReleaseNotes() {
@@ -111,12 +111,12 @@ public final class UpdateChecker implements Runnable {
     private void checkForAppUpdates() {
         if (GCS.VERSION.isZero()) {
             // Development version. Bail.
-            setAppResult(I18n.text("Development versions don't look for GCS updates"), null, false);
+            setAppResult(I18n.text("开发版本不会自动搜寻GCS更新"), null, false);
         } else {
             Version       minimum  = new Version(4, 17, 0);
             List<Release> releases = Release.load("richardwilkes", "gcs", GCS.VERSION, (version, notes) -> version.compareTo(minimum) >= 0);
             if (releases == null) {
-                setAppResult(I18n.text("Unable to access the GCS repo"), null, false);
+                setAppResult(I18n.text("无法访问GCS repository"), null, false);
                 return;
             }
             int count = releases.size() - 1;
@@ -124,12 +124,12 @@ public final class UpdateChecker implements Runnable {
                 releases.remove(count);
             }
             if (releases.isEmpty()) {
-                setAppResult(I18n.text("GCS has no update available"), null, false);
+                setAppResult(I18n.text("GCS没有可用更新"), null, false);
             } else {
                 Release  release   = new Release(releases);
                 Settings prefs     = Settings.getInstance();
                 Version  available = release.getVersion();
-                setAppResult(String.format(I18n.text("GCS v%s is available!"), available), release.getNotes(), true);
+                setAppResult(String.format(I18n.text("GCS v%s 可用！"), available), release.getNotes(), true);
                 if (available.compareTo(prefs.getLastSeenGCSVersion()) > 0) {
                     prefs.setLastSeenGCSVersion(available);
                     prefs.save();
@@ -191,8 +191,8 @@ public final class UpdateChecker implements Runnable {
         ScrollPanel scroller = new ScrollPanel(markdown);
         scroller.setBorder(new LineBorder(Colors.DIVIDER));
         Modal modal = Modal.prepareToShowMessage(null, title, MessageType.WARNING, scroller);
-        modal.addButton(I18n.text("Ignore"), Modal.CANCEL);
-        modal.addButton(I18n.text("Update"), Modal.OK);
+        modal.addButton(I18n.text("忽略"), Modal.CANCEL);
+        modal.addButton(I18n.text("更新"), Modal.OK);
         modal.setResizable(true);
         modal.presentToUser();
         return modal;

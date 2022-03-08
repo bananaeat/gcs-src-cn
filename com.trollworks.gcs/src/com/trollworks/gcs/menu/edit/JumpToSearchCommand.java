@@ -24,7 +24,7 @@ public final class JumpToSearchCommand extends Command {
     public static final JumpToSearchCommand INSTANCE = new JumpToSearchCommand();
 
     private JumpToSearchCommand() {
-        super(I18n.text("Jump To Search"), "jump_to_search", KeyEvent.VK_J);
+        super(I18n.text("跳转到搜索"), "jump_to_search", KeyEvent.VK_J);
     }
 
     @Override

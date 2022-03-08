@@ -26,7 +26,7 @@ public final class NewCharacterSheetCommand extends Command {
     public static final NewCharacterSheetCommand INSTANCE = new NewCharacterSheetCommand();
 
     private NewCharacterSheetCommand() {
-        super(I18n.text("New Character Sheet"), "NewCharacterSheet", KeyEvent.VK_N);
+        super(I18n.text("新人物卡"), "NewCharacterSheet", KeyEvent.VK_N);
     }
 
     @Override

@@ -60,7 +60,7 @@ public class DockTab extends Panel implements ContainerListener, MouseListener, 
         setBorder(new EmptyBorder(2, 1, 0, 1));
         addContainerListener(this);
         mTitle = new Label(dockable.getTitleIcon(), getFullTitle());
-        mCloseButton = new FontIconButton(FontAwesome.TIMES_CIRCLE, I18n.text("Close"), (b) -> attemptClose());
+        mCloseButton = new FontIconButton(FontAwesome.TIMES_CIRCLE, I18n.text("关闭"), (b) -> attemptClose());
         add(mTitle, new PrecisionLayoutData().setGrabHorizontalSpace(true).setHeightHint(Math.max(mTitle.getPreferredSize().height, mCloseButton.getPreferredSize().height)));
         if (dockable instanceof CloseHandler) {
             add(mCloseButton, new PrecisionLayoutData().setEndHorizontalAlignment());

@@ -18,31 +18,31 @@ public enum Encumbrance {
     NONE(1) {
         @Override
         public String toString() {
-            return I18n.text("None");
+            return I18n.text("无");
         }
     },
     LIGHT(2) {
         @Override
         public String toString() {
-            return I18n.text("Light");
+            return I18n.text("轻载");
         }
     },
     MEDIUM(3) {
         @Override
         public String toString() {
-            return I18n.text("Medium");
+            return I18n.text("中载");
         }
     },
     HEAVY(6) {
         @Override
         public String toString() {
-            return I18n.text("Heavy");
+            return I18n.text("重载");
         }
     },
     EXTRA_HEAVY(10) {
         @Override
         public String toString() {
-            return I18n.text("X-Heavy");
+            return I18n.text("超重载");
         }
     };
 

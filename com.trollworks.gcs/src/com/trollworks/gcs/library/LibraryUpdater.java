@@ -97,7 +97,7 @@ public final class LibraryUpdater implements Runnable {
                     if (path != null && path.toAbsolutePath().startsWith(prefix)) {
                         if (dfd.mayAttemptClose()) {
                             if (!dfd.attemptClose()) {
-                                Modal.showMessage(null, I18n.text("Canceled!"), MessageType.NONE, String.format(I18n.text("GCS %s update was canceled."), title));
+                                Modal.showMessage(null, I18n.text("取消！"), MessageType.NONE, String.format(I18n.text("GCS %s更新已被取消。"), title));
                                 return;
                             }
                         }
@@ -107,9 +107,9 @@ public final class LibraryUpdater implements Runnable {
 
             // Put up a progress dialog
             Panel msgPanel = new Panel(new PrecisionLayout().setHorizontalAlignment(PrecisionLayoutAlignment.MIDDLE));
-            msgPanel.add(new Label(String.format(I18n.text("Downloading and installing the %s…"), title)));
+            msgPanel.add(new Label(String.format(I18n.text("下载并安装%s……"), title)));
             msgPanel.add(new ProgressBar(0), new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true).setTopMargin(LayoutConstants.TOOLBAR_VERTICAL_INSET));
-            Modal modal = Modal.prepareToShowMessage(workspace, String.format(I18n.text("Update %s"), title), MessageType.NONE, msgPanel);
+            Modal modal = Modal.prepareToShowMessage(workspace, String.format(I18n.text("更新%s"), title), MessageType.NONE, msgPanel);
             lib.mModal = modal;
             QUEUE.submit(lib);
             modal.presentToUser();
@@ -207,9 +207,9 @@ public final class LibraryUpdater implements Runnable {
         mModal.dispose();
         String title = mLibrary.getTitle();
         if (mResult == null) {
-            Modal.showMessage(null, I18n.text("Success!"), MessageType.NONE, String.format(I18n.text("%s update was successful."), title));
+            Modal.showMessage(null, I18n.text("成功！"), MessageType.NONE, String.format(I18n.text("%s更新成功。"), title));
         } else {
-            Modal.showError(null, String.format(I18n.text("An error occurred while trying to update the %s:\n\n"), title) + mResult);
+            Modal.showError(null, String.format(I18n.text("在尝试更新%s:时发生错误\n\n"), title) + mResult);
         }
     }
 }

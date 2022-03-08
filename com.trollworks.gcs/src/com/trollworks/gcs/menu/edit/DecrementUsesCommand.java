@@ -27,7 +27,7 @@ public final class DecrementUsesCommand extends Command {
     public static final DecrementUsesCommand INSTANCE           = new DecrementUsesCommand();
 
     private DecrementUsesCommand() {
-        super(I18n.text("Decrement Uses"), CMD_DECREMENT_USES, KeyEvent.VK_DOWN);
+        super(I18n.text("减少使用"), CMD_DECREMENT_USES, KeyEvent.VK_DOWN);
     }
 
     @Override

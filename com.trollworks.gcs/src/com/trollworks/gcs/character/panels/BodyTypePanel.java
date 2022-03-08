@@ -48,7 +48,7 @@ public class BodyTypePanel extends DropPanel {
                 setHorizontalAlignment(PrecisionLayoutAlignment.FILL).setGrabHorizontalSpace(true));
         addHorizontalBackground(sep, Colors.DIVIDER);
 
-        PageHeader header = new PageHeader(I18n.text("Roll"));
+        PageHeader header = new PageHeader(I18n.text("掷骰"));
         add(header, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.MIDDLE));
         addHorizontalBackground(header, Colors.HEADER);
 
@@ -56,8 +56,8 @@ public class BodyTypePanel extends DropPanel {
         add(sep, new PrecisionLayoutData().setVerticalAlignment(PrecisionLayoutAlignment.FILL));
         addVerticalBackground(sep, Colors.DIVIDER);
 
-        header = new PageHeader(I18n.text("Location"),
-                I18n.text("The location, along with the hit penalty for targeting it"));
+        header = new PageHeader(I18n.text("位置"),
+                I18n.text("位置和命中此位置的命中惩罚"));
         add(header, new PrecisionLayoutData().setHorizontalSpan(2).setHorizontalAlignment(PrecisionLayoutAlignment.MIDDLE));
 
         sep = new Separator(true);
@@ -87,7 +87,7 @@ public class BodyTypePanel extends DropPanel {
             String prefix = Text.makeFiller(depth * 3, ' ');
 
             PageLabel first = new PageLabel(prefix + location.getRollRange());
-            first.setToolTipText(String.format(I18n.text("The random roll needed to hit the %s hit location"), name));
+            first.setToolTipText(String.format(I18n.text("命中 %s 位置所需的随机掷骰值"), name));
             first.setHorizontalAlignment(SwingConstants.CENTER);
             add(first, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.FILL));
             addHorizontalBackground(first, band ? band1Color : band2Color);
@@ -99,7 +99,7 @@ public class BodyTypePanel extends DropPanel {
             add(label, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.FILL));
 
             label = new PageLabel(Numbers.formatWithForcedSign(location.getHitPenalty()));
-            label.setToolTipText(String.format(I18n.text("The hit penalty for targeting the %s hit location"), name));
+            label.setToolTipText(String.format(I18n.text("瞄准 %s 位置的命中惩罚"), name));
             label.setHorizontalAlignment(SwingConstants.RIGHT);
             add(label, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.FILL).setLeftMargin(2));
 
@@ -107,7 +107,7 @@ public class BodyTypePanel extends DropPanel {
 
             StringBuilder tooltip = new StringBuilder();
             label = new PageLabel(location.getDisplayDR(sheet.getCharacter(), tooltip));
-            label.setToolTipText(String.format(I18n.text("The DR covering the %s hit location%s"), name, tooltip));
+            label.setToolTipText(String.format(I18n.text("覆盖 %s 位置的DR %s"), name, tooltip));
             label.setHorizontalAlignment(SwingConstants.CENTER);
             add(label, new PrecisionLayoutData().setHorizontalAlignment(PrecisionLayoutAlignment.FILL));
 

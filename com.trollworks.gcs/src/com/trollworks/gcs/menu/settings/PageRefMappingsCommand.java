@@ -22,7 +22,7 @@ public final class PageRefMappingsCommand extends Command {
     public static final PageRefMappingsCommand INSTANCE = new PageRefMappingsCommand();
 
     private PageRefMappingsCommand() {
-        super(I18n.text("Page Reference Mappings…"), "PageReferenceMappings");
+        super(I18n.text("页面引用映射……"), "PageReferenceMappings");
     }
 
     @Override

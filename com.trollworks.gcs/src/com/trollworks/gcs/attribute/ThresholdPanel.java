@@ -51,7 +51,7 @@ public class ThresholdPanel extends ContentPanel implements DocumentListener {
 
         ContentPanel left = new ContentPanel(new PrecisionLayout(), false);
         add(left, new PrecisionLayoutData().setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING));
-        mMoveUpButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_UP, I18n.text("Move Up"), (b) -> {
+        mMoveUpButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_UP, I18n.text("向上"), (b) -> {
             ThresholdListPanel parent = (ThresholdListPanel) getParent();
             int                index  = UIUtilities.getIndexOf(parent, this);
             if (index > 0) {
@@ -63,7 +63,7 @@ public class ThresholdPanel extends ContentPanel implements DocumentListener {
             }
         });
         left.add(mMoveUpButton);
-        mMoveDownButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_DOWN, I18n.text("Move Down"), (b) -> {
+        mMoveDownButton = new FontIconButton(FontAwesome.ARROW_ALT_CIRCLE_DOWN, I18n.text("向下"), (b) -> {
             ThresholdListPanel parent = (ThresholdListPanel) getParent();
             int                index  = UIUtilities.getIndexOf(parent, this);
             if (index != -1 && index < parent.getComponentCount() - 1) {
@@ -82,8 +82,8 @@ public class ThresholdPanel extends ContentPanel implements DocumentListener {
         ContentPanel wrapper = new ContentPanel(new PrecisionLayout().setColumns(8).setMargins(0), false);
         wrapper.setOpaque(false);
         mStateField = addField(wrapper,
-                I18n.text("State"),
-                I18n.text("A short description of the current threshold state"),
+                I18n.text("状态"),
+                I18n.text("当前阈值状态的简短描述"),
                 mThreshold.getState(),
                 null,
                 FieldFactory.STRING,
@@ -92,8 +92,8 @@ public class ThresholdPanel extends ContentPanel implements DocumentListener {
                     mAdjustCallback.run();
                 });
         addField(wrapper,
-                I18n.text("Multiplier"),
-                I18n.text("A multiplier to be applied first to determine the threshold value"),
+                I18n.text("乘数"),
+                I18n.text("在决定阈值时首先应用的乘数"),
                 Integer.valueOf(mThreshold.getMultiplier()),
                 Integer.valueOf(-999999),
                 FieldFactory.INT6,
@@ -102,8 +102,8 @@ public class ThresholdPanel extends ContentPanel implements DocumentListener {
                     mAdjustCallback.run();
                 });
         mDivisorField = addField(wrapper,
-                I18n.text("Divisor"),
-                I18n.text("A divisor to be applied second to determine the threshold value"),
+                I18n.text("除数"),
+                I18n.text("在决定阈值时第二应用的除数"),
                 Integer.valueOf(mThreshold.getDivisor()),
                 Integer.valueOf(-999999),
                 FieldFactory.INT6,
@@ -117,8 +117,8 @@ public class ThresholdPanel extends ContentPanel implements DocumentListener {
                     }
                 });
         addField(wrapper,
-                I18n.text("Addition"),
-                I18n.text("An addition to be applied third to determine the threshold value"),
+                I18n.text("加数"),
+                I18n.text("在决定阈值时第三应用的加数"),
                 Integer.valueOf(mThreshold.getAddition()),
                 Integer.valueOf(-999999),
                 FieldFactory.INT6,
@@ -139,14 +139,14 @@ public class ThresholdPanel extends ContentPanel implements DocumentListener {
 
         wrapper = new ContentPanel(new PrecisionLayout().setColumns(2).setMargins(0), false);
         mExplanationField = addTextArea(wrapper,
-                I18n.text("Explanation"),
-                I18n.text("An explanation of effects of the current threshold state"),
+                I18n.text("解释"),
+                I18n.text("当前阈值状态效果的解释"),
                 mThreshold.getExplanation());
         center.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true).setMargins(0));
 
         ContentPanel right = new ContentPanel(new PrecisionLayout(), false);
         add(right, new PrecisionLayoutData().setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING));
-        FontIconButton remove = new FontIconButton(FontAwesome.TRASH, I18n.text("Remove"), (b) -> {
+        FontIconButton remove = new FontIconButton(FontAwesome.TRASH, I18n.text("移除"), (b) -> {
             ThresholdListPanel parent = (ThresholdListPanel) getParent();
             int                index  = UIUtilities.getIndexOf(parent, this);
             if (index != -1) {

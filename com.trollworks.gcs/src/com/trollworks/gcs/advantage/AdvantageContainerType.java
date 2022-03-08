@@ -19,7 +19,7 @@ public enum AdvantageContainerType {
     GROUP {
         @Override
         public String toString() {
-            return I18n.text("Group");
+            return I18n.text("组别");
         }
     },
     /**
@@ -29,7 +29,7 @@ public enum AdvantageContainerType {
     META_TRAIT {
         @Override
         public String toString() {
-            return I18n.text("Meta-Trait");
+            return I18n.text("超特质");
         }
     },
     /**
@@ -39,7 +39,7 @@ public enum AdvantageContainerType {
     RACE {
         @Override
         public String toString() {
-            return I18n.text("Race");
+            return I18n.text("种族");
         }
     },
     /**
@@ -50,7 +50,7 @@ public enum AdvantageContainerType {
     ALTERNATIVE_ABILITIES {
         @Override
         public String toString() {
-            return I18n.text("Alternative Abilities");
+            return I18n.text("变体能力");
         }
     }
 }

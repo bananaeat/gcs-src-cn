@@ -55,7 +55,7 @@ public class ShowTabsButton extends Panel implements MouseListener, MouseMotionL
 
     public ShowTabsButton() {
         super(null, false);
-        setToolTipText(I18n.text("Show Hidden Tabs List"));
+        setToolTipText(I18n.text("显示隐藏标签列表"));
         setCursor(Cursor.getDefaultCursor());
         addMouseListener(this);
         addMouseMotionListener(this);

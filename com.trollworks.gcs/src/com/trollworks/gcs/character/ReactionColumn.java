@@ -29,7 +29,7 @@ public enum ReactionColumn {
     MODIFIER {
         @Override
         public String toString() {
-            return I18n.text("Modifier");
+            return I18n.text("调整值");
         }
 
         @Override
@@ -53,7 +53,7 @@ public enum ReactionColumn {
     REACTION {
         @Override
         public String toString() {
-            return I18n.text("Reaction");
+            return I18n.text("反应");
         }
 
         @Override

@@ -187,29 +187,29 @@ public class Modal extends JDialog {
 
     @SuppressWarnings("UnusedReturnValue")
     public Button addCancelRemainingButton() {
-        return addButton(I18n.text("Cancel Remaining"), CLOSED);
+        return addButton(I18n.text("取消剩余"), CLOSED);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public Button addCancelButton() {
-        return addButton(I18n.text("Cancel"), CANCEL);
+        return addButton(I18n.text("取消"), CANCEL);
     }
 
     public Button addNoButton() {
-        return addButton(I18n.text("No"), CANCEL);
+        return addButton(I18n.text("否"), CANCEL);
     }
 
     public Button addApplyButton() {
-        return addButton(I18n.text("Apply"), OK);
+        return addButton(I18n.text("应用"), OK);
     }
 
     @SuppressWarnings("UnusedReturnValue")
     public Button addOKButton() {
-        return addButton(I18n.text("OK"), OK);
+        return addButton(I18n.text("好"), OK);
     }
 
     public Button addYesButton() {
-        return addButton(I18n.text("Yes"), OK);
+        return addButton(I18n.text("是"), OK);
     }
 
     /**
@@ -218,7 +218,7 @@ public class Modal extends JDialog {
      *             toString()} will be called on it and the result will be used to create a label.
      */
     public static void showError(Component comp, Object msg) {
-        showMessage(comp, I18n.text("Error"), MessageType.ERROR, msg);
+        showMessage(comp, I18n.text("错误"), MessageType.ERROR, msg);
     }
 
     /**
@@ -227,7 +227,7 @@ public class Modal extends JDialog {
      *             toString()} will be called on it and the result will be used to create a label.
      */
     public static void showWarning(Component comp, Object msg) {
-        showMessage(comp, I18n.text("Warning"), MessageType.WARNING, msg);
+        showMessage(comp, I18n.text("警告"), MessageType.WARNING, msg);
     }
 
     /**
@@ -325,7 +325,7 @@ public class Modal extends JDialog {
         Path path = presentFileDialog(dialog, dirs);
         if (path != null) {
             if (!PathUtils.isNameValidForFile(PathUtils.getLeafName(path, true))) {
-                showError(comp, I18n.text("Invalid file name"));
+                showError(comp, I18n.text("无效的文件名"));
                 return null;
             }
             if (!filter.accept(path.toFile())) {
@@ -335,11 +335,11 @@ public class Modal extends JDialog {
                 // there was a match.
                 if (Files.exists(path)) {
                     Modal question = prepareToShowMessage(comp,
-                            I18n.text("Already Exists!"),
+                            I18n.text("文件已经存在！"),
                             MessageType.QUESTION,
-                            String.format(I18n.text("%s already exists!\nDo you want to replace it?"), path));
+                            String.format(I18n.text("%s已经存在！\n你想要替换目标文件吗？"), path));
                     question.addCancelButton();
-                    question.addButton(I18n.text("Replace"), OK);
+                    question.addButton(I18n.text("替换"), OK);
                     question.presentToUser();
                     if (question.getResult() == CANCEL) {
                         return null;
@@ -360,9 +360,9 @@ public class Modal extends JDialog {
     public static void showCannotOpenMsg(Component comp, String name, Throwable throwable) {
         if (throwable != null) {
             Log.error(throwable);
-            showError(comp, MessageFormat.format(I18n.text("Unable to open \"{0}\"\n{1}"), name, throwable.getMessage()));
+            showError(comp, MessageFormat.format(I18n.text("无法打开\"{0}\"\n{1}"), name, throwable.getMessage()));
         } else {
-            showError(comp, MessageFormat.format(I18n.text("Unable to open \"{0}\"."), name));
+            showError(comp, MessageFormat.format(I18n.text("无法打开\"{0}\"."), name));
         }
     }
 

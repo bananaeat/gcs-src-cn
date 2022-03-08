@@ -25,7 +25,7 @@ public final class SkillLevelIncrementCommand extends Command {
     public static final SkillLevelIncrementCommand INSTANCE           = new SkillLevelIncrementCommand();
 
     private SkillLevelIncrementCommand() {
-        super(I18n.text("Increase Skill Level"), CMD_INCREASE_LEVEL, KeyEvent.VK_SLASH);
+        super(I18n.text("增加技能等级"), CMD_INCREASE_LEVEL, KeyEvent.VK_SLASH);
     }
 
     @Override
@@ -39,7 +39,7 @@ public final class SkillLevelIncrementCommand extends Command {
             setTitle(inc.getIncrementSkillLevelTitle());
         } else {
             setEnabled(false);
-            setTitle(I18n.text("Increase Skill Level"));
+            setTitle(I18n.text("增加技能等级"));
         }
     }
 

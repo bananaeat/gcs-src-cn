@@ -59,7 +59,7 @@ public class OpenPageReferenceCommand extends Command {
     }
 
     private static String getTitle(boolean one) {
-        return one ? I18n.text("Open Page Reference") : I18n.text("Open Each Page Reference");
+        return one ? I18n.text("打开页面引用") : I18n.text("打开每页引用");
     }
 
     private static String getCmd(boolean one) {
@@ -112,7 +112,7 @@ public class OpenPageReferenceCommand extends Command {
             PageRef         ref      = settings.lookup(id, true);
             if (ref == null) {
                 Path path = Modal.presentOpenFileDialog(getFocusOwner(),
-                        String.format(I18n.text("Locate the PDF file for the prefix \"%s\""), id),
+                        String.format(I18n.text("找到前缀为 \"%s\" 的PDF文件"), id),
                         Dirs.PDF, FileType.PDF.getFilter());
                 if (path != null) {
                     ref = new PageRef(id, path, 0);

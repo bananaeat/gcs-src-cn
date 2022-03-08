@@ -29,7 +29,7 @@ public final class ExportToPNGCommand extends Command {
     public static final ExportToPNGCommand INSTANCE = new ExportToPNGCommand();
 
     private ExportToPNGCommand() {
-        super(I18n.text("PNG Image(s)…"), "ToPNG");
+        super(I18n.text("PNG图片……"), "ToPNG");
     }
 
     @Override
@@ -43,7 +43,7 @@ public final class ExportToPNGCommand extends Command {
         if (dockable != null) {
             String name = PathUtils.cleanNameForFile(dockable.getSheet().getCharacter().getProfile().getName());
             if (name.isBlank()) {
-                name = I18n.text("untitled");
+                name = I18n.text("未命名");
             }
             Path path = Modal.presentSaveFileDialog(dockable, getTitle(), Dirs.GENERAL,
                     name + "." + FileType.PNG.getExtension(), FileType.PNG.getFilter());
@@ -57,7 +57,7 @@ public final class ExportToPNGCommand extends Command {
         if (dockable.getSheet().saveAsPNG(exportPath, new ArrayList<>())) {
             dockable.recordQuickExport(new QuickExport(exportPath));
         } else {
-            Modal.showError(dockable, I18n.text("An error occurred while trying to export the sheet as PNG."));
+            Modal.showError(dockable, I18n.text("导出为PNG时发生了一个错误。"));
         }
     }
 }

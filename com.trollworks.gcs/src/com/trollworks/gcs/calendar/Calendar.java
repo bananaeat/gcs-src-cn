@@ -144,20 +144,20 @@ public class Calendar {
     /** @return null if the calendar data is usable. */
     public String checkValidity() {
         if (mWeekDays == null || mWeekDays.isEmpty()) {
-            return I18n.text("Calendar must have at least one week day");
+            return I18n.text("日历中每周必须至少有一天");
         }
         if (mMonths == null || mMonths.isEmpty()) {
-            return I18n.text("Calendar must have at least one month");
+            return I18n.text("日历必须至少有一个月");
         }
         if (mSeasons == null || mSeasons.isEmpty()) {
-            return I18n.text("Calendar must have at least one season");
+            return I18n.text("日历必须至少有一个季节");
         }
         if (mDayZeroWeekDay < 0 || mDayZeroWeekDay >= mWeekDays.size()) {
-            return I18n.text("Calendar's first week day of the first year must be a valid week day");
+            return I18n.text("日历中第一年的第一天必须是有效的星期中某日");
         }
         for (String weekday : mWeekDays) {
             if (weekday.isBlank()) {
-                return I18n.text("Calendar week day names must not be empty");
+                return I18n.text("日历中每周的每一天必须有名称");
             }
         }
         for (Month month : mMonths) {

@@ -62,16 +62,16 @@ public class LibraryFields implements DocumentListener {
             mComps.add(sep);
         }
 
-        mTitle = addLabelAndField(I18n.text("Name:"), title, 1);
-        mGitHubAccountName = addLabelAndField(I18n.text("GitHub Account:"), account, 1);
-        mRepoName = addLabelAndField(I18n.text("Repo:"), repo, 1);
-        FontIconButton button = new FontIconButton(FontAwesome.SEARCH_LOCATION, I18n.text("Locate"), (b) -> {
+        mTitle = addLabelAndField(I18n.text("名称："), title, 1);
+        mGitHubAccountName = addLabelAndField(I18n.text("GitHub账户："), account, 1);
+        mRepoName = addLabelAndField(I18n.text("在线库："), repo, 1);
+        FontIconButton button = new FontIconButton(FontAwesome.SEARCH_LOCATION, I18n.text("定位"), (b) -> {
             String       currentPath = mPath.getText();
             Path         current     = currentPath.isBlank() ? Dirs.GENERAL.get() : Path.of(currentPath).getParent().toAbsolutePath();
             JFileChooser dialog      = new JFileChooser(current.toString());
             dialog.setDialogTitle(mTitle.getText());
             dialog.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            if (dialog.showDialog(mOwner, I18n.text("Select")) == JFileChooser.APPROVE_OPTION) {
+            if (dialog.showDialog(mOwner, I18n.text("选择")) == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = dialog.getSelectedFile();
                 Dirs.GENERAL.set(selectedFile.toPath().getParent());
                 mPath.setText(selectedFile.getAbsolutePath());
@@ -82,9 +82,9 @@ public class LibraryFields implements DocumentListener {
         mOwner.add(button);
         mComps.add(button);
 
-        mPath = addLabelAndField(I18n.text("Path:"), path, 5);
+        mPath = addLabelAndField(I18n.text("路径："), path, 5);
         if (mLibraryType == LibraryType.EXTRA) {
-            button = new FontIconButton(FontAwesome.TRASH, I18n.text("Remove"), (b) -> {
+            button = new FontIconButton(FontAwesome.TRASH, I18n.text("移除"), (b) -> {
                 for (JComponent comp : mComps) {
                     mOwner.remove(comp);
                 }
@@ -94,7 +94,7 @@ public class LibraryFields implements DocumentListener {
                 mOwner.repaint();
             });
         } else {
-            button = new FontIconButton(FontAwesome.POWER_OFF, I18n.text("Use Default"), (b) -> {
+            button = new FontIconButton(FontAwesome.POWER_OFF, I18n.text("使用缺省值"), (b) -> {
                 Path def;
                 switch (mLibraryType) {
                     case MASTER:

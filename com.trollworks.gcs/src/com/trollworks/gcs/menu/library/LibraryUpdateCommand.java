@@ -36,26 +36,26 @@ public class LibraryUpdateCommand extends Command {
         Release upgrade = mLibrary.getAvailableUpgrade();
         String  title   = mLibrary.getTitle();
         if (upgrade == null) {
-            setTitle(String.format(I18n.text("Checking for updates to %s"), title));
+            setTitle(String.format(I18n.text("检查%s更新"), title));
             setEnabled(false);
             return;
         }
         if (upgrade.unableToAccessRepo()) {
-            setTitle(String.format(I18n.text("Unable to access the %s repo"), title));
+            setTitle(String.format(I18n.text("无法访问线上库%s"), title));
             setEnabled(false);
             return;
         }
         if (!upgrade.hasUpdate()) {
-            setTitle(String.format(I18n.text("No releases available for %s"), title));
+            setTitle(String.format(I18n.text("%s没有可用版本"), title));
             setEnabled(false);
             return;
         }
         Version versionOnDisk    = mLibrary.getVersionOnDisk();
         Version availableVersion = upgrade.getVersion();
         if (availableVersion.equals(versionOnDisk)) {
-            setTitle(String.format(I18n.text("%s is up to date (re-download v%s)"), title, versionOnDisk));
+            setTitle(String.format(I18n.text("%s已是最新（重新下载 v%s）"), title, versionOnDisk));
         } else {
-            setTitle(String.format(I18n.text("Update %s to v%s"), title, availableVersion));
+            setTitle(String.format(I18n.text("更新%s至v%s"), title, availableVersion));
         }
         setEnabled(!UIUtilities.inModalState());
     }
@@ -69,9 +69,9 @@ public class LibraryUpdateCommand extends Command {
     }
 
     public static void askUserToUpdate(Library library, Release release) {
-        if (UpdateChecker.presentUpdateToUser(String.format(I18n.text("%s v%s is available!"),
+        if (UpdateChecker.presentUpdateToUser(String.format(I18n.text("%s v%s 可用！"),
                 library.getTitle(), release.getVersion()), I18n.text("""
-                NOTE: Existing content for this library will be removed and replaced. Content in other libraries will not be modified.
+                备注：库中的内容将被移除和替换。其他库中的内容不会被更改。
 
                 """) + release.getNotes()).getResult() == Modal.OK) {
             LibraryUpdater.download(library, release);

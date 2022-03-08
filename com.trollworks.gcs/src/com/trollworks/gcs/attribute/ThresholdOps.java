@@ -22,40 +22,40 @@ public enum ThresholdOps {
 
         @Override
         public String toString() {
-            return I18n.text("Unknown");
+            return I18n.text("未知");
         }
     },
     HALVE_MOVE {
         @Override
         public String title() {
-            return I18n.text("Halve Move");
+            return I18n.text("减半移动");
         }
 
         @Override
         public String toString() {
-            return I18n.text("Halve Move (round up)");
+            return I18n.text("减半移动（向上取整）");
         }
     },
     HALVE_DODGE {
         @Override
         public String title() {
-            return I18n.text("Halve Dodge");
+            return I18n.text("减半闪避");
         }
 
         @Override
         public String toString() {
-            return I18n.text("Halve Dodge (round up)");
+            return I18n.text("减半闪避（向上取整）");
         }
     },
     HALVE_ST {
         @Override
         public String title() {
-            return I18n.text("Halve ST");
+            return I18n.text("减半ST");
         }
 
         @Override
         public String toString() {
-            return I18n.text("Halve ST (round up; does not affect HP and damage)");
+            return I18n.text("减半ST (向上取整；不影响HP和伤害)");
         }
     };
 

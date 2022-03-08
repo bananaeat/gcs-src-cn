@@ -55,15 +55,15 @@ public class Search extends Panel implements DocumentListener, KeyListener, Focu
         mFilterField = createSearchField();
         add(mFilterField, new PrecisionLayoutData().setGrabHorizontalSpace(true).setFillHorizontalAlignment());
         mHits = new Label("");
-        mHits.setToolTipText(I18n.text("The number of matches found"));
+        mHits.setToolTipText(I18n.text("找到的匹配数量"));
         adjustHits();
         add(mHits);
     }
 
     private EditorField createSearchField() {
         EditorField field = new EditorField(FieldFactory.STRING, null, SwingConstants.LEFT, "",
-                Text.makeFiller(10, 'M'), I18n.text("Enter text here and press RETURN to select all matching items"));
-        field.setHint(I18n.text("Search"));
+                Text.makeFiller(10, 'M'), I18n.text("在这里输入文本并按回车来搜索所有匹配的项目"));
+        field.setHint(I18n.text("搜索"));
         field.getDocument().addDocumentListener(this);
         field.addKeyListener(this);
         field.addFocusListener(this);

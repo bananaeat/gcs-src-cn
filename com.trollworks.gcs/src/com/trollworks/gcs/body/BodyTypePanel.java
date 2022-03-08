@@ -93,13 +93,13 @@ public class BodyTypePanel extends BandedPanel {
     private void fill() {
         mFirstField = null;
         Wrapper wrapper = new Wrapper(new PrecisionLayout().setColumns(isSubTable() ? 5 : 7).setMargins(0));
-        wrapper.add(new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("Add Hit Location"), (b) -> addHitLocation()));
+        wrapper.add(new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("添加命中位置"), (b) -> addHitLocation()));
         if (isSubTable()) {
-            wrapper.add(new Label(I18n.text("Sub-Table")), new PrecisionLayoutData().setFillHorizontalAlignment());
+            wrapper.add(new Label(I18n.text("次级表格")), new PrecisionLayoutData().setFillHorizontalAlignment());
         } else {
             mFirstField = addField(wrapper,
                     I18n.text("ID"),
-                    I18n.text("An ID for the body type table"),
+                    I18n.text("身体类型表的ID"),
                     mLocations.getID(),
                     Text.makeFiller(8, 'm'),
                     FieldFactory.STRING,
@@ -118,8 +118,8 @@ public class BodyTypePanel extends BandedPanel {
                         }
                     });
             addField(wrapper,
-                    I18n.text("Name"),
-                    I18n.text("The name of this body type table"),
+                    I18n.text("名称"),
+                    I18n.text("这个身体类型表的名称"),
                     mLocations.getName(),
                     null,
                     FieldFactory.STRING,
@@ -129,8 +129,8 @@ public class BodyTypePanel extends BandedPanel {
                     });
         }
         EditorField field = addField(wrapper,
-                I18n.text("Roll"),
-                I18n.text("The dice to roll on the table"),
+                I18n.text("投骰值"),
+                I18n.text("在表上需要扔出的骰子点数"),
                 mLocations.getRoll(),
                 new Dice(100, 100, 100),
                 new DefaultFormatterFactory(new DiceFormatter(null)),
@@ -142,7 +142,7 @@ public class BodyTypePanel extends BandedPanel {
             mFirstField = field;
         }
         if (isSubTable()) {
-            FontIconButton remove = new FontIconButton(FontAwesome.TRASH, I18n.text("Remove"), (b) -> {
+            FontIconButton remove = new FontIconButton(FontAwesome.TRASH, I18n.text("移除"), (b) -> {
                 getParent().remove(this);
                 mLocations.getOwningLocation().setSubTable(null);
                 mAdjustCallback.run();
@@ -193,7 +193,7 @@ public class BodyTypePanel extends BandedPanel {
     }
 
     public void addHitLocation() {
-        HitLocation location = new HitLocation("id", I18n.text("choice name"), I18n.text("table name"), 0, 0, 0, I18n.text("description"));
+        HitLocation location = new HitLocation("id", I18n.text("选项名"), I18n.text("表名"), 0, 0, 0, I18n.text("描述"));
         mLocations.addLocation(location);
         mLocations.update();
         mAdjustCallback.run();

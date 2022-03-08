@@ -116,9 +116,9 @@ public class LibraryExplorerDockable extends Dockable implements SearchTarget, D
         Toolbar toolbar = new Toolbar();
         mSearch = new Search(this);
         toolbar.add(new FontIconButton(FontAwesome.SITEMAP,
-                I18n.text("Opens/closes all hierarchical rows"),
+                I18n.text("打开/关闭所有多级行"),
                 (b) -> mOutline.getModel().toggleRowOpenState()));
-        toolbar.add(new FontIconButton(FontAwesome.SYNC_ALT, I18n.text("Refresh"),
+        toolbar.add(new FontIconButton(FontAwesome.SYNC_ALT, I18n.text("刷新"),
                 (b) -> refresh()));
         toolbar.add(mSearch, Toolbar.LAYOUT_FILL);
         add(toolbar, BorderLayout.NORTH);
@@ -145,7 +145,7 @@ public class LibraryExplorerDockable extends Dockable implements SearchTarget, D
 
     @Override
     public String getTitle() {
-        return I18n.text("Library Explorer");
+        return I18n.text("库浏览器");
     }
 
     @Override
@@ -569,14 +569,14 @@ public class LibraryExplorerDockable extends Dockable implements SearchTarget, D
         if (!paths.isEmpty()) {
             Modal dialog = Modal.prepareToShowMessage(this,
                     paths.size() == 1 ?
-                            I18n.text("Delete File") :
-                            String.format(I18n.text("Delete {0} Files"), Integer.valueOf(paths.size())),
+                            I18n.text("删除文件") :
+                            String.format(I18n.text("删除{0}个文件"), Integer.valueOf(paths.size())),
                     MessageType.QUESTION,
                     paths.size() == 1 ?
-                            I18n.text("Are you sure you want to delete this file?") :
-                            I18n.text("Are you sure you want to delete these files?"));
+                            I18n.text("你确定要删除这个文件吗？") :
+                            I18n.text("你确定要删除这些文件吗？"));
             dialog.addCancelButton();
-            dialog.addButton(I18n.text("Delete"), Modal.OK);
+            dialog.addButton(I18n.text("删除"), Modal.OK);
             dialog.presentToUser();
             if (dialog.getResult() == Modal.OK) {
                 int failed = 0;
@@ -595,7 +595,7 @@ public class LibraryExplorerDockable extends Dockable implements SearchTarget, D
                 }
                 refresh();
                 if (failed != 0) {
-                    Modal.showError(this, failed == 1 ? I18n.text("A file could not be deleted.") : String.format(I18n.text("{0} files could not be deleted."), Integer.valueOf(failed)));
+                    Modal.showError(this, failed == 1 ? I18n.text("一个文件无法被删除。") : String.format(I18n.text("{0}个文件无法被删除。"), Integer.valueOf(failed)));
                 }
             }
         }

@@ -55,11 +55,11 @@ public class AboutPanel extends Panel {
         gc.setFont(baseFont.deriveFont(10.0f));
         gc.setColor(getForeground());
         int right = getWidth() - MARGIN;
-        int y     = draw(gc, I18n.text("GURPS is a trademark of Steve Jackson Games, used by permission. All rights reserved.\nThis product includes copyrighted material from the GURPS game, which is used by permission of Steve Jackson Games."), getHeight() - MARGIN, right, true, true);
+        int y     = draw(gc, I18n.text("GURPS是Steve Jackson Games的一个商标，被授权后在这里使用。保留所有权利。.\n此产品包含来自GURPS的版权内瓤，在Steve Jackson Games的授权下使用。"), getHeight() - MARGIN, right, true, true);
         int y2    = draw(gc, GCS.COPYRIGHT + "\nAll rights reserved", y, right, false, true);
-        draw(gc, String.format(I18n.text("%s %s\n%s Architecture\nJava %s"), System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("os.arch"), System.getProperty("java.version")), y, right, false, false);  //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+        draw(gc, String.format(I18n.text("%s %s\n%s 架构\nJava %s"), System.getProperty("os.name"), System.getProperty("os.version"), System.getProperty("os.arch"), System.getProperty("java.version")), y, right, false, false);  //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
         gc.setFont(baseFont.deriveFont(Font.BOLD, 12.0f));
-        draw(gc, GCS.VERSION.isZero() ? I18n.text("Development Version") : I18n.text("Version ") + GCS.VERSION, y2, right, false, true);
+        draw(gc, GCS.VERSION.isZero() ? I18n.text("开发版本 ") : I18n.text("版本 ") + GCS.VERSION, y2, right, false, true);
         gc.setRenderingHints(saved);
     }
 
