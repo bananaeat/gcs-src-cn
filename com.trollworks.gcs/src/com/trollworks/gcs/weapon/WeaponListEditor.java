@@ -142,7 +142,7 @@ public abstract class WeaponListEditor extends Panel implements ActionListener, 
         Panel editorPanel = new Panel(new PrecisionLayout().setMargins(5).setColumns(2));
 
         Panel firstPanel = new Panel(new PrecisionLayout().setMargins(0).setColumns(3));
-        mUsage = addField(editorPanel, firstPanel, null, I18n.text("适用类型"));
+        mUsage = addField(editorPanel, firstPanel, null, I18n.text("使用类型"));
         mStrength = addField(firstPanel, firstPanel, "99**", I18n.text("最低力量"));
         editorPanel.add(firstPanel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 

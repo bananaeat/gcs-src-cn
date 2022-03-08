@@ -224,11 +224,11 @@ public class AdvantageEditor extends RowEditor<Advantage> implements ActionListe
             updatePoints();
         });
         mCRPopup.setSelectedIndex(mRow.getCR().ordinal(), false);
-        addLabel(parent, I18n.text("Self-Control Roll"));
+        addLabel(parent, I18n.text("自控检定"));
         Panel wrapper = new Panel(new PrecisionLayout().setColumns(2).setMargins(0));
         wrapper.add(mCRPopup);
         mCRAdjPopup = new PopupMenu<>(SelfControlRollAdjustments.values(), null);
-        mCRAdjPopup.setToolTipText(I18n.text("Adjustments that are applied due to Self-Control Roll limitations"));
+        mCRAdjPopup.setToolTipText(I18n.text("由于自控检定限制应用的调整值"));
         mCRAdjPopup.setSelectedIndex(mRow.getCRAdj().ordinal(), false);
         mCRAdjPopup.setEnabled(mRow.getCR() != SelfControlRoll.NONE_REQUIRED);
         wrapper.add(mCRAdjPopup, new PrecisionLayoutData().setLeftMargin(4));
