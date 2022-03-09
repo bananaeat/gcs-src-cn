@@ -218,18 +218,18 @@ public class SpellPrereq extends HasPrereq {
             satisfied = !satisfied;
         }
         if (!satisfied && builder != null) {
-            String oneSpell       = I18n.text("spell");
-            String multipleSpells = I18n.text("spells");
+            String oneSpell       = I18n.text("法术");
+            String multipleSpells = I18n.text("法术");
             if (Objects.equals(mType, KEY_NAME)) {
-                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} whose name {4}"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells, mStringCriteria.toString()));
+                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} 名称 {4}"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells, mStringCriteria.toString()));
             } else if (Objects.equals(mType, KEY_ANY)) {
-                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} of any kind"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells));
+                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} 属于任意类型"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells));
             } else if (Objects.equals(mType, KEY_CATEGORY)) {
-                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} whose category {4}"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells, mStringCriteria.toString()));
+                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} 其分类 {4}"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells, mStringCriteria.toString()));
             } else if (Objects.equals(mType, KEY_COLLEGE)) {
-                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} whose college {4}"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells, mStringCriteria.toString()));
+                builder.append(MessageFormat.format(I18n.text("\n{0}{1} {2} {3} 其学派 {4}"), prefix, getHasText(), mQuantityCriteria.toString(""), mQuantityCriteria.getQualifier() == 1 ? oneSpell : multipleSpells, mStringCriteria.toString()));
             } else if (Objects.equals(mType, KEY_COLLEGE_COUNT)) {
-                builder.append(MessageFormat.format(I18n.text("\n{0}{1} college count which {2}"), prefix, getHasText(), mQuantityCriteria.toString()));
+                builder.append(MessageFormat.format(I18n.text("\n{0}{1} 学派数量 {2}"), prefix, getHasText(), mQuantityCriteria.toString()));
             }
         }
         return satisfied;

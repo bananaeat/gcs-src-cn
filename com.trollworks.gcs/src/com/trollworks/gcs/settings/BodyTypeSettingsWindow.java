@@ -74,7 +74,7 @@ public final class BodyTypeSettingsWindow extends SettingsWindow<HitLocationTabl
     }
 
     private static String createTitle(GURPSCharacter gchar) {
-        return gchar == null ? I18n.text("Default Body Type") : String.format(I18n.text("Body Type for %s"), gchar.getProfile().getName());
+        return gchar == null ? I18n.text("默认身体类型") : String.format(I18n.text("%s的身体类型"), gchar.getProfile().getName());
     }
 
     private BodyTypeSettingsWindow(GURPSCharacter gchar) {
@@ -129,7 +129,7 @@ public final class BodyTypeSettingsWindow extends SettingsWindow<HitLocationTabl
 
     @Override
     protected String getResetButtonTooltip() {
-        return mCharacter == null ? super.getResetButtonTooltip() : I18n.text("Reset to Global Defaults");
+        return mCharacter == null ? super.getResetButtonTooltip() : I18n.text("重设全局默认值");
     }
 
     @Override

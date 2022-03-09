@@ -98,7 +98,7 @@ public final class MenuKeySettingsWindow extends SettingsWindow<Map<String, Stri
     }
 
     private MenuKeySettingsWindow() {
-        super(I18n.text("Menu Key Settings"));
+        super(I18n.text("菜单键设置"));
         mMap = new HashMap<>();
         fill();
     }
@@ -137,11 +137,11 @@ public final class MenuKeySettingsWindow extends SettingsWindow<Map<String, Stri
             Command          command = mMap.get(btn);
             KeyStrokeDisplay ksd     = new KeyStrokeDisplay(command);
             Modal dialog = Modal.prepareToShowMessage(this,
-                    I18n.text("Type a keystroke…"), MessageType.QUESTION, ksd);
-            Button resetButton = dialog.addButton(I18n.text("Reset"), 200);
-            Button clearButton = dialog.addButton(I18n.text("Clear"), 100);
+                    I18n.text("按下一个键……"), MessageType.QUESTION, ksd);
+            Button resetButton = dialog.addButton(I18n.text("重设"), 200);
+            Button clearButton = dialog.addButton(I18n.text("清除"), 100);
             dialog.addCancelButton();
-            Button setButton = dialog.addButton(I18n.text("Set"), Modal.OK);
+            Button setButton = dialog.addButton(I18n.text("设置"), Modal.OK);
             ksd.setButtons(resetButton, clearButton, setButton);
             dialog.presentToUser();
             switch (dialog.getResult()) {
@@ -201,7 +201,7 @@ public final class MenuKeySettingsWindow extends SettingsWindow<Map<String, Stri
             Label  label  = (Label) mPanel.getComponent(UIUtilities.getIndexOf(mPanel, button) + 1);
             if (count > 1) {
                 label.setIcon(new FontIcon(FontAwesome.EXCLAMATION_TRIANGLE, Fonts.FONT_ICON_LABEL_PRIMARY, Colors.ERROR));
-                label.setToolTipText(I18n.text("Duplicate key binding"));
+                label.setToolTipText(I18n.text("复制按键绑定"));
             } else {
                 label.setIcon(null);
                 label.setToolTipText(null);

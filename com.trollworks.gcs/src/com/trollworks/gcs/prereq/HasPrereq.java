@@ -87,6 +87,6 @@ public abstract class HasPrereq extends Prereq {
 
     /** @return The text associated with the current has() state. */
     public final String getHasText() {
-        return mHas ? I18n.text("Has") : I18n.text("Does not have");
+        return mHas ? I18n.text("拥有") : I18n.text("没有");
     }
 }

@@ -65,7 +65,7 @@ public class SpellPrereqEditor extends PrereqEditor {
     }
 
     private PopupMenu<String> addChangeTypePopup() {
-        String[] titles    = {I18n.text("whose name"), I18n.text("of any kind"), I18n.text("whose college name"), I18n.text("from different colleges"), I18n.text("whose category name")};
+        String[] titles    = {I18n.text("其名称"), I18n.text("属于任何类型"), I18n.text("其学派名"), I18n.text("来自不同学院"), I18n.text("其分类名")};
         int      selection = 0;
         String   current   = ((SpellPrereq) mPrereq).getType();
         int      length    = TYPES.length;

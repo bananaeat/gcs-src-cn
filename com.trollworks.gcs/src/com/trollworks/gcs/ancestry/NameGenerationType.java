@@ -17,13 +17,13 @@ public enum NameGenerationType {
     SIMPLE {
         @Override
         public String toString() {
-            return I18n.text("Simple");
+            return I18n.text("简单");
         }
     },
     MARKOV_CHAIN {
         @Override
         public String toString() {
-            return I18n.text("Markov Chain");
+            return I18n.text("马克洛夫链");
         }
     }
 }

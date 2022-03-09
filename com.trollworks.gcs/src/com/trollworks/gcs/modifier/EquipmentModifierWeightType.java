@@ -23,12 +23,12 @@ public enum EquipmentModifierWeightType {
     TO_ORIGINAL_WEIGHT(ModifierWeightValueType.ADDITION, ModifierWeightValueType.PERCENTAGE_ADDER) {
         @Override
         public String toShortString() {
-            return I18n.text("to original weight");
+            return I18n.text("到原本重量");
         }
 
         @Override
         public String toString() {
-            return toShortString() + I18n.text(" (e.g. '+5 lb', '-5 lb', '+10%', '-10%')");
+            return toShortString() + I18n.text(" (例子： '+5 lb', '-5 lb', '+10%', '-10%')");
         }
     },
     /**
@@ -38,12 +38,12 @@ public enum EquipmentModifierWeightType {
     TO_BASE_WEIGHT(ModifierWeightValueType.ADDITION, ModifierWeightValueType.PERCENTAGE_MULTIPLIER, ModifierWeightValueType.MULTIPLIER) {
         @Override
         public String toShortString() {
-            return I18n.text("to base weight");
+            return I18n.text("到基础重量");
         }
 
         @Override
         public String toString() {
-            return toShortString() + I18n.text(" (e.g. '+5 lb', '-5 lb', 'x10%', 'x3', 'x2/3')");
+            return toShortString() + I18n.text(" (例子： '+5 lb', '-5 lb', 'x10%', 'x3', 'x2/3')");
         }
     },
     /**
@@ -53,12 +53,12 @@ public enum EquipmentModifierWeightType {
     TO_FINAL_BASE_WEIGHT(ModifierWeightValueType.ADDITION, ModifierWeightValueType.PERCENTAGE_MULTIPLIER, ModifierWeightValueType.MULTIPLIER) {
         @Override
         public String toShortString() {
-            return I18n.text("to final base weight");
+            return I18n.text("到最终基础重量");
         }
 
         @Override
         public String toString() {
-            return toShortString() + I18n.text(" (e.g. '+5 lb', '-5 lb', 'x10%', 'x3', 'x2/3')");
+            return toShortString() + I18n.text(" (例子： '+5 lb', '-5 lb', 'x10%', 'x3', 'x2/3')");
         }
     },
     /**
@@ -68,12 +68,12 @@ public enum EquipmentModifierWeightType {
     TO_FINAL_WEIGHT(ModifierWeightValueType.ADDITION, ModifierWeightValueType.PERCENTAGE_MULTIPLIER, ModifierWeightValueType.MULTIPLIER) {
         @Override
         public String toShortString() {
-            return I18n.text("to final weight");
+            return I18n.text("到最终重量");
         }
 
         @Override
         public String toString() {
-            return toShortString() + I18n.text(" (e.g. '+5 lb', '-5 lb', 'x10%', 'x3', 'x2/3')");
+            return toShortString() + I18n.text(" (例子： '+5 lb', '-5 lb', 'x10%', 'x3', 'x2/3')");
         }
     };
 

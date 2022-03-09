@@ -59,15 +59,15 @@ public class ListPrereqEditor extends PrereqEditor {
     }
 
     private static String tlIs() {
-        return I18n.text("When the Character's TL is");
+        return I18n.text("当人物的科技等级(TL)是");
     }
 
     private static String tlIsAtLeast() {
-        return I18n.text("When the Character's TL is at least");
+        return I18n.text("当人物的科技等级(TL)至少");
     }
 
     private static String tlIsAtMost() {
-        return I18n.text("When the Character's TL is at most");
+        return I18n.text("当人物的科技等级(TL)最多");
     }
 
     @Override
@@ -100,8 +100,8 @@ public class ListPrereqEditor extends PrereqEditor {
         if (prereqList.isWhenTLEnabled()) {
             left.add(addNumericCompareField(prereqList.getWhenTLCriteria(), 0, 99, false));
         }
-        String requiresAll        = I18n.text("Requires all of:");
-        String requiresAtLeastOne = I18n.text("Requires at least one of:");
+        String requiresAll        = I18n.text("需要以下所有：");
+        String requiresAtLeastOne = I18n.text("需要一下至少一件：");
         popup = new PopupMenu<>(new String[]{requiresAll, requiresAtLeastOne}, (p) -> {
             ((PrereqList) mPrereq).setRequiresAll(p.getSelectedIndex() == 0);
             getParent().repaint();
@@ -112,10 +112,10 @@ public class ListPrereqEditor extends PrereqEditor {
 
         grid.add(new FlexSpacer(0, 0, true, false), 0, 1);
 
-        FontIconButton button = new FontIconButton(FontAwesome.ELLIPSIS_H, I18n.text("Add a prerequisite list to this list"), (b) -> addPrereqList());
+        FontIconButton button = new FontIconButton(FontAwesome.ELLIPSIS_H, I18n.text("向这个列表添加一个先决条件列表："), (b) -> addPrereqList());
         add(button);
         right.add(button);
-        button = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("Add a prerequisite to this list"), (b) -> addPrereq());
+        button = new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("向这个列表添加一个先决条件："), (b) -> addPrereq());
         add(button);
         right.add(button);
     }

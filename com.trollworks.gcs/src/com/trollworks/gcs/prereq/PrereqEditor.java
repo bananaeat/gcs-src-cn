@@ -71,8 +71,8 @@ public abstract class PrereqEditor extends EditorPanel {
         rebuildSelf(left, grid, right);
         if (mDepth > 0) {
             FontIconButton button = new FontIconButton(FontAwesome.TRASH,
-                    mPrereq instanceof PrereqList ? I18n.text("Remove this prerequisite list") :
-                            I18n.text("Remove this prerequisite"), (b) -> removeSelfAndDescendents());
+                    mPrereq instanceof PrereqList ? I18n.text("移除此先决条件列表") :
+                            I18n.text("移除此先决条件"), (b) -> removeSelfAndDescendents());
             add(button);
             right.add(button);
         }
@@ -92,8 +92,8 @@ public abstract class PrereqEditor extends EditorPanel {
     protected abstract void rebuildSelf(FlexRow left, FlexGrid grid, FlexRow right);
 
     protected PopupMenu<String> addHasPopup(boolean has) {
-        String hasText         = I18n.text("has");
-        String doesNotHaveText = I18n.text("doesn't have");
+        String hasText         = I18n.text("拥有");
+        String doesNotHaveText = I18n.text("没有");
         PopupMenu<String> popup = new PopupMenu<>(new String[]{hasText, doesNotHaveText},
                 (p) -> ((HasPrereq) mPrereq).setHas(p.getSelectedIndex() == 0));
         popup.setSelectedItem(has ? hasText : doesNotHaveText, false);
@@ -103,9 +103,9 @@ public abstract class PrereqEditor extends EditorPanel {
 
     /** @return The {@link PopupMenu} that allows the base prereq type to be changed. */
     protected PopupMenu<String> addChangeBaseTypePopup() {
-        String[] choices = {I18n.text("attribute"), I18n.text("advantage"), I18n.text("skill"),
-                I18n.text("spell(s)"), I18n.text("contained weight"),
-                I18n.text("contained quantity of")};
+        String[] choices = {I18n.text("属性"), I18n.text("优势"), I18n.text("技能"),
+                I18n.text("法术"), I18n.text("容纳重量为"),
+                I18n.text("容纳数量为")};
         Class<?> type    = mPrereq.getClass();
         String   current = choices[0];
         int      length  = BASE_TYPES.length;

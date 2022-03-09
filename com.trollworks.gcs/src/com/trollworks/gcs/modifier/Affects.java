@@ -19,7 +19,7 @@ public enum Affects {
     TOTAL {
         @Override
         public String toString() {
-            return I18n.text("to cost");
+            return I18n.text("到花费");
         }
 
         @Override
@@ -31,24 +31,24 @@ public enum Affects {
     BASE_ONLY {
         @Override
         public String toString() {
-            return I18n.text("to base cost only");
+            return I18n.text("只到基础花费");
         }
 
         @Override
         public String getShortTitle() {
-            return I18n.text("(base only)");
+            return I18n.text("(仅基础)");
         }
     },
     /** Affects only the leveled cost, not the base cost. */
     LEVELS_ONLY {
         @Override
         public String toString() {
-            return I18n.text("to leveled cost only");
+            return I18n.text("只到每等级花费");
         }
 
         @Override
         public String getShortTitle() {
-            return I18n.text("(levels only)");
+            return I18n.text("(仅每级)");
         }
     };
 

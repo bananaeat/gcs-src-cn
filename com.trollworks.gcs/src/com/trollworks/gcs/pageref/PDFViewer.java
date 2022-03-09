@@ -313,10 +313,10 @@ public enum PDFViewer {
 
     void showUnableToLocateMsg() {
         Modal.showError(null, String.format(I18n.text("""
-                Unable to locate %s.
+                无法定位 %s.
                                         
-                You may need to install it from %s
-                and/or add it to your system PATH variable."""), this, installFrom()));
+                你可能需要从 %s 安装它
+                并且/或者将它添加至你的PATH环境变量。"""), this, installFrom()));
     }
 
     String findExecutable(String exeName) {

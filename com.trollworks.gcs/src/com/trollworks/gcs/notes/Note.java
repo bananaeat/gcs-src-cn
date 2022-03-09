@@ -101,7 +101,7 @@ public class Note extends CollectedListRow implements HasSourceReference {
 
     @Override
     public String getLocalizedName() {
-        return I18n.text("Note");
+        return I18n.text("备注");
     }
 
     @Override
@@ -111,7 +111,7 @@ public class Note extends CollectedListRow implements HasSourceReference {
 
     @Override
     public String getRowType() {
-        return I18n.text("Note");
+        return I18n.text("备注");
     }
 
     @Override

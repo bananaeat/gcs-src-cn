@@ -75,12 +75,12 @@ public abstract class Modifier extends ListRow implements Comparable<Modifier>, 
 
     @Override
     public String getRowType() {
-        return I18n.text("Modifier");
+        return I18n.text("修正因子");
     }
 
     @Override
     public String getLocalizedName() {
-        return I18n.text("Modifier");
+        return I18n.text("修正因子");
     }
 
     /** @return The name. */
@@ -162,7 +162,7 @@ public abstract class Modifier extends ListRow implements Comparable<Modifier>, 
 
     @Override
     public String getModifierNotes() {
-        return mReadOnly ? I18n.text("** From container - not modifiable here **") : super.getModifierNotes();
+        return mReadOnly ? I18n.text("** 来自容器 - 无法在这里修改 **") : super.getModifierNotes();
     }
 
     @Override

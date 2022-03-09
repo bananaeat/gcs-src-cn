@@ -30,7 +30,7 @@ public class RefCell extends TextCell {
     public static final Pattern SEPARATORS_PATTERN = Pattern.compile("[, ;]");
 
     public static final String getStdToolTip(String type) {
-        return String.format(I18n.text("A reference to the book and page this %s appears on (e.g. B22 would refer to \"Basic Set\", page 22)"), type);
+        return String.format(I18n.text("到这个 %s 出现的书和页码的引用 (例子： B22 意思是 \"基本集\", 第 22 页)"), type);
     }
 
     public static final String getStdCellToolTip(String text) {

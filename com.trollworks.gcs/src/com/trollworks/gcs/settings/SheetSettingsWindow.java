@@ -98,7 +98,7 @@ public final class SheetSettingsWindow extends SettingsWindow<SheetSettings> imp
     }
 
     private static String createTitle(GURPSCharacter character) {
-        return character == null ? I18n.text("Sheet Settings") : String.format(I18n.text("Sheet Settings: %s"), character.getProfile().getName());
+        return character == null ? I18n.text("人物卡设置") : String.format(I18n.text("人物卡设置：%s"), character.getProfile().getName());
     }
 
     private SheetSettingsWindow(GURPSCharacter character) {
@@ -170,7 +170,7 @@ public final class SheetSettingsWindow extends SettingsWindow<SheetSettings> imp
         Panel             panel                    = new Panel(new PrecisionLayout().setColumns(2).setMargins(0));
         DamageProgression currentDamageProgression = mSheetSettings.getDamageProgression();
         mDamageProgressionPopup = addPopupMenu(panel, DamageProgression.values(),
-                currentDamageProgression, I18n.text("Damage Progression"),
+                currentDamageProgression, I18n.text("伤害递进"),
                 currentDamageProgression.getTooltip(), (p) -> {
                     DamageProgression progression = mDamageProgressionPopup.getSelectedItem();
                     if (progression != null) {
@@ -184,46 +184,46 @@ public final class SheetSettingsWindow extends SettingsWindow<SheetSettings> imp
 
     private Panel createCheckBoxGroupPanel() {
         Panel panel = new Panel(new PrecisionLayout().setMargins(0));
-        mShowCollegeInSpells = addCheckbox(panel, I18n.text("Show the College column"), null,
+        mShowCollegeInSpells = addCheckbox(panel, I18n.text("显示学院栏"), null,
                 mSheetSettings.showCollegeInSpells(), (b) -> {
                     mSheetSettings.setShowCollegeInSpells(b.isChecked());
                     adjustResetButton();
                 });
-        mShowDifficulty = addCheckbox(panel, I18n.text("Show the Difficulty column"), null,
+        mShowDifficulty = addCheckbox(panel, I18n.text("显示难度栏"), null,
                 mSheetSettings.showDifficulty(), (b) -> {
                     mSheetSettings.setShowDifficulty(b.isChecked());
                     adjustResetButton();
                 });
         mShowAdvantageModifierAdj = addCheckbox(panel,
-                I18n.text("Show advantage modifier cost adjustments"), null,
+                I18n.text("显示优势修正因子花费栏"), null,
                 mSheetSettings.showAdvantageModifierAdj(), (b) -> {
                     mSheetSettings.setShowAdvantageModifierAdj(b.isChecked());
                     adjustResetButton();
                 });
         mShowEquipmentModifierAdj = addCheckbox(panel,
-                I18n.text("Show equipment modifier cost & weight adjustments"), null,
+                I18n.text("显示装备修正因子花费栏以及重量调整"), null,
                 mSheetSettings.showEquipmentModifierAdj(), (b) -> {
                     mSheetSettings.setShowEquipmentModifierAdj(b.isChecked());
                     adjustResetButton();
                 });
-        mShowSpellAdj = addCheckbox(panel, I18n.text("Show spell ritual, cost & time adjustments"),
+        mShowSpellAdj = addCheckbox(panel, I18n.text("显示法术仪式，花费以及时间调整"),
                 null, mSheetSettings.showSpellAdj(), (b) -> {
                     mSheetSettings.setShowSpellAdj(b.isChecked());
                     adjustResetButton();
                 });
         mShowTitleInsteadOfNameInPageFooter = addCheckbox(panel,
-                I18n.text("Show the title instead of the name in the footer"), null,
+                I18n.text("在脚注显示头衔而非姓名"), null,
                 mSheetSettings.useTitleInFooter(), (b) -> {
                     mSheetSettings.setUseTitleInFooter(b.isChecked());
                     adjustResetButton();
                 });
         mUseMultiplicativeModifiers = addCheckbox(panel,
-                I18n.text("Use Multiplicative Modifiers (PW102; changes point value)"), null,
+                I18n.text("使修正因子相乘 (PW102；改变点数价值)"), null,
                 mSheetSettings.useMultiplicativeModifiers(), (b) -> {
                     mSheetSettings.setUseMultiplicativeModifiers(b.isChecked());
                     adjustResetButton();
                 });
-        mUseModifyingDicePlusAdds = addCheckbox(panel, I18n.text("Use Modifying Dice + Adds (B269)"),
+        mUseModifyingDicePlusAdds = addCheckbox(panel, I18n.text("使用调整值骰子+价值 (B269)"),
                 null, mSheetSettings.useModifyingDicePlusAdds(), (b) -> {
                     mSheetSettings.setUseModifyingDicePlusAdds(b.isChecked());
                     adjustResetButton();
@@ -233,37 +233,37 @@ public final class SheetSettingsWindow extends SettingsWindow<SheetSettings> imp
 
     private Panel createBlockLayoutPanel() {
         Panel panel  = new Panel(new PrecisionLayout().setMargins(0));
-        Label header = new Label(I18n.text("Block Layout"));
+        Label header = new Label(I18n.text("块布局"));
         header.setThemeFont(Fonts.HEADER);
         panel.add(header);
         mBlockLayoutField = new MultiLineTextField(Settings.linesToString(mSheetSettings.blockLayout()),
-                I18n.text("Specifies the layout of the various blocks of data on the character sheet"), this);
+                I18n.text("指定人物卡上数据块的布局"), this);
         panel.add(mBlockLayoutField, new PrecisionLayoutData().setFillAlignment().setGrabSpace(true));
         return panel;
     }
 
     private Panel createUnitsOfMeasurePanel() {
         Panel panel  = new Panel(new PrecisionLayout().setColumns(2).setMargins(0));
-        Label header = new Label(I18n.text("Units of Measurement"));
+        Label header = new Label(I18n.text("测量单位"));
         header.setThemeFont(Fonts.HEADER);
         panel.add(header, new PrecisionLayoutData().setHorizontalSpan(2));
         panel.add(new Separator(), new PrecisionLayoutData().setFillHorizontalAlignment().
                 setGrabHorizontalSpace(true).setHorizontalSpan(2).
                 setBottomMargin(LayoutConstants.TOOLBAR_VERTICAL_INSET / 2));
         mLengthUnitsPopup = addPopupMenu(panel, LengthUnits.values(),
-                mSheetSettings.defaultLengthUnits(), I18n.text("Length Units"),
-                I18n.text("The units to use for display of generated lengths"), (p) -> {
+                mSheetSettings.defaultLengthUnits(), I18n.text("长度单位"),
+                I18n.text("生成长度显示的单位"), (p) -> {
                     mSheetSettings.setDefaultLengthUnits(mLengthUnitsPopup.getSelectedItem());
                     adjustResetButton();
                 });
         mWeightUnitsPopup = addPopupMenu(panel, WeightUnits.values(),
-                mSheetSettings.defaultWeightUnits(), I18n.text("Weight Units"),
-                I18n.text("The units to use for display of generated weights"), (p) -> {
+                mSheetSettings.defaultWeightUnits(), I18n.text("重量单位"),
+                I18n.text("生成重量显示的单位"), (p) -> {
                     mSheetSettings.setDefaultWeightUnits(mWeightUnitsPopup.getSelectedItem());
                     adjustResetButton();
                 });
         mUseSimpleMetricConversions = addCheckbox(panel,
-                I18n.text("Use the simple metric conversion rules (B9)"), null,
+                I18n.text("使用简单的公制转化规则 (B9)"), null,
                 mSheetSettings.useSimpleMetricConversions(), (b) -> {
                     mSheetSettings.setUseSimpleMetricConversions(b.isChecked());
                     adjustResetButton();
@@ -273,31 +273,31 @@ public final class SheetSettingsWindow extends SettingsWindow<SheetSettings> imp
 
     private Panel createWhereToDisplayPanel() {
         Panel panel  = new Panel(new PrecisionLayout().setColumns(2).setMargins(0));
-        Label header = new Label(I18n.text("Where to display…"));
+        Label header = new Label(I18n.text("在哪里显示……"));
         header.setThemeFont(Fonts.HEADER);
         panel.add(header, new PrecisionLayoutData().setHorizontalSpan(2));
         panel.add(new Separator(), new PrecisionLayoutData().setFillHorizontalAlignment().
                 setGrabHorizontalSpace(true).setHorizontalSpan(2).
                 setBottomMargin(LayoutConstants.TOOLBAR_VERTICAL_INSET / 2));
-        String tooltip = I18n.text("Where to display this information");
+        String tooltip = I18n.text("在哪里显示信息");
         mUserDescriptionDisplayPopup = addPopupMenu(panel, DisplayOption.values(),
-                mSheetSettings.userDescriptionDisplay(), I18n.text("User Description"),
+                mSheetSettings.userDescriptionDisplay(), I18n.text("用户描述"),
                 tooltip, (p) -> {
                     mSheetSettings.setUserDescriptionDisplay(mUserDescriptionDisplayPopup.getSelectedItem());
                     adjustResetButton();
                 });
         mModifiersDisplayPopup = addPopupMenu(panel, DisplayOption.values(),
-                mSheetSettings.modifiersDisplay(), I18n.text("Modifiers"), tooltip, (p) -> {
+                mSheetSettings.modifiersDisplay(), I18n.text("修正值"), tooltip, (p) -> {
                     mSheetSettings.setModifiersDisplay(mModifiersDisplayPopup.getSelectedItem());
                     adjustResetButton();
                 });
         mNotesDisplayPopup = addPopupMenu(panel, DisplayOption.values(), mSheetSettings.notesDisplay(),
-                I18n.text("Notes"), tooltip, (p) -> {
+                I18n.text("备注"), tooltip, (p) -> {
                     mSheetSettings.setNotesDisplay(mNotesDisplayPopup.getSelectedItem());
                     adjustResetButton();
                 });
         mSkillLevelAdjustmentsPopup = addPopupMenu(panel, DisplayOption.values(), mSheetSettings.skillLevelAdjustmentsDisplay(),
-                I18n.text("Skill Level Adjustments"), tooltip, (p) -> {
+                I18n.text("技能等级修正"), tooltip, (p) -> {
                     mSheetSettings.setSkillLevelAdjustmentsDisplay(mSkillLevelAdjustmentsPopup.getSelectedItem());
                     adjustResetButton();
                 });
@@ -338,7 +338,7 @@ public final class SheetSettingsWindow extends SettingsWindow<SheetSettings> imp
 
     @Override
     protected String getResetButtonTooltip() {
-        return mCharacter == null ? super.getResetButtonTooltip() : I18n.text("Reset to Global Defaults");
+        return mCharacter == null ? super.getResetButtonTooltip() : I18n.text("重设到全局默认值");
     }
 
     @Override

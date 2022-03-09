@@ -17,19 +17,19 @@ public enum WeaponSelectionType {
     THIS_WEAPON {
         @Override
         public String toString() {
-            return I18n.text("to this weapon");
+            return I18n.text("到这把武器");
         }
     },
     WEAPONS_WITH_NAME {
         @Override
         public String toString() {
-            return I18n.text("to weapons whose name");
+            return I18n.text("到武器其名为");
         }
     },
     WEAPONS_WITH_REQUIRED_SKILL {
         @Override
         public String toString() {
-            return I18n.text("to weapons whose required skill name");
+            return I18n.text("到武器其需技能名为");
         }
     }
 }

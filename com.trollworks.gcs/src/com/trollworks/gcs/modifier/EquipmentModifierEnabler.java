@@ -64,7 +64,7 @@ public final class EquipmentModifierEnabler extends Panel {
         count = list.size();
         for (int i = 0; i < count; i++) {
             EquipmentModifierEnabler panel  = new EquipmentModifierEnabler(list.get(i), count - i - 1);
-            Modal                    dialog = Modal.prepareToShowMessage(comp, I18n.text("Enable Modifiers"), MessageType.QUESTION, panel);
+            Modal                    dialog = Modal.prepareToShowMessage(comp, I18n.text("启用修正因子"), MessageType.QUESTION, panel);
             if (i != count - 1) {
                 dialog.addCancelRemainingButton();
             }
@@ -100,7 +100,7 @@ public final class EquipmentModifierEnabler extends Panel {
         Label label = new Label(Text.truncateIfNecessary(equipment.toString(), 80, SwingConstants.CENTER), SwingConstants.LEFT);
         top.setBorder(new EmptyBorder(0, 0, 15, 0));
         if (remaining > 0) {
-            top.add(new Label(MessageFormat.format(I18n.text("{0} equipment remaining to be processed."), Integer.valueOf(remaining)), SwingConstants.CENTER));
+            top.add(new Label(MessageFormat.format(I18n.text("剩余 {0} 装备未处理。"), Integer.valueOf(remaining)), SwingConstants.CENTER));
         }
         label.setBorder(new CompoundBorder(new LineBorder(), new EmptyBorder(0, 2, 0, 2)));
         label.setBackground(Colors.HEADER);

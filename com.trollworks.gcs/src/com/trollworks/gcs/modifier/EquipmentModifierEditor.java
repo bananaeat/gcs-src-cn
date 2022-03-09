@@ -59,24 +59,24 @@ public class EquipmentModifierEditor extends RowEditor<EquipmentModifier> implem
     @Override
     protected void addContentSelf(ScrollContent outer) {
         Panel panel = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
-        addLabel(panel, I18n.text("Name"));
+        addLabel(panel, I18n.text("名称"));
         if (mRow.canHaveChildren()) {
-            mNameField = createCorrectableField(panel, mRow.getName(), I18n.text("Name of container"));
+            mNameField = createCorrectableField(panel, mRow.getName(), I18n.text("容器名称"));
         } else {
             Panel wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(4));
-            mNameField = createCorrectableField(wrapper, mRow.getName(), I18n.text("Name of Modifier"));
-            addInteriorLabel(wrapper, I18n.text("Tech Level"));
-            mTechLevelField = createField(wrapper, mRow.getTechLevel(), I18n.text("The first Tech Level this equipment is available at"), 3);
-            mEnabledField = new Checkbox(I18n.text("Enabled"), mRow.isEnabled(), null);
-            mEnabledField.setToolTipText(I18n.text("Whether this modifier has been enabled or not"));
+            mNameField = createCorrectableField(wrapper, mRow.getName(), I18n.text("修正因子名称"));
+            addInteriorLabel(wrapper, I18n.text("科技等级(TL)"));
+            mTechLevelField = createField(wrapper, mRow.getTechLevel(), I18n.text("此装备最早可用的科技等级"), 3);
+            mEnabledField = new Checkbox(I18n.text("启用"), mRow.isEnabled(), null);
+            mEnabledField.setToolTipText(I18n.text("这个修正因子是否被启用"));
             wrapper.add(mEnabledField, new PrecisionLayoutData().setLeftMargin(4));
             panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
             wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
-            addLabel(panel, I18n.text("Cost Modifier"));
+            addLabel(panel, I18n.text("费用修正因子"));
             mCostAmountField = new EditorField(FieldFactory.STRING, (f) -> costChanged(),
                     SwingConstants.LEFT, mRow.getCostAdjType().format(mRow.getCostAdjAmount(), true),
-                    "-999,999,999.00", I18n.text("The cost modifier"));
+                    "-999,999,999.00", I18n.text("费用修正因子"));
             wrapper.add(mCostAmountField);
             mCostType = new PopupMenu<>(EquipmentModifierCostType.values(), (p) -> costChanged());
             mCostType.setSelectedItem(mRow.getCostAdjType(), false);
@@ -84,11 +84,11 @@ public class EquipmentModifierEditor extends RowEditor<EquipmentModifier> implem
             panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
             wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
-            addLabel(panel, I18n.text("Weight Modifier"));
+            addLabel(panel, I18n.text("重量修正因子"));
             mWeightAmountField = new EditorField(FieldFactory.STRING, (f) -> weightChanged(),
                     SwingConstants.LEFT, mRow.getWeightAdjType().format(mRow.getWeightAdjAmount(),
                     mRow.getDataFile().getSheetSettings().defaultWeightUnits(), true),
-                    "-999,999,999.00", I18n.text("The weight modifier"));
+                    "-999,999,999.00", I18n.text("重量修正因子"));
             wrapper.add(mWeightAmountField);
             mWeightType = new PopupMenu<>(EquipmentModifierWeightType.values(), (p) -> weightChanged());
             mWeightType.setSelectedItem(mRow.getWeightAdjType(), false);
@@ -96,13 +96,13 @@ public class EquipmentModifierEditor extends RowEditor<EquipmentModifier> implem
             panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         }
 
-        mNotesField = new MultiLineTextField(mRow.getNotes(), I18n.text("Any notes that you would like to show up in the list along with this modifier"), this);
-        addLabel(panel, I18n.text("Notes")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
+        mNotesField = new MultiLineTextField(mRow.getNotes(), I18n.text("任何你想要在列表中与这个修正因子一起出现的备注"), this);
+        addLabel(panel, I18n.text("备注")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
         panel.add(mNotesField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         mVTTNotesField = addVTTNotesField(panel, this);
 
-        addLabel(panel, I18n.text("Page Reference"));
-        mReferenceField = createField(panel, mRow.getReference(), PageRefCell.getStdToolTip(I18n.text("equipment modifier")), 6);
+        addLabel(panel, I18n.text("页面引用"));
+        mReferenceField = createField(panel, mRow.getReference(), PageRefCell.getStdToolTip(I18n.text("装备修正因子")), 6);
         outer.add(panel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         if (!mRow.canHaveChildren()) {
@@ -159,7 +159,7 @@ public class EquipmentModifierEditor extends RowEditor<EquipmentModifier> implem
 
     private void docChanged(DocumentEvent event) {
         if (mNameField.getDocument() == event.getDocument()) {
-            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("The name field may not be empty") : null);
+            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("名称不能为空") : null);
         }
     }
 

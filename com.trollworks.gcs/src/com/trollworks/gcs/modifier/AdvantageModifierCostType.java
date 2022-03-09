@@ -26,7 +26,7 @@ public enum AdvantageModifierCostType {
     POINTS {
         @Override
         public String toString() {
-            return I18n.text("points");
+            return I18n.text("点数");
         }
     },
     /** Multiplies the final cost by a constant. */

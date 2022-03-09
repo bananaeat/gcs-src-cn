@@ -78,7 +78,7 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
     }
 
     private GeneralSettingsWindow() {
-        super(I18n.text("General Settings"));
+        super(I18n.text("一般设置"));
         fill();
     }
 
@@ -99,16 +99,16 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             Settings.getInstance().getGeneralSettings().setDefaultPlayerName(f.getText().trim());
             adjustResetButton();
         }, SwingConstants.LEFT, settings.getDefaultPlayerName(),
-                I18n.text("The player name to use when a new character sheet is created"));
-        panel.add(new Label(I18n.text("Player")), new PrecisionLayoutData().setEndHorizontalAlignment());
+                I18n.text("当新任务卡创建时使用的人物名"));
+        panel.add(new Label(I18n.text("玩家")), new PrecisionLayoutData().setEndHorizontalAlignment());
         panel.add(mPlayerName, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
-        mAutoFillProfile = new Checkbox(I18n.text("Fill in initial description"),
+        mAutoFillProfile = new Checkbox(I18n.text("输入起始描述"),
                 settings.autoFillProfile(), (b) -> {
             Settings.getInstance().getGeneralSettings().setAutoFillProfile(b.isChecked());
             adjustResetButton();
         });
-        mAutoFillProfile.setToolTipText(I18n.text("Automatically fill in new character identity and description information with randomized choices"));
+        mAutoFillProfile.setToolTipText(I18n.text("自动用随机生成选项填入人物的身份和描述信息"));
         mAutoFillProfile.setOpaque(false);
         panel.add(mAutoFillProfile, new PrecisionLayoutData().setLeftMargin(10));
 
@@ -117,7 +117,7 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             Settings.getInstance().getGeneralSettings().setDefaultTechLevel(f.getText().trim());
             adjustResetButton();
         }, SwingConstants.RIGHT, settings.getDefaultTechLevel(), "99+99^", getTechLevelTooltip());
-        panel.add(new Label(I18n.text("Tech Level")),
+        panel.add(new Label(I18n.text("科技等级(TL)")),
                 new PrecisionLayoutData().setEndHorizontalAlignment());
         Wrapper wrapper = new Wrapper(new PrecisionLayout().setMargins(0).setColumns(3));
         panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
@@ -127,18 +127,18 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             Settings.getInstance().getGeneralSettings().setInitialPoints(((Integer) f.getValue()).intValue());
             adjustResetButton();
         }, SwingConstants.RIGHT, Integer.valueOf(settings.getInitialPoints()), Integer.valueOf(999999),
-                I18n.text("The initial number of character points to start with"));
-        wrapper.add(new Label(I18n.text("Initial Points")),
+                I18n.text("起始的人物点数"));
+        wrapper.add(new Label(I18n.text("起始点数")),
                 new PrecisionLayoutData().setFillHorizontalAlignment().setLeftMargin(10));
         wrapper.add(mInitialPoints, new PrecisionLayoutData().setFillHorizontalAlignment());
 
-        mIncludeUnspentPointsInTotal = new Checkbox(I18n.text("Include unspent points in total"),
+        mIncludeUnspentPointsInTotal = new Checkbox(I18n.text("在总点数里包括未消耗的点数"),
                 settings.includeUnspentPointsInTotal(), (b) -> {
             Settings s = Settings.getInstance();
             s.getGeneralSettings().setIncludeUnspentPointsInTotal(b.isChecked(), s);
             adjustResetButton();
         });
-        mIncludeUnspentPointsInTotal.setToolTipText(I18n.text("Include unspent points in the character point total"));
+        mIncludeUnspentPointsInTotal.setToolTipText(I18n.text("在人物总点数里包括未消耗的点数"));
         mIncludeUnspentPointsInTotal.setOpaque(false);
         panel.add(mIncludeUnspentPointsInTotal, new PrecisionLayoutData().setLeftMargin(10));
 
@@ -148,7 +148,7 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             adjustResetButton();
         });
         mCalendar.setSelectedItem(CalendarRef.current(), false);
-        panel.add(new Label(I18n.text("Calendar")),
+        panel.add(new Label(I18n.text("日历")),
                 new PrecisionLayoutData().setEndHorizontalAlignment());
         panel.add(mCalendar, new PrecisionLayoutData().setHorizontalSpan(2));
 
@@ -158,7 +158,7 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             adjustResetButton();
         });
         mInitialScale.setSelectedItem(settings.getInitialUIScale(), false);
-        panel.add(new Label(I18n.text("Initial Scale")),
+        panel.add(new Label(I18n.text("起始尺寸")),
                 new PrecisionLayoutData().setEndHorizontalAlignment());
         wrapper = new Wrapper(new PrecisionLayout().setMargins(0).setColumns(4));
         panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().
@@ -170,14 +170,14 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             adjustResetButton();
         }, SwingConstants.RIGHT, Integer.valueOf(settings.getImageResolution()),
                 FieldFactory.getMaxValue(FieldFactory.OUTPUT_DPI),
-                I18n.text("The resolution, in dots-per-inch, to use when saving sheets as PNG files"));
-        wrapper.add(new Label(I18n.text("Image Resolution")),
+                I18n.text("分辨率，单位为dpi，用来将人物卡保存为PNG文件"));
+        wrapper.add(new Label(I18n.text("图片分辨率")),
                 new PrecisionLayoutData().setFillHorizontalAlignment().setLeftMargin(10));
         wrapper.add(mImageResolution, new PrecisionLayoutData().setFillHorizontalAlignment());
         wrapper.add(new Label(I18n.text("dpi")));
 
         // Fifth row
-        panel.add(new Label(I18n.text("Tooltip Initial Delay")),
+        panel.add(new Label(I18n.text("提示弹窗初始延迟")),
                 new PrecisionLayoutData().setEndHorizontalAlignment());
         wrapper = new Wrapper(new PrecisionLayout().setMargins(0).setColumns(2));
         panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().
@@ -187,11 +187,11 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             adjustResetButton();
         }, SwingConstants.RIGHT, Integer.valueOf(settings.getToolTipInitialDelayMilliseconds()),
                 FieldFactory.getMaxValue(FieldFactory.TOOLTIP_MILLIS_TIMEOUT),
-                I18n.text("The number of milliseconds after the cursor has paused before tooltips will appear"));
+                I18n.text("在鼠标停留后需要多少毫秒才弹出提示弹窗"));
         wrapper.add(mToolTipInitialDelayMilliseconds, new PrecisionLayoutData().setFillHorizontalAlignment());
-        wrapper.add(new Label(I18n.text("milliseconds")));
+        wrapper.add(new Label(I18n.text("毫秒")));
 
-        panel.add(new Label(I18n.text("Tooltip Dismissal Timeout")),
+        panel.add(new Label(I18n.text("提示弹窗消失延迟")),
                 new PrecisionLayoutData().setEndHorizontalAlignment());
         wrapper = new Wrapper(new PrecisionLayout().setMargins(0).setColumns(2));
         panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().
@@ -201,11 +201,11 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             adjustResetButton();
         }, SwingConstants.RIGHT, Integer.valueOf(settings.getToolTipDismissDelaySeconds()),
                 FieldFactory.getMaxValue(FieldFactory.TOOLTIP_TIMEOUT),
-                I18n.text("The number of seconds before tooltips will dismiss themselves"));
+                I18n.text("在鼠标离开后需要多少秒提示弹窗才消失"));
         wrapper.add(mToolTipDismissDelaySeconds, new PrecisionLayoutData().setFillHorizontalAlignment());
-        wrapper.add(new Label(I18n.text("seconds")));
+        wrapper.add(new Label(I18n.text("秒")));
 
-        panel.add(new Label(I18n.text("Tooltip Reshow Delay")),
+        panel.add(new Label(I18n.text("提示弹窗重新显示延迟")),
                 new PrecisionLayoutData().setEndHorizontalAlignment());
         wrapper = new Wrapper(new PrecisionLayout().setMargins(0).setColumns(2));
         panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().
@@ -215,9 +215,9 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             adjustResetButton();
         }, SwingConstants.RIGHT, Integer.valueOf(settings.getToolTipReshowDelayMilliseconds()),
                 FieldFactory.getMaxValue(FieldFactory.TOOLTIP_MILLIS_TIMEOUT),
-                I18n.text("The number of milliseconds before the user has to wait the initial delay before a tooltip will be shown. If the tooltip is hidden and the user moves into a region of the same component that has a valid tooltip within the reshow milliseconds, the tooltip will be immediately shown. Otherwise, if the user moves into a region with a valid tooltip after reshow milliseconds, the user will have to wait an additional initial delay milliseconds before the tooltip is shown again"));
+                I18n.text("在等待初始延迟之前，用户需要额外等待多少毫秒让提示弹窗出现。如果提示弹窗刚消失，且用户把在此延迟内将鼠标移动进同样的窗口成分，提示弹窗将会立刻显示。否则，如果用户在此延迟外移动鼠标进此窗口成分，则需额外等待起始延迟使提示弹窗弹出。"));
         wrapper.add(mToolTipReshowDelayMilliseconds, new PrecisionLayoutData().setFillHorizontalAlignment());
-        wrapper.add(new Label(I18n.text("milliseconds")));
+        wrapper.add(new Label(I18n.text("毫秒")));
 
         // Sixth row
         mPDFViewer = new PopupMenu<>(PDFViewer.valuesForPlatform(), (p) -> {
@@ -230,7 +230,7 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
         });
         PDFViewer pdfViewer = settings.getPDFViewer();
         mPDFViewer.setSelectedItem(pdfViewer, false);
-        panel.add(new Label(I18n.text("PDF Viewer")), new PrecisionLayoutData().setEndHorizontalAlignment());
+        panel.add(new Label(I18n.text("PDF 浏览器")), new PrecisionLayoutData().setEndHorizontalAlignment());
         wrapper = new Wrapper(new PrecisionLayout().setMargins(0).setColumns(3));
         wrapper.add(mPDFViewer);
         mPDFInstall = new Label("");
@@ -262,10 +262,10 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
             Settings.getInstance().getGeneralSettings().setGCalcKey(f.getText().trim());
             adjustResetButton();
         }, SwingConstants.LEFT, settings.getGCalcKey(), null);
-        wrapper.add(new Label(I18n.text("GURPS Calculator Key")), new PrecisionLayoutData().setEndHorizontalAlignment());
+        wrapper.add(new Label(I18n.text("GURPS 计算器密钥")), new PrecisionLayoutData().setEndHorizontalAlignment());
         wrapper.add(mGCalcKey, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         wrapper.add(new FontIconButton(FontAwesome.SEARCH,
-                I18n.text("Lookup your key on the GURPS Calculator web site"),
+                I18n.text("在GURPS计算器网站上寻找你的计算器密钥"),
                 ExportToGCalcCommand::openBrowserToFindKey));
 
         return panel;
@@ -273,19 +273,19 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
 
     public static String getTechLevelTooltip() {
         return I18n.text("""
-                TL0: Stone Age (Prehistory and later)
-                TL1: Bronze Age (3500 B.C.+)
-                TL2: Iron Age (1200 B.C.+)
-                TL3: Medieval (600 A.D.+)
-                TL4: Age of Sail (1450+)
-                TL5: Industrial Revolution (1730+)
-                TL6: Mechanized Age (1880+)
-                TL7: Nuclear Age (1940+)
-                TL8: Digital Age (1980+)
-                TL9: Microtech Age (2025+?)
-                TL10: Robotic Age (2070+?)
-                TL11: Age of Exotic Matter
-                TL12: Anything Goes""");
+                TL0: 石器时代 (史前时代开始)
+                TL1: 青铜时代 (3500 B.C.+)
+                TL2: 铁器时代 (1200 B.C.+)
+                TL3: 中世纪 (600 A.D.+)
+                TL4: 航海时代 (1450+)
+                TL5: 工业革命 (1730+)
+                TL6: 机械化时代 (1880+)
+                TL7: 核子时代 (1940+)
+                TL8: 数字时代 (1980+)
+                TL9: 微科技时代 (2025+?)
+                TL10: 机器人时代 (2070+?)
+                TL11: 超材料时代
+                TL12: 由GM命名！""");
     }
 
     @Override
@@ -326,7 +326,7 @@ public final class GeneralSettingsWindow extends SettingsWindow<GeneralSettings>
     }
 
     private static String getInstallFromText() {
-        return I18n.text("Install from:");
+        return I18n.text("从这里安装：");
     }
 
     private void updatePDFLinks(PDFViewer viewer) {

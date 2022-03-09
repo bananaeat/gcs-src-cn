@@ -27,7 +27,7 @@ public class FeaturesPanel extends BandedPanel {
      * @param features The initial features to display.
      */
     public FeaturesPanel(ListRow row, List<Feature> features) {
-        super(I18n.text("Features"));
+        super(I18n.text("特性"));
         for (Feature feature : features) {
             add(FeatureEditor.create(row, feature.cloneFeature()));
         }

@@ -56,7 +56,7 @@ public final class FontSettingsWindow extends SettingsWindow<Fonts> {
     }
 
     public FontSettingsWindow() {
-        super(I18n.text("Font Settings"));
+        super(I18n.text("字体设置"));
         fill();
     }
 

@@ -66,14 +66,14 @@ public class AdvantageModifierEditor extends RowEditor<AdvantageModifier> implem
     @Override
     protected void addContentSelf(ScrollContent outer) {
         Panel panel = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
-        addLabel(panel, I18n.text("Name"));
+        addLabel(panel, I18n.text("名称"));
         if (mRow.canHaveChildren()) {
-            mNameField = createCorrectableField(panel, mRow.getName(), I18n.text("Name of container"));
+            mNameField = createCorrectableField(panel, mRow.getName(), I18n.text("容器名称"));
         } else {
             Panel wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
-            mNameField = createCorrectableField(wrapper, mRow.getName(), I18n.text("Name of Modifier"));
-            mEnabledField = new Checkbox(I18n.text("Enabled"), mRow.isEnabled(), null);
-            mEnabledField.setToolTipText(I18n.text("Whether this modifier has been enabled or not"));
+            mNameField = createCorrectableField(wrapper, mRow.getName(), I18n.text("修正因子名称"));
+            mEnabledField = new Checkbox(I18n.text("启用"), mRow.isEnabled(), null);
+            mEnabledField.setToolTipText(I18n.text("此修正因子是否被启用"));
             mEnabledField.setEnabled(mIsEditable);
             wrapper.add(mEnabledField, new PrecisionLayoutData().setLeftMargin(4));
             panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
@@ -81,14 +81,14 @@ public class AdvantageModifierEditor extends RowEditor<AdvantageModifier> implem
             createCostModifierFields(panel);
         }
 
-        mNotesField = new MultiLineTextField(mRow.getNotes(), I18n.text("Any notes that you would like to show up in the list along with this modifier"), this);
-        addLabel(panel, I18n.text("Notes")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
+        mNotesField = new MultiLineTextField(mRow.getNotes(), I18n.text("任何你想要在列表中和这个修正因子一起出现的备注"), this);
+        addLabel(panel, I18n.text("备注")).setVerticalAlignment(PrecisionLayoutAlignment.BEGINNING).setTopMargin(2);
         panel.add(mNotesField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         mVTTNotesField = addVTTNotesField(panel, this);
 
-        addLabel(panel, I18n.text("Page Reference"));
+        addLabel(panel, I18n.text("页面引用"));
         mReferenceField = createField(panel, mRow.getReference(),
-                PageRefCell.getStdToolTip(I18n.text("advantage modifier")), 6);
+                PageRefCell.getStdToolTip(I18n.text("优势修正因子")), 6);
         outer.add(panel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
 
         if (!mRow.canHaveChildren()) {
@@ -162,20 +162,20 @@ public class AdvantageModifierEditor extends RowEditor<AdvantageModifier> implem
         if (mLastLevel < 1) {
             mLastLevel = 1;
         }
-        String costTooltip = I18n.text("The base cost modifier");
-        addLabel(parent, I18n.text("Cost"));
+        String costTooltip = I18n.text("基础花费修正因子");
+        addLabel(parent, I18n.text("花费"));
         mCostField = mRow.getCostType() == AdvantageModifierCostType.MULTIPLIER ?
                 createNumberField(wrapper, mRow.getCostMultiplier(), costTooltip,
                         (f) -> updateCostModifier()) :
                 createNumberField(wrapper, FieldFactory.INT5, mRow.getCost(), -99999, costTooltip,
                         (f) -> updateCostModifier());
         createCostType(wrapper);
-        addInteriorLabel(wrapper, I18n.text("Levels"));
+        addInteriorLabel(wrapper, I18n.text("等级"));
         mLevelField = createNumberField(wrapper, FieldFactory.POSINT3,
-                mLastLevel, 999, I18n.text("The number of levels this modifier has"),
+                mLastLevel, 999, I18n.text("此修正因子的等级"),
                 (f) -> updateCostModifier());
-        addInteriorLabel(wrapper, I18n.text("Total"));
-        mCostModifierField = createField(wrapper, "", I18n.text("The cost modifier's total value"), 9);
+        addInteriorLabel(wrapper, I18n.text("总花费"));
+        mCostModifierField = createField(wrapper, "", I18n.text("花费修正因子的总价值"), 9);
         mAffects = new PopupMenu<>(Affects.values(), null);
         mAffects.setSelectedItem(mRow.getAffects(), false);
         wrapper.add(mAffects);
@@ -190,7 +190,7 @@ public class AdvantageModifierEditor extends RowEditor<AdvantageModifier> implem
     private void createCostType(Container parent) {
         AdvantageModifierCostType[] types  = AdvantageModifierCostType.values();
         Object[]                    values = new Object[types.length + 1];
-        values[0] = MessageFormat.format(I18n.text("{0} per level"), AdvantageModifierCostType.PERCENTAGE.toString());
+        values[0] = MessageFormat.format(I18n.text("每级 {0}"), AdvantageModifierCostType.PERCENTAGE.toString());
         System.arraycopy(types, 0, values, 1, types.length);
         mCostType = new PopupMenu<>(values, (p) -> {
             if (!mRow.canHaveChildren()) {
@@ -263,7 +263,7 @@ public class AdvantageModifierEditor extends RowEditor<AdvantageModifier> implem
 
     private void docChanged(DocumentEvent event) {
         if (mNameField.getDocument() == event.getDocument()) {
-            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("The name field may not be empty") : null);
+            mNameField.setErrorMessage(mNameField.getText().trim().isEmpty() ? I18n.text("名称不能为空") : null);
         }
     }
 

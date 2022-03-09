@@ -88,22 +88,22 @@ public class SpellPointBonusEditor extends FeatureEditor {
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         StringCriteria criteria = bonus.getCategoryCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and category ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且类型 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, 2, 0);
     }
 
     private static String getMatchText(boolean allColleges, String matchType) {
         if (allColleges) {
-            return I18n.text("to all colleges");
+            return I18n.text("到所有学派");
         }
         if (SpellPointBonus.KEY_COLLEGE_NAME.equals(matchType)) {
-            return I18n.text("to the college whose name");
+            return I18n.text("到学派其名为");
         }
         if (SpellPointBonus.KEY_POWER_SOURCE_NAME.equals(matchType)) {
-            return I18n.text("to the power source whose name");
+            return I18n.text("到力量来源其名为");
         }
-        return I18n.text("to the spell whose name");
+        return I18n.text("到法术其名为");
     }
 
     private void adjustMatchType(SpellPointBonus bonus, String type) {

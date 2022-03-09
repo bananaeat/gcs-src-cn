@@ -24,7 +24,7 @@ public class PrereqsPanel extends BandedPanel {
      * @param prereqs The initial prerequisites to display.
      */
     public PrereqsPanel(ListRow row, PrereqList prereqs) {
-        super(I18n.text("Prerequisites"));
+        super(I18n.text("先决条件"));
         addPrereqs(row, new PrereqList(null, prereqs), 0);
     }
 

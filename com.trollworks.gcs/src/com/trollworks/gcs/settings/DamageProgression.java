@@ -18,7 +18,7 @@ public enum DamageProgression {
     BASIC_SET {
         @Override
         public String toString() {
-            return I18n.text("Basic Set");
+            return I18n.text("基本集");
         }
 
         @Override
@@ -60,12 +60,12 @@ public enum DamageProgression {
     KNOWING_YOUR_OWN_STRENGTH {
         @Override
         public String toString() {
-            return I18n.text("Knowing Your Own Strength");
+            return I18n.text("知道你自己的力量");
         }
 
         @Override
         public String getFootnote() {
-            return I18n.text("Pyramid 3-83, pages 16-19");
+            return I18n.text("金字塔 3-83, 页码 16-19");
         }
 
         @Override
@@ -112,7 +112,7 @@ public enum DamageProgression {
     THRUST_EQUALS_SWING_MINUS_2 {
         @Override
         public String toString() {
-            return I18n.text("Thrust = Swing-2");
+            return I18n.text("Thr = Sw-2");
         }
 
         @Override
@@ -135,12 +135,12 @@ public enum DamageProgression {
     SWING_EQUALS_THRUST_PLUS_2 {
         @Override
         public String toString() {
-            return I18n.text("Swing = Thrust+2");
+            return I18n.text("Sw = Thr+2");
         }
 
         @Override
         public String getFootnote() {
-            return I18n.text("Houserule originating with Kevin Smyth. See https://gamingballistic.com/2020/12/04/df-eastmarch-boss-fight-and-house-rules/");
+            return I18n.text("以Kevin Smyth为起源的房规。见 https://gamingballistic.com/2020/12/04/df-eastmarch-boss-fight-and-house-rules/");
         }
 
         @Override
@@ -163,7 +163,7 @@ public enum DamageProgression {
 
         @Override
         public String getFootnote() {
-            return I18n.text("Houserule that use d3s instead of d6s for Damage. See: https://github.com/richardwilkes/gcs/pull/393");
+            return I18n.text("使用 d3 而不是 d6 做伤害计算的房规。见： https://github.com/richardwilkes/gcs/pull/393");
         }
 
         @Override
@@ -185,7 +185,7 @@ public enum DamageProgression {
     };
 
     public String getTooltip() {
-        String tooltip  = I18n.text("Determines the method used to calculate thrust and swing damage");
+        String tooltip  = I18n.text("决定计算戳击和挥舞伤害的方法");
         String footnote = getFootnote();
         if (footnote != null && !footnote.isBlank()) {
             return tooltip + ".\n" + footnote;

@@ -33,12 +33,12 @@ public enum AdvantageModifierColumnID {
     ENABLED {
         @Override
         public String toString() {
-            return I18n.text("Enabled");
+            return I18n.text("启用");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("Whether this modifier has been enabled or not");
+            return I18n.text("此修正因子是否启用");
         }
 
         @Override
@@ -60,12 +60,12 @@ public enum AdvantageModifierColumnID {
     DESCRIPTION {
         @Override
         public String toString() {
-            return I18n.text("Modifier");
+            return I18n.text("修正因子");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The name and notes describing this modifier");
+            return I18n.text("描述此修正因子的名称与备注");
         }
 
         @Override
@@ -87,12 +87,12 @@ public enum AdvantageModifierColumnID {
     COST_MODIFIER_TOTAL {
         @Override
         public String toString() {
-            return I18n.text("Cost Modifier");
+            return I18n.text("花费修正因子");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The cost modifier for this modifier");
+            return I18n.text("此修正因子的花费修正因子");
         }
 
         @Override
@@ -113,12 +113,12 @@ public enum AdvantageModifierColumnID {
     REFERENCE {
         @Override
         public String toString() {
-            return I18n.text("Ref");
+            return I18n.text("引用");
         }
 
         @Override
         public String getToolTip() {
-            return PageRefCell.getStdToolTip(I18n.text("advantage modifier"));
+            return PageRefCell.getStdToolTip(I18n.text("优势修正因子"));
         }
 
         @Override

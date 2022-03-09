@@ -82,7 +82,7 @@ public final class AttributeSettingsWindow extends SettingsWindow<Map<String, At
     }
 
     private static String createTitle(GURPSCharacter gchar) {
-        return gchar == null ? I18n.text("Default Attributes") : String.format(I18n.text("Attributes for %s"), gchar.getProfile().getName());
+        return gchar == null ? I18n.text("默认属性") : String.format(I18n.text("%s的属性"), gchar.getProfile().getName());
     }
 
     private AttributeSettingsWindow(GURPSCharacter gchar) {
@@ -108,7 +108,7 @@ public final class AttributeSettingsWindow extends SettingsWindow<Map<String, At
 
     @Override
     protected void addToToolBar(Toolbar toolbar) {
-        toolbar.add(new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("Add Attribute"),
+        toolbar.add(new FontIconButton(FontAwesome.PLUS_CIRCLE, I18n.text("增加属性"),
                 (b) -> mListPanel.addAttribute()));
         super.addToToolBar(toolbar);
     }
@@ -157,7 +157,7 @@ public final class AttributeSettingsWindow extends SettingsWindow<Map<String, At
 
     @Override
     protected String getResetButtonTooltip() {
-        return mCharacter == null ? super.getResetButtonTooltip() : I18n.text("Reset to Global Defaults");
+        return mCharacter == null ? super.getResetButtonTooltip() : I18n.text("重设全局默认值");
     }
 
     @Override

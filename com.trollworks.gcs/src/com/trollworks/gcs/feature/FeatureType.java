@@ -21,7 +21,7 @@ public enum FeatureType {
     ATTRIBUTE_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives an attribute bonus of");
+            return I18n.text("给予属性加成");
         }
 
         @Override
@@ -45,7 +45,7 @@ public enum FeatureType {
     DR_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives a DR bonus of");
+            return I18n.text("给予DR加成");
         }
 
         @Override
@@ -69,7 +69,7 @@ public enum FeatureType {
     REACTION_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives a reaction modifier of");
+            return I18n.text("给予反应调整值");
         }
 
         @Override
@@ -93,7 +93,7 @@ public enum FeatureType {
     CONDITIONAL_MODIFIER {
         @Override
         public String toString() {
-            return I18n.text("Gives a conditional modifier of");
+            return I18n.text("给予条件调整值");
         }
 
         @Override
@@ -117,7 +117,7 @@ public enum FeatureType {
     SKILL_LEVEL_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives a skill level bonus of");
+            return I18n.text("给予技能等级加成");
         }
 
         @Override
@@ -141,7 +141,7 @@ public enum FeatureType {
     SKILL_POINT_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives a skill point bonus of");
+            return I18n.text("给予技能点加成");
         }
 
         @Override
@@ -165,7 +165,7 @@ public enum FeatureType {
     SPELL_LEVEL_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives a spell level bonus of");
+            return I18n.text("给予法术等级加成");
         }
 
         @Override
@@ -189,7 +189,7 @@ public enum FeatureType {
     SPELL_POINT_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives a spell point bonus of");
+            return I18n.text("给予法术点数加成");
         }
 
         @Override
@@ -213,7 +213,7 @@ public enum FeatureType {
     WEAPON_DAMAGE_BONUS {
         @Override
         public String toString() {
-            return I18n.text("Gives a weapon damage bonus of");
+            return I18n.text("给予武器伤害加成");
         }
 
         @Override
@@ -237,7 +237,7 @@ public enum FeatureType {
     REDUCE_ATTRIBUTE_COST {
         @Override
         public String toString() {
-            return I18n.text("Reduces the attribute cost of");
+            return I18n.text("减少属性消耗");
         }
 
         @Override
@@ -261,7 +261,7 @@ public enum FeatureType {
     REDUCE_CONTAINED_WEIGHT {
         @Override
         public String toString() {
-            return I18n.text("Reduces the contained weight by");
+            return I18n.text("减少权重");
         }
 
         @Override

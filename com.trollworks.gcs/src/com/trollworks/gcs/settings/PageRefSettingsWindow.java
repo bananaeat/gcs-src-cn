@@ -67,7 +67,7 @@ public final class PageRefSettingsWindow extends SettingsWindow<PageRefSettings>
     }
 
     private PageRefSettingsWindow() {
-        super(I18n.text("Page Reference Settings"));
+        super(I18n.text("页面引用设置"));
         fill();
     }
 
@@ -101,22 +101,22 @@ public final class PageRefSettingsWindow extends SettingsWindow<PageRefSettings>
                     (f) -> ref.setPageToIndexOffset(((Integer) f.getValue()).intValue()),
                     SwingConstants.RIGHT, Integer.valueOf(ref.getPageToIndexOffset()),
                     Integer.valueOf(-9999),
-                    I18n.text("If your PDF is opening up to the wrong page when opening page references, enter an offset here to compensate."));
+                    I18n.text("如果你的PDF在打开页面引用时打开到了错误的页面，在这里输入一个偏移量来抵消错误。"));
             mPanel.add(field);
             Path  path      = ref.getPath().normalize().toAbsolutePath();
             Label fileLabel = new Label(path.getFileName().toString());
             fileLabel.setToolTipText(path.toString());
             mPanel.add(fileLabel, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
-            FontIconButton removeButton = new FontIconButton(FontAwesome.TRASH, I18n.text("Remove"), null);
+            FontIconButton removeButton = new FontIconButton(FontAwesome.TRASH, I18n.text("移除"), null);
             removeButton.setClickFunction((b) -> {
                 Modal dialog = Modal.prepareToShowMessage(this,
-                        I18n.text("Confirm Change"),
+                        I18n.text("确认更改"),
                         MessageType.QUESTION,
                         String.format(I18n.text("""
-                                Are you sure you want to remove this page reference
-                                mapping from %s to "%s"?"""), ref.getID(), ref.getPath().getFileName().toString()));
+                                你确定想要移除这个从%s映射到%s的页面引用吗？
+                                """), ref.getID(), ref.getPath().getFileName().toString()));
                 dialog.addCancelButton();
-                dialog.addButton(I18n.text("Remove"), Modal.OK);
+                dialog.addButton(I18n.text("移除"), Modal.OK);
                 dialog.presentToUser();
                 if (dialog.getResult() == Modal.OK) {
                     Settings.getInstance().getPDFRefSettings().remove(ref);
@@ -140,7 +140,7 @@ public final class PageRefSettingsWindow extends SettingsWindow<PageRefSettings>
         }
         if (mPanel.getComponentCount() == 0) {
             mPanel.setLayout(new PrecisionLayout().setMargins(10));
-            mPanel.add(new Label(I18n.text("No page reference mappings have been set."), SwingConstants.CENTER), new PrecisionLayoutData().setFillAlignment().setGrabSpace(true));
+            mPanel.add(new Label(I18n.text("没有页面引用映射已被设置。"), SwingConstants.CENTER), new PrecisionLayoutData().setFillAlignment().setGrabSpace(true));
         }
         mPanel.revalidate();
         mPanel.repaint();
@@ -157,10 +157,10 @@ public final class PageRefSettingsWindow extends SettingsWindow<PageRefSettings>
                 I18n.text("Confirm Reset"),
                 MessageType.QUESTION,
                 I18n.text("""
-                        Are you sure you want to reset the page reference mappings?
-                        This will remove them all, resulting in an empty list."""));
+                        你确定要重设页面引用映射吗？
+                        这会去除所有映射，并留下一个空列表。"""));
         dialog.addCancelButton();
-        dialog.addButton(I18n.text("Reset"), Modal.OK);
+        dialog.addButton(I18n.text("重设"), Modal.OK);
         dialog.presentToUser();
         return dialog.getResult() == Modal.OK;
     }

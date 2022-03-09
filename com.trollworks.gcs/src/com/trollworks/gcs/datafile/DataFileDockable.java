@@ -106,7 +106,7 @@ public abstract class DataFileDockable extends Dockable implements CloseHandler,
             getDockContainer().updateTitle(this);
             return true;
         }
-        Modal.showError(this, I18n.text(String.format("An error occurred while trying to save the file to:\n%s", path)));
+        Modal.showError(this, I18n.text(String.format("尝试将文件保存到这里时发生了一个错误：\n%s", path)));
         return false;
     }
 

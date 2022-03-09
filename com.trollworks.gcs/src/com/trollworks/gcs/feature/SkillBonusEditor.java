@@ -70,7 +70,7 @@ public class SkillBonusEditor extends FeatureEditor {
         FlexRow row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         StringCriteria criteria = ((SkillBonus) getFeature()).getSpecializationCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and usage ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且使用类型 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, 2, 0);
     }
@@ -85,14 +85,14 @@ public class SkillBonusEditor extends FeatureEditor {
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getSpecializationCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and usage ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且使用类型 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, i++, 0);
 
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getCategoryCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and category ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且类型 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, i, 0);
     }
@@ -107,14 +107,14 @@ public class SkillBonusEditor extends FeatureEditor {
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getSpecializationCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and specialization ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且分支 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, i++, 0);
 
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getCategoryCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and category ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且类型 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, i, 0);
     }

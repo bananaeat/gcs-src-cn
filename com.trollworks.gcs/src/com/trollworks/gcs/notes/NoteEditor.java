@@ -56,11 +56,11 @@ public class NoteEditor extends RowEditor<Note> {
         outer.add(wrapper, new PrecisionLayoutData().setFillAlignment().setGrabSpace(true));
 
         mDescriptionField = new MultiLineTextField(mRow.getDescription(), null, null);
-        addLabel(wrapper, I18n.text("Description")).setBeginningVerticalAlignment().setTopMargin(2);
+        addLabel(wrapper, I18n.text("描述")).setBeginningVerticalAlignment().setTopMargin(2);
         wrapper.add(mDescriptionField, new PrecisionLayoutData().setFillAlignment().setGrabSpace(true));
 
-        mReferenceField = new EditorField(FieldFactory.STRING, null, SwingConstants.LEFT, mRow.getReference(), PageRefCell.getStdToolTip(I18n.text("note")));
-        addLabel(wrapper, I18n.text("Page Reference"));
+        mReferenceField = new EditorField(FieldFactory.STRING, null, SwingConstants.LEFT, mRow.getReference(), PageRefCell.getStdToolTip(I18n.text("备注")));
+        addLabel(wrapper, I18n.text("页面引用"));
         wrapper.add(mReferenceField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
     }
 

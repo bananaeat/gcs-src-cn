@@ -59,7 +59,7 @@ public final class ColorSettingsWindow extends SettingsWindow<Colors> {
     }
 
     public ColorSettingsWindow() {
-        super(I18n.text("Color Settings"));
+        super(I18n.text("颜色设置"));
         fill();
     }
 
@@ -73,7 +73,7 @@ public final class ColorSettingsWindow extends SettingsWindow<Colors> {
     @Override
     protected void addToToolBar(Toolbar toolbar) {
         addResetButton(toolbar);
-        mDarkModeButton = new FontIconButton(FontAwesome.MOON, I18n.text("Dark Mode"),
+        mDarkModeButton = new FontIconButton(FontAwesome.MOON, I18n.text("暗色模式"),
                 (b) -> resetTo(Colors.defaultDarkThemeColors()));
         toolbar.add(mDarkModeButton);
         addActionMenu(toolbar);
@@ -86,7 +86,7 @@ public final class ColorSettingsWindow extends SettingsWindow<Colors> {
 
     @Override
     protected String getResetButtonTooltip() {
-        return I18n.text("Light Mode");
+        return I18n.text("亮色模式");
     }
 
     protected Panel createContent() {

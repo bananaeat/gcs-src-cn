@@ -67,7 +67,7 @@ public final class AdvantageModifierEnabler extends Panel {
         count = list.size();
         for (int i = 0; i < count; i++) {
             AdvantageModifierEnabler panel  = new AdvantageModifierEnabler(list.get(i), count - i - 1);
-            Modal                    dialog = Modal.prepareToShowMessage(comp, I18n.text("Enable Modifiers"), MessageType.QUESTION, panel);
+            Modal                    dialog = Modal.prepareToShowMessage(comp, I18n.text("启用修正因子"), MessageType.QUESTION, panel);
             if (i != count - 1) {
                 dialog.addCancelRemainingButton();
             }
@@ -105,7 +105,7 @@ public final class AdvantageModifierEnabler extends Panel {
         top.setBorder(new EmptyBorder(0, 0, 15, 0));
         if (remaining > 0) {
             String msg;
-            msg = remaining == 1 ? I18n.text("1 advantage remaining to be processed.") : MessageFormat.format(I18n.text("{0} advantages remaining to be processed."), Integer.valueOf(remaining));
+            msg = remaining == 1 ? I18n.text("剩余1个优势未处理。") : MessageFormat.format(I18n.text("剩余{0}个优势未处理。"), Integer.valueOf(remaining));
             top.add(new Label(msg, SwingConstants.CENTER));
         }
         label.setBorder(new CompoundBorder(new LineBorder(), new EmptyBorder(0, 2, 0, 2)));

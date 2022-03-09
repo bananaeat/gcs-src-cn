@@ -71,7 +71,7 @@ public class WeaponDamageBonusEditor extends FeatureEditor {
         FlexRow row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         StringCriteria criteria = ((WeaponDamageBonus) getFeature()).getSpecializationCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and usage ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且使用类型 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, 2, 0);
     }
@@ -86,14 +86,14 @@ public class WeaponDamageBonusEditor extends FeatureEditor {
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getSpecializationCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and usage ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且使用类型 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, i++, 0);
 
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getCategoryCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and category ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且类型 ")));
         row.add(addStringCompareField(criteria));
         row.add(new FlexSpacer(0, 0, true, false));
         grid.add(row, i, 0);
@@ -109,14 +109,14 @@ public class WeaponDamageBonusEditor extends FeatureEditor {
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getSpecializationCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and specialization ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且分支 ")));
         row.add(addStringCompareField(criteria));
         grid.add(row, i++, 0);
 
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         IntegerCriteria levelCriteria = bonus.getRelativeLevelCriteria();
-        row.add(addNumericComparePopup(levelCriteria, I18n.text("and relative skill level ")));
+        row.add(addNumericComparePopup(levelCriteria, I18n.text("且相对技能等级 ")));
         row.add(addNumericCompareField(levelCriteria, -999, 999, true));
         row.add(new FlexSpacer(0, 0, true, false));
         grid.add(row, i++, 0);
@@ -124,7 +124,7 @@ public class WeaponDamageBonusEditor extends FeatureEditor {
         row = new FlexRow();
         row.setInsets(new Insets(0, 20, 0, 0));
         criteria = bonus.getCategoryCriteria();
-        row.add(addStringComparePopup(criteria, I18n.text("and category ")));
+        row.add(addStringComparePopup(criteria, I18n.text("且类型 ")));
         row.add(addStringCompareField(criteria));
         row.add(new FlexSpacer(0, 0, true, false));
         grid.add(row, i, 0);

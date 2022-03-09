@@ -258,7 +258,7 @@ public class PrereqList extends Prereq {
         if (!satisfied && localBuilder != null) {
             builder.append("\n");
             builder.append(prefix);
-            builder.append(requiresAll ? I18n.text("Requires all of:") : I18n.text("Requires at least one of:"));
+            builder.append(requiresAll ? I18n.text("需要以下所有：") : I18n.text("需要以下至少一件："));
             builder.append(localBuilder);
         }
         return satisfied;

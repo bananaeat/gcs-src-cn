@@ -27,7 +27,7 @@ public class AndOrLabel extends Label {
      * @param owner The owning {@link Prereq}.
      */
     public AndOrLabel(Prereq owner) {
-        super(I18n.text("and"), SwingConstants.RIGHT);
+        super(I18n.text("且"), SwingConstants.RIGHT);
         mOwner = owner;
     }
 
@@ -35,7 +35,7 @@ public class AndOrLabel extends Label {
     protected void paintComponent(Graphics gc) {
         PrereqList parent = mOwner.getParent();
         if (parent != null && parent.getChildren().get(0) != mOwner) {
-            paintComponentWithText(gc, parent.requiresAll() ? I18n.text("and") : I18n.text("or"));
+            paintComponentWithText(gc, parent.requiresAll() ? I18n.text("且") : I18n.text("或"));
         }
     }
 }

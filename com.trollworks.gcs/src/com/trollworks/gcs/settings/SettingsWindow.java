@@ -86,7 +86,7 @@ public abstract class SettingsWindow<T> extends BaseWindow implements CloseHandl
     }
 
     protected final void addActionMenu(Toolbar toolbar) {
-        mMenuButton = new FontIconButton(FontAwesome.BARS, I18n.text("Menu"), (b) -> {
+        mMenuButton = new FontIconButton(FontAwesome.BARS, I18n.text("菜单"), (b) -> {
             Menu menu = new Menu();
             populateActionMenu(menu);
             menu.presentToUser(mMenuButton, 0, mMenuButton::updateRollOver);
@@ -95,8 +95,8 @@ public abstract class SettingsWindow<T> extends BaseWindow implements CloseHandl
     }
 
     protected void populateActionMenu(Menu menu) {
-        menu.addItem(new MenuItem(I18n.text("Import…"), this::importSettings));
-        menu.addItem(new MenuItem(I18n.text("Export…"), this::exportSettings));
+        menu.addItem(new MenuItem(I18n.text("导入……"), this::importSettings));
+        menu.addItem(new MenuItem(I18n.text("导出……"), this::exportSettings));
         for (NamedData<List<NamedData<T>>> oneDir : NamedData.scanLibraries(getFileType(), getDir(),
                 this::createSettingsFrom)) {
             menu.addSeparator();
@@ -114,7 +114,7 @@ public abstract class SettingsWindow<T> extends BaseWindow implements CloseHandl
     }
 
     protected String getResetButtonTooltip() {
-        return I18n.text("Reset to Factory Defaults");
+        return I18n.text("重设到出厂设置");
     }
 
     protected abstract Panel createContent();
@@ -158,7 +158,7 @@ public abstract class SettingsWindow<T> extends BaseWindow implements CloseHandl
                 resetTo(createSettingsFrom(path));
             } catch (IOException ioe) {
                 Log.error(ioe);
-                String msg = String.format(I18n.text("Unable to import %s."),
+                String msg = String.format(I18n.text("无法导入%s。"),
                         filter.getDescription());
                 String exMsg = ioe.getMessage();
                 if (exMsg != null && !exMsg.isBlank()) {
@@ -181,7 +181,7 @@ public abstract class SettingsWindow<T> extends BaseWindow implements CloseHandl
                 exportSettingsTo(path);
             } catch (IOException exception) {
                 Log.error(exception);
-                Modal.showError(this, String.format(I18n.text("Unable to export %s."),
+                Modal.showError(this, String.format(I18n.text("无法导出%s。"),
                         filter.getDescription()));
             }
         }

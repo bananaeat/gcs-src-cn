@@ -130,11 +130,11 @@ public class AdvantagePrereq extends NameLevelPrereq {
             satisfied = !satisfied;
         }
         if (!satisfied && builder != null) {
-            builder.append(MessageFormat.format(I18n.text("\n{0}{1} an advantage whose name {2}"), prefix, getHasText(), nameCriteria.toString()));
+            builder.append(MessageFormat.format(I18n.text("\n{0}{1} 优势名为 {2}"), prefix, getHasText(), nameCriteria.toString()));
             if (!mNotesCriteria.isTypeAnything()) {
-                builder.append(MessageFormat.format(I18n.text(", notes {0},"), mNotesCriteria.toString()));
+                builder.append(MessageFormat.format(I18n.text(", 备注 {0},"), mNotesCriteria.toString()));
             }
-            builder.append(MessageFormat.format(I18n.text(" and level {0}"), levelCriteria.toString()));
+            builder.append(MessageFormat.format(I18n.text(" 以及等级 {0}"), levelCriteria.toString()));
         }
         return satisfied;
     }

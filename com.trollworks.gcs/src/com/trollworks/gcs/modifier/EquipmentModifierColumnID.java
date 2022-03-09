@@ -33,12 +33,12 @@ public enum EquipmentModifierColumnID {
     ENABLED {
         @Override
         public String toString() {
-            return I18n.text("Enabled");
+            return I18n.text("启用");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("Whether this modifier has been enabled or not");
+            return I18n.text("此修正因子是否启用");
         }
 
         @Override
@@ -60,12 +60,12 @@ public enum EquipmentModifierColumnID {
     DESCRIPTION {
         @Override
         public String toString() {
-            return I18n.text("Modifier");
+            return I18n.text("修正因子");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The name and notes describing this modifier");
+            return I18n.text("描述此修正因子的名称和备注");
         }
 
         @Override
@@ -87,12 +87,12 @@ public enum EquipmentModifierColumnID {
     TECH_LEVEL {
         @Override
         public String toString() {
-            return I18n.text("TL");
+            return I18n.text("科技等级(TL)");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The tech level of this equipment modifier");
+            return I18n.text("此装备修正因子的科技等级");
         }
 
         @Override
@@ -112,12 +112,12 @@ public enum EquipmentModifierColumnID {
     COST_ADJUSTMENT {
         @Override
         public String toString() {
-            return I18n.text("Cost Adjustment");
+            return I18n.text("价格调整");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The cost adjustment for this modifier");
+            return I18n.text("此修正因子的价格调整");
         }
 
         @Override
@@ -137,12 +137,12 @@ public enum EquipmentModifierColumnID {
     WEIGHT_ADJUSTMENT {
         @Override
         public String toString() {
-            return I18n.text("Weight Adjustment");
+            return I18n.text("重量调整");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("The weight adjustment for this modifier");
+            return I18n.text("此装备修正因子的重量调整");
         }
 
         @Override
@@ -162,12 +162,12 @@ public enum EquipmentModifierColumnID {
     REFERENCE {
         @Override
         public String toString() {
-            return I18n.text("Ref");
+            return I18n.text("引用");
         }
 
         @Override
         public String getToolTip() {
-            return PageRefCell.getStdToolTip(I18n.text("equipment modifier"));
+            return PageRefCell.getStdToolTip(I18n.text("装备修正因子"));
         }
 
         @Override

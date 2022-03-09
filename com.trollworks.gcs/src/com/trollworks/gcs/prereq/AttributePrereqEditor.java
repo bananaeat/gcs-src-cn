@@ -45,7 +45,7 @@ public class AttributePrereqEditor extends PrereqEditor {
         row = new FlexRow();
         row.add(addChangeTypePopup());
         row.add(addChangeSecondTypePopup());
-        row.add(addNumericComparePopup(prereq.getValueCompare(), I18n.text("which ")));
+        row.add(addNumericComparePopup(prereq.getValueCompare(), I18n.text(" ")));
         row.add(addNumericCompareField(prereq.getValueCompare(), 0, 99999, false));
         row.add(new FlexSpacer(0, 0, true, false));
         grid.add(row, 1, 1);
@@ -65,7 +65,7 @@ public class AttributePrereqEditor extends PrereqEditor {
         if (combinedWith == null) {
             combinedWith = " ";
         }
-        return addAttributePopup(mRow.getDataFile(), I18n.text("combined with %s"), combinedWith, true, (p) -> {
+        return addAttributePopup(mRow.getDataFile(), I18n.text("与 %s 组合"), combinedWith, true, (p) -> {
             AttributeChoice selectedItem = p.getSelectedItem();
             if (selectedItem != null) {
                 String choice = selectedItem.getAttribute();

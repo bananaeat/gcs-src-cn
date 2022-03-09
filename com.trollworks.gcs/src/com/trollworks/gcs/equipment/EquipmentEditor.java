@@ -105,36 +105,36 @@ public class EquipmentEditor extends RowEditor<Equipment> implements DocumentLis
 
     private Panel createTopSection() {
         Panel panel = new Panel(new PrecisionLayout().setMargins(0).setColumns(2));
-        addLabel(panel, I18n.text("Name"));
+        addLabel(panel, I18n.text("名称"));
         mDescriptionField = createCorrectableField(panel, mRow.getDescription(),
-                I18n.text("The name/description of the equipment, without any notes"));
+                I18n.text("装备的名称/描述，不带任何备注"));
         createSecondLineFields(panel);
         createValueAndWeightFields(panel);
         mNotesField = new MultiLineTextField(mRow.getNotes(),
-                I18n.text("Any notes that you would like to show up in the list along with this equipment"), this);
-        addLabel(panel, I18n.text("Notes")).setBeginningVerticalAlignment().setTopMargin(2);
+                I18n.text("你想要在列表中和此装备一起显示的备注"), this);
+        addLabel(panel, I18n.text("备注")).setBeginningVerticalAlignment().setTopMargin(2);
         panel.add(mNotesField, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         mVTTNotesField = addVTTNotesField(panel, this);
 
-        addLabel(panel, I18n.text("Categories"));
+        addLabel(panel, I18n.text("类型"));
         mCategoriesField = createField(panel, mRow.getCategoriesAsString(),
-                I18n.text("The category or categories the equipment belongs to (separate multiple categories with a comma)"), 0);
+                I18n.text("这件装备所属的类型(用英文括号隔开多个类型)"), 0);
 
         boolean forCharacterOrTemplate = mRow.getCharacter() != null || mRow.getTemplate() != null;
         Panel   wrapper                = new Panel(new PrecisionLayout().setMargins(0).setColumns(forCharacterOrTemplate ? 5 : 3));
         if (forCharacterOrTemplate) {
-            addLabel(panel, I18n.text("Uses"));
+            addLabel(panel, I18n.text("使用次数"));
             mUsesField = createIntegerNumberField(wrapper, mRow.getUses(),
-                    I18n.text("The number of uses remaining for this equipment"), 99999, null);
-            addInteriorLabel(wrapper, I18n.text("Max Uses"));
+                    I18n.text("此装备的使用次数"), 99999, null);
+            addInteriorLabel(wrapper, I18n.text("最多使用次数"));
         } else {
-            addLabel(panel, I18n.text("Max Uses"));
+            addLabel(panel, I18n.text("最多使用次数"));
         }
         mMaxUsesField = createIntegerNumberField(wrapper, mRow.getMaxUses(),
-                I18n.text("The maximum number of uses for this equipment"), 99999, null);
-        addInteriorLabel(wrapper, I18n.text("Page Reference"));
+                I18n.text("这件装备的最多使用次数"), 99999, null);
+        addInteriorLabel(wrapper, I18n.text("页面引用"));
         mReferenceField = createField(wrapper, mRow.getReference(),
-                PageRefCell.getStdToolTip(I18n.text("equipment")), 0);
+                PageRefCell.getStdToolTip(I18n.text("装备")), 0);
         panel.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
         return panel;
     }
@@ -143,25 +143,25 @@ public class EquipmentEditor extends RowEditor<Equipment> implements DocumentLis
         boolean isContainer = mRow.canHaveChildren();
         Panel   wrapper     = new Panel(new PrecisionLayout().setMargins(0).setColumns((isContainer ? 4 : 6) + (showEquipmentState() ? 1 : 0)));
         if (isContainer) {
-            addLabel(parent, I18n.text("Tech Level"));
+            addLabel(parent, I18n.text("科技水平(TL)"));
         } else {
-            addLabel(parent, I18n.text("Quantity"));
+            addLabel(parent, I18n.text("数量"));
             mQtyField = createIntegerNumberField(wrapper, mRow.getQuantity(),
-                    I18n.text("The number of this equipment present"), 999999999, (f) -> {
+                    I18n.text("这件装备的数量"), 999999999, (f) -> {
                         valueChanged();
                         weightChanged();
                     });
-            addInteriorLabel(wrapper, I18n.text("Tech Level"));
+            addInteriorLabel(wrapper, I18n.text("科技水平(TL)"));
         }
         mTechLevelField = createField(wrapper, mRow.getTechLevel(),
-                I18n.text("The first Tech Level this equipment is available at"), 3);
-        addInteriorLabel(wrapper, I18n.text("Legality Class"));
+                I18n.text("这件装备最低可用的科技水平"), 3);
+        addInteriorLabel(wrapper, I18n.text("合法等级"));
         mLegalityClassField = createField(wrapper, mRow.getLegalityClass(),
-                I18n.text("The legality class of this equipment"), 3);
+                I18n.text("这件装备的合法等级"), 3);
         if (showEquipmentState()) {
-            mEquippedCheckBox = new Checkbox(I18n.text("Equipped"), mRow.isEquipped(), null);
+            mEquippedCheckBox = new Checkbox(I18n.text("装备上"), mRow.isEquipped(), null);
             mEquippedCheckBox.setEnabled(mIsEditable);
-            mEquippedCheckBox.setToolTipText(I18n.text("Items that are not equipped do not apply any features they may normally contribute to the character."));
+            mEquippedCheckBox.setToolTipText(I18n.text("未装备的物品不会像装备上那样对角色加成。"));
             wrapper.add(mEquippedCheckBox, new PrecisionLayoutData().setLeftMargin(4));
         }
         parent.add(wrapper, new PrecisionLayoutData().setFillHorizontalAlignment().setGrabHorizontalSpace(true));
@@ -175,13 +175,13 @@ public class EquipmentEditor extends RowEditor<Equipment> implements DocumentLis
         Panel wrapper = new Panel(new PrecisionLayout().setMargins(0).setColumns(3));
         mContainedValue = mRow.getExtendedValue().sub(mRow.getAdjustedValue().mul(new Fixed6(mRow.getQuantity())));
         Fixed6 protoValue = new Fixed6("9999999.999999", false);
-        addLabel(parent, I18n.text("Value"));
+        addLabel(parent, I18n.text("价格"));
         mValueField = createValueField(wrapper, mRow.getValue(), protoValue,
-                I18n.text("The base value of one of these pieces of equipment before modifiers"),
+                I18n.text("修正前这些装备中一件的基础价格"),
                 (f) -> valueChanged());
-        addInteriorLabel(wrapper, I18n.text("Extended"));
+        addInteriorLabel(wrapper, I18n.text("扩展"));
         mExtValueField = createValueField(wrapper, mRow.getExtendedValue(), protoValue,
-                I18n.text("The value of all of these pieces of equipment, plus the value of any contained equipment"),
+                I18n.text("这些装备和它们容纳的装备的总价值"),
                 null);
         mExtValueField.setEnabled(false);
         parent.add(wrapper);
@@ -192,17 +192,17 @@ public class EquipmentEditor extends RowEditor<Equipment> implements DocumentLis
         weight.setValue(weight.getValue().mul(new Fixed6(mRow.getQuantity())));
         mContainedWeight.subtract(weight);
         WeightValue weightProto = new WeightValue(protoValue, WeightUnits.LB);
-        addLabel(parent, I18n.text("Weight"));
+        addLabel(parent, I18n.text("重量"));
         mWeightField = createWeightField(wrapper, mRow.getWeight(), weightProto,
-                I18n.text("The weight of one of these pieces of equipment"), (f) -> weightChanged());
-        addInteriorLabel(wrapper, I18n.text("Extended"));
+                I18n.text("这些装备中一件的重量"), (f) -> weightChanged());
+        addInteriorLabel(wrapper, I18n.text("扩展"));
         mExtWeightField = createWeightField(wrapper, mRow.getExtendedWeight(false), weightProto,
-                I18n.text("The total weight of this quantity of equipment, plus everything contained by it"),
+                I18n.text("这些装备和它们容纳的装备的总重量"),
                 null);
         mExtWeightField.setEnabled(false);
-        mIgnoreWeightForSkillsCheckBox = new Checkbox(I18n.text("Ignore for Skills"), mRow.isWeightIgnoredForSkills(), null);
+        mIgnoreWeightForSkillsCheckBox = new Checkbox(I18n.text("忽略技能"), mRow.isWeightIgnoredForSkills(), null);
         mIgnoreWeightForSkillsCheckBox.setEnabled(mIsEditable);
-        mIgnoreWeightForSkillsCheckBox.setToolTipText(I18n.text("If checked, the weight of this item is not considered when calculating encumbrance penalties for skills"));
+        mIgnoreWeightForSkillsCheckBox.setToolTipText(I18n.text("如果选择，这件装备的重量将不会在计算技能的负重减值时包括在内"));
         wrapper.add(mIgnoreWeightForSkillsCheckBox, new PrecisionLayoutData().setLeftMargin(4));
         parent.add(wrapper);
     }
@@ -310,7 +310,7 @@ public class EquipmentEditor extends RowEditor<Equipment> implements DocumentLis
 
     private void docChanged(DocumentEvent event) {
         if (mDescriptionField.getDocument() == event.getDocument()) {
-            mDescriptionField.setErrorMessage(mDescriptionField.getText().trim().isEmpty() ? I18n.text("The name field may not be empty") : null);
+            mDescriptionField.setErrorMessage(mDescriptionField.getText().trim().isEmpty() ? I18n.text("名称不得为空") : null);
         }
     }
 
