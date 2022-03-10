@@ -75,11 +75,11 @@ public class Advantage extends CollectedListRow implements HasSourceReference, S
     private static final String KEY_EXOTIC              = "exotic";
     private static final String KEY_SUPERNATURAL        = "supernatural";
     private static final String KEY_ANCESTRY            = "ancestry";
-    private static final String TYPE_MENTAL             = "Mental";
-    private static final String TYPE_PHYSICAL           = "Physical";
-    private static final String TYPE_SOCIAL             = "Social";
-    private static final String TYPE_EXOTIC             = "Exotic";
-    private static final String TYPE_SUPERNATURAL       = "Supernatural";
+    private static final String TYPE_MENTAL             = "心理";
+    private static final String TYPE_PHYSICAL           = "生理";
+    private static final String TYPE_SOCIAL             = "社会";
+    private static final String TYPE_EXOTIC             = "异种";
+    private static final String TYPE_SUPERNATURAL       = "超自然";
     public static final  int    TYPE_MASK_MENTAL        = 1 << 0;
     public static final  int    TYPE_MASK_PHYSICAL      = 1 << 1;
     public static final  int    TYPE_MASK_SOCIAL        = 1 << 2;

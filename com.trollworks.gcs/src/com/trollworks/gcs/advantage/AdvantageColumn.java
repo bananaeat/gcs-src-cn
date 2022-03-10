@@ -107,12 +107,12 @@ public enum AdvantageColumn {
     TYPE {
         @Override
         public String toString() {
-            return I18n.text("类型");
+            return I18n.text("类别");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("优势的类型");
+            return I18n.text("优势的类别");
         }
 
         @Override
@@ -139,12 +139,12 @@ public enum AdvantageColumn {
     CATEGORY {
         @Override
         public String toString() {
-            return I18n.text("类别");
+            return I18n.text("类型");
         }
 
         @Override
         public String getToolTip() {
-            return I18n.text("优势所属的类别");
+            return I18n.text("优势所属的类型");
         }
 
         @Override
