@@ -126,14 +126,14 @@ public final class Fonts {
         BUTTON = new ThemeFont("button", I18n.text("按钮"), new Font(SONG, Font.PLAIN, 13));
         HEADER = new ThemeFont("header", I18n.text("标题"), new Font(SONG, Font.PLAIN, 13));
         LABEL_PRIMARY = new ThemeFont("label.primary", I18n.text("主要标签"), new Font(SONG, Font.PLAIN, 13));
-        LABEL_SECONDARY = new ThemeFont("label.secondary", I18n.text("次要标签"), new Font(SONG, Font.PLAIN, 11));
+        LABEL_SECONDARY = new ThemeFont("label.secondary", I18n.text("次要标签"), new Font(SONG, Font.PLAIN, 13));
         FIELD_PRIMARY = new ThemeFont("field.primary", I18n.text("主要域"), new Font(SONG, Font.PLAIN, 13));
-        FIELD_SECONDARY = new ThemeFont("field.secondary", I18n.text("次要域"), new Font(SONG, Font.PLAIN, 11));
+        FIELD_SECONDARY = new ThemeFont("field.secondary", I18n.text("次要域"), new Font(SONG, Font.PLAIN, 13));
         TOOLTIP = new ThemeFont("tooltip", I18n.text("Tooltip"), new Font(SONG, Font.PLAIN, 12));
-        PAGE_LABEL_PRIMARY = new ThemeFont("page.label.primary", I18n.text("页面主要标签"), new Font(SONG, Font.PLAIN, 9));
-        PAGE_LABEL_SECONDARY = new ThemeFont("page.label.secondary", I18n.text("页面次要标签"), new Font(SONG, Font.PLAIN, 8));
-        PAGE_FIELD_PRIMARY = new ThemeFont("page.field.primary", I18n.text("页面主要域"), new Font(SONG, Font.PLAIN, 9));
-        PAGE_FIELD_SECONDARY = new ThemeFont("page.field.secondary", I18n.text("页面次要域"), new Font(SONG, Font.PLAIN, 8));
+        PAGE_LABEL_PRIMARY = new ThemeFont("page.label.primary", I18n.text("页面主要标签"), new Font(SONG, Font.PLAIN, 11));
+        PAGE_LABEL_SECONDARY = new ThemeFont("page.label.secondary", I18n.text("页面次要标签"), new Font(SONG, Font.PLAIN, 11));
+        PAGE_FIELD_PRIMARY = new ThemeFont("page.field.primary", I18n.text("页面主要域"), new Font(SONG, Font.PLAIN, 11));
+        PAGE_FIELD_SECONDARY = new ThemeFont("page.field.secondary", I18n.text("页面次要域"), new Font(SONG, Font.PLAIN, 11));
         PAGE_FOOTER_PRIMARY = new ThemeFont("page.footer.primary", I18n.text("页面主要脚注"), new Font(SONG, Font.PLAIN, 8));
         PAGE_FOOTER_SECONDARY = new ThemeFont("page.footer.secondary", I18n.text("页面次要脚注"), new Font(SONG, Font.PLAIN, 6));
 

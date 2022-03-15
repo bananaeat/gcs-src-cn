@@ -88,7 +88,7 @@ public final class SaveCommand extends Command {
             saveable.toFrontAndFocus();
             Modal dialog = Modal.prepareToShowMessage(UIUtilities.getComponentForDialog(saveable),
                     I18n.text("保存"), MessageType.QUESTION,
-                    MessageFormat.format(I18n.text("保存更高到 \"{0}\"?"), saveable.getSaveTitle()));
+                    MessageFormat.format(I18n.text("保存更改到 \"{0}\"?"), saveable.getSaveTitle()));
             dialog.addButton(I18n.text("取消"), Modal.CLOSED);
             dialog.addButton(I18n.text("舍弃更改"), Modal.CANCEL);
             dialog.addButton(I18n.text("保存"), Modal.OK);

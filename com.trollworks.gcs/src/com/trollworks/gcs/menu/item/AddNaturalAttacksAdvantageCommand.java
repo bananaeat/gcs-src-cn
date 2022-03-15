@@ -37,7 +37,7 @@ public final class AddNaturalAttacksAdvantageCommand extends Command {
     public static final AddNaturalAttacksAdvantageCommand INSTANCE = new AddNaturalAttacksAdvantageCommand();
 
     private AddNaturalAttacksAdvantageCommand() {
-        super(I18n.text("添加天然攻击优势"), CMD);
+        super(I18n.text("添加天生攻击优势"), CMD);
     }
 
     @Override
@@ -87,7 +87,7 @@ public final class AddNaturalAttacksAdvantageCommand extends Command {
 
     public Advantage create(DataFile dataFile, ListOutline outline) {
         Advantage advantage = new Advantage(dataFile, false);
-        advantage.setName(I18n.text("天然攻击"));
+        advantage.setName(I18n.text("天生攻击"));
         advantage.setReference("B271");
         advantage.setWeapons(List.of(createBite(advantage), createPunch(advantage), createKick(advantage)));
         outline.addRow(advantage, getTitle(), false);
